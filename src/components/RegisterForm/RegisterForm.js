@@ -1,6 +1,8 @@
 import { Form, Button } from "react-bootstrap";
 
 
+
+
 const RegisterFormulary= () => {
   return (
     <Form>
