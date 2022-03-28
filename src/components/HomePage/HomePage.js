@@ -1,12 +1,21 @@
-import { Link } from 'react-router-dom';
-import './HomePage.css'
+import { Container, Row, Col } from "react-bootstrap";
+import EncuestasCards from "../EncuestasCards/EncuestasCards";
+import "./HomePage.css";
 
 const HomePage = () => {
   return (
-    <div className='d-flex flex-column justify-content-center align-items-center homePage-style'>
-      <span className='display-6 mb-5'>Soy el Home/Landing</span>
-      <Link to='/admin'>Página de Admin</Link>
-    </div>
+  
+      <Container fluid className="d-flex justify-content-center align-items-center homePage-style">
+        <Row  className='m-1 d-flex justify-content-center align-items-center'>
+          <Col className="m-1" xs={6} md={4} lg={3}><EncuestasCards color="var(--azure)"/></Col>
+          <Col className="m-1" xs={6} md={4} lg={3}><EncuestasCards/></Col>
+          <Col className="m-1" xs={6} md={4} lg={3}><EncuestasCards/></Col>
+          <Col className="m-1" xs={6} md={4} lg={3}><EncuestasCards/></Col>
+          <Col className="m-1" xs={6} md={4} lg={3}><EncuestasCards/></Col>
+          <Col className="m-1" xs={6} md={4} lg={3}><EncuestasCards/></Col>
+        </Row> 
+      </Container>
+  
   );
 };
 
