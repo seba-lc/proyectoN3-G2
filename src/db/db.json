@@ -1,0 +1,51 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "name": "Waka",
+        "email": "waka@gmail.com",
+        "password": "wakaWaka",
+        "role": "ADMIN"
+      },
+      {
+        "id": 2,
+        "name": "Diego",
+        "email": "diego@gmail.com",
+        "password": "DD123FF",
+        "role": "USER"
+      },
+      {
+        "id": 3,
+        "name": "Roman",
+        "password": "RR123GG",
+        "email": "roman@gmail.com",
+        "role": "USER"
+      }
+    ],
+    "surveys": [
+      {
+        "id": 1,
+        "name": "Encuesta Rolling",
+        "estado": "true",
+        "preguntas": [],
+        "respuestas": [],
+        "categoria": "General"
+      },
+      {
+        "id": 2,
+        "name": "Encuesta Arboles",
+        "estado": "true",
+        "preguntas": [],
+        "respuestas": [],
+        "categoria": "Naturaleza"
+      },
+      {
+        "id": 3,
+        "name": "Encuesta Votaciones",
+        "estado": "false",
+        "preguntas": [],
+        "respuestas": [],
+        "categoria": "Politica"
+      }
+    ]
+  }

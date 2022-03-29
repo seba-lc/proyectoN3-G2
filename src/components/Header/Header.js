@@ -16,10 +16,12 @@ const Header = () => {
     background-color: var(--azure);
     font-family: var(--letra1);
     font-size: 20px;
+    position: sticky;
+    top: 0;
   `;
 
   return (
-    <MyNavbar fixed="top" collapseOnSelect expand="lg" variant="dark">
+    <MyNavbar collapseOnSelect expand="lg" variant="dark">
       
       <Container>
         <Logo/>
