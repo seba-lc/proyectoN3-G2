@@ -1,12 +1,18 @@
-import { Link } from 'react-router-dom';
-import './AdminHome.css'
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import "./AdminHome.css";
+import { Container } from "react-bootstrap";
+import SurveysCards from "../SurveysCards/SurveysCards";
+import Navegation from "../Navegation/Navegation";
 
 const AdminHome = () => {
   return (
-    <div className='d-flex flex-column justify-content-center align-items-center adminHome-style'>
-      <span className='display-6 mb-5'>Soy el Home de Admin</span>
-      <Link to='/'>Volver</Link>
-    </div>
+    <>
+      <Navegation></Navegation>
+      <Container>
+    
+      </Container>
+    </>
   );
 };
 

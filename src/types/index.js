@@ -1,0 +1,4 @@
+export const GET_SURVEYS = 'GET_SURVEYS';
+export const ERROR_SURVEYS = 'ERROR_SURVEYS';
+export const DELETE_SURVEYS = 'DELETE_SURVEYS';
+export const ADD_SURVEYS = 'ADD_SURVEYS';
