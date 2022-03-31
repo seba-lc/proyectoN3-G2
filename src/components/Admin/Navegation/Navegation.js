@@ -1,19 +1,24 @@
 import React from "react";
-import { Nav, Navbar} from "react-bootstrap";
+import { Container, Nav, Navbar} from "react-bootstrap";
 import {Link} from 'react-router-dom';
 
 const Navegation = () => {
     return ( 
-        <Navbar bg="danger" expand="lg" variant="dark">
-            <Navbar.Brand href="/">Admin</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+            <Navbar bg="dark" expand="lg" variant="dark">
+            <Container>
+            <Navbar.Brand href="/admin">Admin</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav>
-                        <Link to="/" className="nav-link" >ejemplo</Link>
-
+                        <Link to="/NewSurvey" className="nav-link">Nueva Encuesta</Link>
+                        <Link to="/" className="nav-link" >Encuestas Pendientes</Link>
+                        <Link to="/" className="nav-link" >Encuestas Publicadas</Link>
+                        <Link to="/AllSurveys" className="nav-link" >Todas las Encuestas</Link>
+                        <Link to="/" className="nav-link" >Categorias</Link>
                     </Nav>
                 </Navbar.Collapse>
-        </Navbar>
+            </Container>
+            </Navbar>
      );
 }
  
