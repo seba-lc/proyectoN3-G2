@@ -9,7 +9,7 @@ border-radius: 296px 147px 371px 201px / 128px 119px 140px 111px;
 
 const EncuestasCards = (props) => {
   return (
-    <MyCard color={props.color} className="mb-5 d-flex justify-content-center" style={{ width: "18rem" }}>
+    <MyCard bg-color={props.color} className="mb-5 d-flex justify-content-center" style={{ width: "18rem" }}>
       <Card.Body>
         <Card.Title>Card Title</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
