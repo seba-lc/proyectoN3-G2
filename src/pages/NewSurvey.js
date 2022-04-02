@@ -15,7 +15,7 @@ const NewSurvey = ()=>{
     <Navegation></Navegation>
     <Container className="d-flex flex-column w-50 p-4">
         <FormSurvey></FormSurvey>
-        <Button variant="outline-primary" onClick={handleShow}>Agregar Preguntas</Button>
+        <Button variant="outline-primary" onClick={handleShow}>Agregar Pregunta</Button>
     </Container>
     <ModalSurvey show={show} handleClose={handleClose}/>
     </>

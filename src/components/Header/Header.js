@@ -18,6 +18,7 @@ const Header = () => {
     font-size: 20px;
     position: sticky;
     top: 0;
+    z-index: 13
   `;
 
   return (

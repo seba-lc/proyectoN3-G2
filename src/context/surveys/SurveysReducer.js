@@ -1,4 +1,4 @@
-import { GET_SURVEYS } from "../../types"
+import { ADD_SURVEYS, GET_SURVEYS } from "../../types"
 
 
 export default (state,action) =>{
@@ -7,6 +7,11 @@ export default (state,action) =>{
       return{
         ...state,
         surveys: action.payload
+      }
+    case ADD_SURVEYS:
+      return{
+        ...state,
+        surveys: action.surveys.push(action.payload)
       }
   }
 }

@@ -46,6 +46,44 @@
         "questions": [],
         "responses": [],
         "category": "Politica"
+      },
+      {
+        "id": 4,
+        "name": "Encuesta Perros",
+        "state": "true",
+        "questions": [],
+        "responses": [],
+        "category": "Animales"
+      },
+      {
+        "id": 5,
+        "name": "Encuesta Gatos",
+        "state": "true",
+        "questions": [],
+        "responses": [],
+        "category": "Animales"
+      }
+    ],
+    "categories":[
+      {
+        "name": "Educacion",
+        "state": "true"
+      },
+      {
+        "name": "Salud",
+        "state": "true"
+      },
+      {
+        "name": "Politica",
+        "state": "true"
+      },
+      {
+        "name": "Deportes",
+        "state": "true"
+      },
+      {
+        "name": "Animales",
+        "state": "true"
       }
     ]
   }
