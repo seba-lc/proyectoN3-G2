@@ -46,6 +46,22 @@
         "questions": [],
         "responses": [],
         "category": "Politica"
+      },
+      {
+        "id": 4,
+        "name": "Encuesta Perros",
+        "state": "true",
+        "questions": [],
+        "responses": [],
+        "category": "Animales"
+      },
+      {
+        "id": 5,
+        "name": "Encuesta Gatos",
+        "state": "true",
+        "questions": [],
+        "responses": [],
+        "category": "Animales"
       }
     ]
   }

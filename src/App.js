@@ -4,8 +4,9 @@ import Layout from './components/Layout/Layout';
 import Admin from './pages/Admin';
 import Home from './pages/Home';
 import NewSurvey from './pages/NewSurvey';
-import AllSurveys from './pages/AllSurveys';
+import PendingSurveys from './pages/PendingSurveys';
 import SurveysState from './context/surveys/SurveysState';
+import PublishedSurveys from './pages/PublishedSurveys';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/admin' element={<Admin />} />
           <Route path='/newsurvey' element={<NewSurvey/>}/>
-          <Route path='/allsurveys' element={<AllSurveys/>}/>
+          <Route path='/pendingsurveys' element={<PendingSurveys/>}/>
+          <Route path='/publishedsurveys' element={<PublishedSurveys/>}/>
         </Routes>
       </Layout>
     </SurveysState>
