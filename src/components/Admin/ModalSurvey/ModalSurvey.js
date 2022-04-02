@@ -1,12 +1,20 @@
+import { useContext } from 'react';
 import {Button, Modal, Form} from 'react-bootstrap'
-import {useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+import SurveysContext from '../../../context/surveys/SurveysContext';
 
 const ModalSurvey = ({show, handleClose}) => {
-/*   const navigate = useNavigate()
-  const redireccion =()=>{
-    navigate('/admin/newSurvevys')
-  }  */
+
+  const {addSurveys} = useContext(SurveysContext)
+  const initialValue = {
+    name:'',
+    state:false,
+    questions:[],
+    response:[],
+    category:''
+  }
+
+  
+
     return (
               <>
                 <Modal show={show} onHide={handleClose}>
@@ -27,10 +35,10 @@ const ModalSurvey = ({show, handleClose}) => {
                   </Modal.Body>
                   <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
-                      Terminar
+                      Cancelar
                     </Button>
                     <Button variant="primary" onClick={handleClose}>
-                      Continuar
+                      Guardar
                     </Button>
                   </Modal.Footer>
                 </Modal>

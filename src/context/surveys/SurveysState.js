@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useReducer } from "react";
 import { URL_SURVEYS, URL_SURVEYS_PENDIENTES, URL_SURVEYS_PUBLICADAS } from "../../constants";
-import { ERROR_SURVEYS, GET_SURVEYS } from "../../types";
+import { ADD_SURVEYS, ERROR_SURVEYS, GET_SURVEYS } from "../../types";
 import SurveysReducer from "./SurveysReducer";
 import SurveysContext from "./SurveysContext";
 
@@ -22,7 +22,6 @@ const SurveysState = ({children}) => {
         url = URL_SURVEYS_PENDIENTES
       else if(location=='/publishedsurveys')
         url = URL_SURVEYS_PUBLICADAS
-      
     try {
       const response = await axios.get(url);
       dispatch({  //DISPATCH --> FUNCION PARA MODIFICAR EL ESTADO
@@ -36,21 +35,26 @@ const SurveysState = ({children}) => {
     }
   }
 
- /*  const urlOptions = (location)=>{
-    if(location =='/admin'){
-      return URL_SURVEYS
-    }else if(location=='/pendingsurveys'){
-      return URL_SURVEYS_PENDIENTES
-    }else{
-      return URL_SURVEYS_PUBLICADAS
+  const addSurveys = async(data)=>{
+    try {
+      await axios.post(URL_SURVEYS, data)
+      dispatch({
+        type: ADD_SURVEYS,
+        payload: data
+      })
+    } catch (error) {
+      dispatch({
+        type: ERROR_SURVEYS
+      })
     }
-  } */
+  }
 
   return ( 
     <SurveysContext.Provider value={{
       surveys: state.surveys,
       surveysError: state.surveysError,
-      getSurveys
+      getSurveys,
+      addSurveys
     }} >
       {children}
     </SurveysContext.Provider>

@@ -1,10 +1,11 @@
 import React from "react";
 import { Container, Nav, Navbar} from "react-bootstrap";
 import {Link} from 'react-router-dom';
+import './Navegation.css'
 
 const Navegation = () => {
     return ( 
-            <Navbar bg="dark" expand="lg" variant="dark">
+            <Navbar className="navegation" bg="dark" expand="lg" variant="dark">
             <Container>
             <Navbar.Brand href="/admin">Admin</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
@@ -13,7 +14,6 @@ const Navegation = () => {
                         <Link to="/newsurvey" className="nav-link">Nueva Encuesta</Link>
                         <Link to="/pendingsurveys" className="nav-link" >Encuestas Pendientes</Link>
                         <Link to="/publishedsurveys" className="nav-link" >Encuestas Publicadas</Link>
-                        <Link to="/admin" className="nav-link" >Todas las Encuestas</Link>
                         <Link to="/admin" className="nav-link" >Categorias</Link>
                     </Nav>
                 </Navbar.Collapse>

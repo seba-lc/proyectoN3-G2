@@ -6,12 +6,14 @@ import Home from './pages/Home';
 import NewSurvey from './pages/NewSurvey';
 import PendingSurveys from './pages/PendingSurveys';
 import SurveysState from './context/surveys/SurveysState';
+import CategoriesState from './context/categories/CategoriesState';
 import PublishedSurveys from './pages/PublishedSurveys';
 
 function App() {
   return (
     <>
     <SurveysState>
+      <CategoriesState>
       <Layout>
         <Routes>
           <Route path='*' element={<Home />} />
@@ -22,6 +24,7 @@ function App() {
           <Route path='/publishedsurveys' element={<PublishedSurveys/>}/>
         </Routes>
       </Layout>
+      </CategoriesState>
     </SurveysState>
     </>
   );

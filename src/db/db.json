@@ -63,5 +63,27 @@
         "responses": [],
         "category": "Animales"
       }
+    ],
+    "categories":[
+      {
+        "name": "Educacion",
+        "state": "true"
+      },
+      {
+        "name": "Salud",
+        "state": "true"
+      },
+      {
+        "name": "Politica",
+        "state": "true"
+      },
+      {
+        "name": "Deportes",
+        "state": "true"
+      },
+      {
+        "name": "Animales",
+        "state": "true"
+      }
     ]
   }

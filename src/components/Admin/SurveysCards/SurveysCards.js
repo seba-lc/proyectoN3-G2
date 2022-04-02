@@ -14,12 +14,13 @@ const SurveysCards = ({ id, name, state, category }) => {
       <Card.Body className="">
         <Card.Title as="h6">Categoria: {category}</Card.Title>
         <div className="d-flex justify-content-between">
-        <Button variant="primary">Ver mas</Button>
+        <Button variant="primary">Ver Encuesta</Button>
         <div className="d-flex">
-        {state=='true'?<span className="spanSurvaysCardsTrue m-1">publicado</span>:<span className="spanSurvaysCardsFalse m-1">pendiente</span>}
+        {state=='true'?<span className="spanSurvaysCardsTrue m-1">publicada</span>:<span className="spanSurvaysCardsFalse m-1">pendiente</span>}
         </div>
         </div>
       </Card.Body>
+      <Card.Footer className="text-muted">Fecha:</Card.Footer>
     </Card>
   );
 };

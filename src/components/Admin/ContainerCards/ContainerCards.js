@@ -9,8 +9,6 @@ const ContainerCards = ({location}) => {
     useEffect(()=>{
         getSurveys(location.pathname)
     },[])
-    console.log(typeof location.pathname);
-    //const surveys = urlOptions(location.pathname);
     
     return ( 
             <Row>   
