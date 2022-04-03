@@ -8,10 +8,9 @@ const Admin = () => {
   const location = useLocation();
   return (
     <>
-      
-      <Container>
       <Navegation></Navegation>
-            <h2 className="m-4 text-center">Encuestas</h2>
+      <Container>
+            <h2 className="mt-3 text-center">Todas las Encuestas</h2>
             <ContainerCards location={location}></ContainerCards>
       </Container>
     </>

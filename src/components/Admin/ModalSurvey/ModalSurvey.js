@@ -1,19 +1,6 @@
-import { useContext } from 'react';
 import {Button, Modal, Form} from 'react-bootstrap'
-import SurveysContext from '../../../context/surveys/SurveysContext';
 
-const ModalSurvey = ({show, handleClose}) => {
-
-  const {addSurveys} = useContext(SurveysContext)
-  const initialValue = {
-    name:'',
-    state:false,
-    questions:[],
-    response:[],
-    category:''
-  }
-
-  
+const ModalSurvey = ({handleQuestion, show, handleClose}) => { 
 
     return (
               <>
@@ -29,6 +16,8 @@ const ModalSurvey = ({show, handleClose}) => {
                           type="text"
                           placeholder="?"
                           autoFocus
+                          name="questions"
+                          onChange={handleQuestion}
                         />
                       </Form.Group>
                     </Form>
