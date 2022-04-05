@@ -9,10 +9,18 @@ const Header = () => {
     background-color: var(--azure);
     font-family: var(--letra1);
     font-size: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 13
   `;
 
   return (
+<<<<<<< HEAD
     <MyNavbar fixed="top" collapseOnSelect expand="lg" variant="dark">
+=======
+    <MyNavbar collapseOnSelect expand="lg" variant="dark">
+      
+>>>>>>> 19ee277f01ec67219c594196897c3c0780a595c0
       <Container>
         <Logo/>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

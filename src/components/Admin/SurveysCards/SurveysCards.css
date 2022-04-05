@@ -1,0 +1,10 @@
+.spanSurvaysCardsTrue{
+    background-color: green;
+    border-radius: 15%;
+    padding: 2px;
+}
+.spanSurvaysCardsFalse{
+    background-color: red;
+    border-radius: 15%;
+    padding: 2px;
+}
