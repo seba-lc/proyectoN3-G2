@@ -24,9 +24,9 @@ const SurveysState = ({children}) => {
         url = URL_SURVEYS_PUBLICADAS
     try {
       const response = await axios.get(url);
-      dispatch({  //DISPATCH --> FUNCION PARA MODIFICAR EL ESTADO
-        type:GET_SURVEYS, //--> EL TYPE LE DICE AL DISPATCH QUE TIPO DE CAMBIO HACER
-        payload:response.data //-> EL PAYLOAD ES EL DATO QUE PASO PARA QUE SE CAMBIE EL ESTADO SI ES NECESARIO
+      dispatch({
+        type:GET_SURVEYS,
+        payload:response.data
       })
     } catch (error) {
       dispatch({

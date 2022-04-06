@@ -1,8 +1,8 @@
 import { Card, Button } from "react-bootstrap";
 import "./SurveysCards.css";
 
-const SurveysCards = ({ id, name, state, category }) => {
-
+const SurveysCards = ({ id, name, state, category, questions }) => {
+ 
   return (
     <Card className="m-1" id={id}>
       <Card.Header as="h5">{name}</Card.Header>

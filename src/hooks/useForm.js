@@ -12,13 +12,23 @@ const useForm = (initialValues, submit) => {
       setSubmitting(false);
     }
   },[errors]) */
-  const handleChange = (e) =>{
+  const handleChange = (e) => {
     e.preventDefault();
     if (e.target.questions) {
       setValues({
         ...values,
-        questions: [...values.questions, e.target.questions.value],
+        questions: [
+          ...values.questions,
+          {
+            question: e.target.questions.value,
+            response: [],
+          },
+        ],
       });
+      /* setValues({
+        ...values,
+        questions: [...values.questions, e.target.questions.value],
+      }); */
       /* setValues({
         ...values,
         questions: values.questions.set(e.target.questions.value, '')
@@ -29,24 +39,36 @@ const useForm = (initialValues, submit) => {
         [e.target.name]: e.target.value,
       });
     }
-  }
+  };
 
-  const handleSubmit = (e) =>{
+  const handleSubmit = (e) => {
     e.preventDefault();
-   /*  if(validations){
+    /*  if(validations){
       errors = validations(values);
       if(Object.keys(errors).length===0){ */
-        submit();
-      /* }
+    submit();
+    /* }
     }else{
       submit();
     } */
-  }
+  };
+
+  const handleDelete = (e) => {
+    e.preventDefault();
+    console.log(e);
+    let newArray = values.questions.filter((item) => item.question !== e.target.id)
+    setValues({
+      ...values,
+      questions: newArray
+    });
+  };
+
   return {
     values,
     handleChange,
-    handleSubmit
-  }
-}
- 
+    handleSubmit,
+    handleDelete,
+  };
+};
+
 export default useForm;

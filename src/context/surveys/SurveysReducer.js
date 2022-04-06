@@ -11,7 +11,7 @@ export default (state, action) =>{
     case ADD_SURVEYS:
       return{
         ...state,
-        surveys: action.surveys.push(action.payload)
+        surveys: state.surveys.push(action.payload)
       }
   }
 }
