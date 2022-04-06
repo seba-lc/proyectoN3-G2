@@ -19,6 +19,7 @@ const ContainerCards = ({location}) => {
                     name={survey.name}
                     state={survey.state}
                     category={survey.category}
+                    questions={survey.questions}
                 />
                 </Col>
                 ))}
