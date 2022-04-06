@@ -1,6 +1,6 @@
-const SelectCategories = ({name}) => {
+const SelectCategories = ({category}) => {
     return ( 
-            <option>{name}</option>
+            <option>{category}</option>
      );
 }
  

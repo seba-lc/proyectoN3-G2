@@ -1,10 +1,12 @@
 .spanSurvaysCardsTrue{
-    background-color: green;
+    background-color: var(--lime-green);
     border-radius: 15%;
     padding: 2px;
+    font-family: var(--letra1);
 }
 .spanSurvaysCardsFalse{
-    background-color: red;
+    background-color: var(--red-violet-crayola);
     border-radius: 15%;
     padding: 2px;
+    font-family: var(--letra1);
 }
