@@ -10,12 +10,13 @@ import PendingSurveys from './pages/PendingSurveys';
 import SurveysState from './context/surveys/SurveysState';
 import CategoriesState from './context/categories/CategoriesState';
 import PublishedSurveys from './pages/PublishedSurveys';
+import UserProvider from "./context/UserContext";
 
 
 function App() {
   return (
     <>
-
+ <UserProvider>
     <SurveysState>
       <CategoriesState>
       <Layout>
@@ -32,6 +33,7 @@ function App() {
       </Layout>
       </CategoriesState>
     </SurveysState>
+    </UserProvider>
 
     </>
   );

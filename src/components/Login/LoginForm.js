@@ -1,5 +1,9 @@
 import {Form, Button} from 'react-bootstrap';
 import styled from "styled-components";
+import axios from 'axios';
+import { LOGIN_VALUES, URL_USERS } from '../../constants';
+import { UserContext } from '../../context/UserContext';
+import { useContext, useState } from 'react';
 
 export const FormContainer = styled.div`
 width:100vw;
@@ -9,6 +13,7 @@ justify-content:center;
 align-items:center;
 `
 const LoginFormulary = () => {
+  const {login, auth} = useContext(UserContext);
     return (   <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>

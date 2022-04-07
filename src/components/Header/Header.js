@@ -2,9 +2,12 @@ import "./Header.css";
 import { NavDropdown, Navbar, Container, Nav, Form, FormControl, } from "react-bootstrap";
 import styled from "styled-components";
 import Logo from "../Logo/Logo";
+import {Link} from "react-router-dom"; 
+import { useEffect, useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 
-const Header = () => {
-  const MyNavbar = styled(Navbar)`
+
+const MyNavbar = styled(Navbar)`
     height: 12vh;
     background-color: var(--azure);
     font-family: var(--letra1);
@@ -13,18 +16,28 @@ const Header = () => {
     top: 0;
     z-index: 13
   `;
+const Header = () => {
+  const {user, setUser} = useContext(UserContext);
+  
+  useEffect(() => {
+    const userLogged = JSON.parse(localStorage.getItem("user"));
+    if (userLogged) {
+      setUser(userLogged);
+    }
+  },[]);
+  const handleClick = () =>{
+    localStorage.clear();
+    setUser(null);
+  }
 
   return (
-<<<<<<< HEAD
-    <MyNavbar fixed="top" collapseOnSelect expand="lg" variant="dark">
-=======
     <MyNavbar collapseOnSelect expand="lg" variant="dark">
-      
->>>>>>> 19ee277f01ec67219c594196897c3c0780a595c0
       <Container>
         <Logo/>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
+        {user ? user.role ==='ADMIN'?(
+            <>
           <Nav className="m-auto">
             <Form className="d-flex">
               <FormControl
@@ -42,9 +55,27 @@ const Header = () => {
               <NavDropdown.Item href="#action/3.3">3</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.4">4</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#deets">Admin</Nav.Link>
-            <Nav.Link href="#memes">Cerrar Sesión</Nav.Link>
-          </Nav>
+              <Link to="/" onClick={handleClick} className="nav-link">
+                Cerrar sesión
+              </Link>
+            </Nav>
+            </>
+        ) :(
+          <>
+          <Nav>
+          <Link to="/admin" className="nav-link">Administración</Link>
+            </Nav>
+            </>
+        ) :(
+          <Nav className="ms-auto">
+                <Link to="/Login" className="nav-link">
+                Iniciar sesión
+                </Link>
+                <Link className="nav-link" to='/Register'>
+                  Registrarse
+                </Link>
+            </Nav>
+          )}
         </Navbar.Collapse>
       </Container>
       
