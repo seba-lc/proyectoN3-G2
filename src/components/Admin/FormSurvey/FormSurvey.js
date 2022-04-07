@@ -6,9 +6,11 @@ import SelectCategories from "../SelectCategories/SelectCategories";
 import SurveysContext from "../../../context/surveys/SurveysContext"
 import ModalSurvey from "../ModalSurvey/ModalSurvey";
 import QuestionInputAdded from "../QuestionInputAdded/QuestionInputAdded";
+import ModalMultipleChoice from "../ModalMultipleChoise/ModalMultipleChoice";
 
 const FormSurvey = () => {
-  const [show, setShow] = useState(false);
+  const [showMS, setShowMS] = useState(false);
+  const [showMC, setShowMC] = useState(false);
   const { addSurveys } = useContext(SurveysContext);
   const { categories, getCategories } = useContext(CategoriesContext);
 
@@ -32,11 +34,10 @@ const FormSurvey = () => {
     sendData
   );
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  console.log(values);
-
+  const handleCloseMS = () => setShowMS(false);
+  const handleShowMS = () => setShowMS(true);
+  const handleCloseMC = () => setShowMC(false);
+  const handleShowMC = () => setShowMC(true);
 
   return (
     <>
@@ -58,10 +59,10 @@ const FormSurvey = () => {
           </Form.Select>
         </Form.Group>
         <div className="d-flex justify-content-around">
-        <Button variant="outline-info" onClick={handleShow}>
+        <Button variant="outline-info" onClick={handleShowMS}>
           Agregar Pregunta Simple
         </Button>
-        <Button variant="outline-info" onClick={handleShow}>
+        <Button variant="outline-info" onClick={handleShowMC}>
           Agregar Multiple Choice
         </Button>
         </div>
@@ -78,8 +79,13 @@ const FormSurvey = () => {
       </Form>
       <ModalSurvey
         handleChange={handleChange}
-        show={show}
-        handleClose={handleClose}
+        showMS={showMS}
+        handleCloseMS={handleCloseMS}
+      />
+      <ModalMultipleChoice
+        handleChange={handleChange}
+        showMC={showMC}
+        handleCloseMC={handleCloseMC}
       />
     </>
   );

@@ -3,17 +3,22 @@ import { useEffect, useState } from "react";
 const useForm = (initialValues, submit) => {
   const [values, setValues] = useState(initialValues);
   /* const [errors, setErrors] = useState({});
-  const[submitting, setSubmitting] = useState(false)
+  const[submitting, setSubmitting] = useState(false) */
   useEffect(()=>{
-    if(submitting){
-      if(Object.keys(errors).length===0){
-        submit();
-      }
-      setSubmitting(false);
-    }
-  },[errors]) */
+   
+  },[])
   const handleChange = (e) => {
     e.preventDefault();
+   
+    let arrayResponse = []
+    if(e.target.response){
+      let cont = 0
+      while (cont < 4) {
+        arrayResponse.push(e.target.response[cont].value)
+        cont ++
+      }
+    }
+   
     if (e.target.questions) {
       setValues({
         ...values,
@@ -21,7 +26,7 @@ const useForm = (initialValues, submit) => {
           ...values.questions,
           {
             question: e.target.questions.value,
-            response: [],
+            response: arrayResponse,
           },
         ],
       });
