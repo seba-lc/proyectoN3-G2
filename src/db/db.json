@@ -1,89 +1,155 @@
 {
-    "users": [
-      {
-        "id": 1,
-        "name": "Carlos",
-        "email": "carlos@gmail.com",
-        "password": "12345678",
-        "role": "ADMIN"
+  "users": [
+    {
+      "id": 1,
+      "name": "Carlos",
+      "email": "carlos@gmail.com",
+      "password": "12345678",
+      "role": "ADMIN"
+    },
+    {
+      "id": 2,
+      "name": "Diego",
+      "email": "diego@gmail.com",
+      "password": "DD123FF",
+      "role": "USER"
+    },
+    {
+      "id": 3,
+      "name": "Roman",
+      "password": "RR123GG",
+      "email": "roman@gmail.com",
+      "role": "USER"
+    }
+  ],
+  "surveys": [
+    {
+      "name": "Lo mejor de tu día?",
+      "state": false,
+      "questions": {
+        "question": "Cafe o Mate",
+        "response": ""
       },
-      {
-        "id": 2,
-        "name": "Diego",
-        "email": "diego@gmail.com",
-        "password": "DD123FF",
-        "role": "USER"
-      },
-      {
-        "id": 3,
-        "name": "Roman",
-        "password": "RR123GG",
-        "email": "roman@gmail.com",
-        "role": "USER"
-      }
-    ],
-    "surveys": [
-      {
-        "id": 1,
-        "name": "Encuesta Rolling",
-        "state": "true",
-        "questions": [],
-        "responses": [],
-        "category": "General"
-      },
-      {
-        "id": 2,
-        "name": "Encuesta Arboles",
-        "state": "true",
-        "questions": [],
-        "responses": [],
-        "category": "Naturaleza"
-      },
-      {
-        "id": 3,
-        "name": "Encuesta Votaciones",
-        "state": "false",
-        "questions": [],
-        "responses": [],
-        "category": "Politica"
-      },
-      {
-        "id": 4,
-        "name": "Encuesta Perros",
-        "state": "true",
-        "questions": [],
-        "responses": [],
-        "category": "Animales"
-      },
-      {
-        "id": 5,
-        "name": "Encuesta Gatos",
-        "state": "true",
-        "questions": [],
-        "responses": [],
-        "category": "Animales"
-      }
-    ],
-    "categories":[
-      {
-        "name": "Educacion",
-        "state": "true"
-      },
-      {
-        "name": "Salud",
-        "state": "true"
-      },
-      {
-        "name": "Politica",
-        "state": "true"
-      },
-      {
-        "name": "Deportes",
-        "state": "true"
-      },
-      {
-        "name": "Animales",
-        "state": "true"
-      }
-    ]
-  }
+      "category": "Salud",
+      "id": 3
+    },
+    {
+      "name": "Guerra Ucrania - Rusia",
+      "state": false,
+      "questions": [
+        {
+          "question": "Quien gana?",
+          "response": ""
+        },
+        {
+          "question": "Quien tiene la razón?",
+          "response": ""
+        },
+        {
+          "question": "Quien quieres que gane?",
+          "response": ""
+        }
+      ],
+      "category": "Politica",
+      "id": 4
+    },
+    {
+      "name": "Guerra Ucrania - Rusia",
+      "state": false,
+      "questions": [
+        {
+          "question": "Quien gana?",
+          "response": ""
+        },
+        {
+          "question": "Quien tiene la razón?",
+          "response": ""
+        },
+        {
+          "question": "Quien quieres que gane?",
+          "response": ""
+        }
+      ],
+      "category": "Politica",
+      "id": 5
+    },
+    {
+      "name": "Guerra Ucrania - Rusia",
+      "state": false,
+      "questions": [
+        {
+          "question": "Quien gana?",
+          "response": []
+        },
+        {
+          "question": "Quien tiene la razón?",
+          "response": []
+        },
+        {
+          "question": "Quien quieres que gane?",
+          "response": []
+        }
+      ],
+      "category": "Politica",
+      "id": 6
+    },
+    {
+      "name": "Guerra Ucrania - Rusia",
+      "state": false,
+      "questions": [
+        {
+          "question": "sdf",
+          "response": []
+        }
+      ],
+      "category": "Politica",
+      "id": 7
+    },
+    {
+      "name": "Guerra Ucrania - Rusia",
+      "state": false,
+      "questions": [
+        {
+          "question": "sdf",
+          "response": []
+        }
+      ],
+      "category": "Politica",
+      "id": 8
+    },
+    {
+      "name": "Carlos Mocsary",
+      "state": false,
+      "questions": [
+        {
+          "question": "casa",
+          "response": []
+        }
+      ],
+      "category": "Deportes",
+      "id": 9
+    }
+  ],
+  "categories": [
+    {
+      "name": "Educacion",
+      "state": "true"
+    },
+    {
+      "name": "Salud",
+      "state": "true"
+    },
+    {
+      "name": "Politica",
+      "state": "true"
+    },
+    {
+      "name": "Deportes",
+      "state": "true"
+    },
+    {
+      "name": "Animales",
+      "state": "true"
+    }
+  ]
+}

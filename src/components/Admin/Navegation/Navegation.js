@@ -5,11 +5,11 @@ import './Navegation.css'
 
 const Navegation = () => {
     return ( 
-            <Navbar className="navegation" bg="dark" expand="lg" variant="dark">
+            <Navbar className="navegation " bg="dark" expand="lg" variant="dark">
             <Container>
             <Navbar.Brand href="/admin">Admin</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-                <Navbar.Collapse id="basic-navbar-nav">
+                <Navbar.Collapse className="d-dlex justify-content-end" id="basic-navbar-nav">
                     <Nav>
                         <Link to="/newsurvey" className="nav-link">Nueva Encuesta</Link>
                         <Link to="/pendingsurveys" className="nav-link" >Encuestas Pendientes</Link>
