@@ -1,14 +1,9 @@
 import "./Header.css";
-import {
-  NavDropdown,
-  Navbar,
-  Container,
-  Nav,
-  Form,
-  FormControl,
-} from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
 import styled from "styled-components";
 import Logo from "../Logo/Logo";
+import { Link } from 'react-router-dom'
+import { useState } from "react";
 
 const Header = () => {
   const MyNavbar = styled(Navbar)`
@@ -21,6 +16,20 @@ const Header = () => {
     z-index: 13
   `;
 
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const userLogged = JSON.parse(localSotrage.getItem('user'));
+    if(userLogged){
+      setUser(userLogged);
+    }
+  },[]);
+
+  const handleClick = () =>{
+    localStorage.clear();
+    setUser(null);
+  }
+
   return (
     <MyNavbar collapseOnSelect expand="lg" variant="dark">
       
@@ -29,24 +38,10 @@ const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="m-auto">
-            <Form className="d-flex">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-            </Form>
           </Nav>
           <Nav>
-            <NavDropdown title="Categorías" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">1</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">2</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">3</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4">4</NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="#deets">Admin</Nav.Link>
-            <Nav.Link href="#memes">Cerrar Sesión</Nav.Link>
+            <Link to="/admin" className="nav-link">Admin</Link>
+            <Link to="/" onClick={handleClick} className="nav-link">Cerrar Sesión</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

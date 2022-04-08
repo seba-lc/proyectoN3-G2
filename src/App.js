@@ -8,6 +8,7 @@ import PendingSurveys from './pages/PendingSurveys';
 import SurveysState from './context/surveys/SurveysState';
 import CategoriesState from './context/categories/CategoriesState';
 import PublishedSurveys from './pages/PublishedSurveys';
+import Categories from './pages/Categories';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path='*' element={<Home />} />
           <Route path='/' element={<Home />} />
+          <Route path='/Categories' element={<Categories/>}/>
           <Route path='/admin' element={<Admin />} />
           <Route path='/newsurvey' element={<NewSurvey/>}/>
           <Route path='/pendingsurveys' element={<PendingSurveys/>}/>
