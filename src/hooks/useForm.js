@@ -5,7 +5,6 @@ const useForm = (initialValues, submit) => {
   /* const [errors, setErrors] = useState({});
   const[submitting, setSubmitting] = useState(false) */
   useEffect(()=>{
-   
   },[])
   const handleChange = (e) => {
     e.preventDefault();
@@ -68,11 +67,21 @@ const useForm = (initialValues, submit) => {
     });
   };
 
+  const setearState = ()=>{
+      setValues({
+        name: "",
+        state: false,
+        questions: [],
+        category: "",
+      });
+  }
+
   return {
     values,
     handleChange,
     handleSubmit,
     handleDelete,
+    setearState
   };
 };
 

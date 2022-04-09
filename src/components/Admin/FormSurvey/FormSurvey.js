@@ -27,9 +27,10 @@ const FormSurvey = () => {
 
   const sendData = () => {
     addSurveys(values);
+    setearState()
   };
 
-  const { handleChange, handleSubmit, handleDelete, values } = useForm(
+  const { handleChange, handleSubmit, handleDelete, setearState, values } = useForm(
     initialValues,
     sendData
   );
@@ -39,6 +40,7 @@ const FormSurvey = () => {
   const handleCloseMC = () => setShowMC(false);
   const handleShowMC = () => setShowMC(true);
 
+  console.log(values);
   return (
     <>
       <Form onSubmit={handleSubmit}>
@@ -60,10 +62,13 @@ const FormSurvey = () => {
         </Form.Group>
         <div className="d-flex justify-content-around">
         <Button variant="outline-info" onClick={handleShowMS}>
-          Agregar Pregunta Simple
+          Pregunta Simple
+        </Button>
+        <Button variant="outline-info" >
+          Pregunta con Imagen
         </Button>
         <Button variant="outline-info" onClick={handleShowMC}>
-          Agregar Multiple Choice
+          Multiple Choice
         </Button>
         </div>
         <hr></hr>

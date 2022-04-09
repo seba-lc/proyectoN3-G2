@@ -1,16 +1,15 @@
 import { Container } from "react-bootstrap";
-import { useLocation } from "react-router-dom";
 import Navegation from "../components/Admin/Navegation/Navegation";
 import ContainerCards from "../components/Admin/ContainerCards/ContainerCards";
+import { URL_SURVEYS_PENDIENTES } from "../constants";
 
 const PendingSurveys = () => {
 
-    const location = useLocation();
     return ( 
         <>
         <Navegation></Navegation>
         <Container>
-            <ContainerCards location={location}></ContainerCards>
+            <ContainerCards location={URL_SURVEYS_PENDIENTES}></ContainerCards>
         </Container>
         </>
             );

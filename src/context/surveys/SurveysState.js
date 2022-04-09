@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useReducer } from "react";
-import { URL_SURVEYS, URL_SURVEYS_PENDIENTES, URL_SURVEYS_PUBLICADAS } from "../../constants";
-import { ADD_SURVEYS, ERROR_SURVEYS, GET_SURVEYS } from "../../types";
+import { URL_SURVEYS } from "../../constants";
+import { ADD_SURVEYS, DELETE_SURVEYS, ERROR_SURVEYS, GET_SURVEYS } from "../../types";
 import SurveysReducer from "./SurveysReducer";
 import SurveysContext from "./SurveysContext";
 
@@ -14,16 +14,9 @@ const SurveysState = ({children}) => {
 
   const [state, dispatch] = useReducer(SurveysReducer, initialState);
 
-  const getSurveys = async(location) =>{
-    let url = URL_SURVEYS
-      if(location =='/admin')
-        url = URL_SURVEYS
-      else if(location=='/pendingsurveys')
-        url = URL_SURVEYS_PENDIENTES
-      else if(location=='/publishedsurveys')
-        url = URL_SURVEYS_PUBLICADAS
+  const getSurveys = async(URL) =>{
     try {
-      const response = await axios.get(url);
+      const response = await axios.get(URL);
       dispatch({
         type:GET_SURVEYS,
         payload:response.data
@@ -49,12 +42,28 @@ const SurveysState = ({children}) => {
     }
   }
 
+  const deleteSurveys = async(id)=>{
+    try {
+      await axios.delete(URL_SURVEYS+id)
+      dispatch({
+        type: DELETE_SURVEYS,
+        payload: id
+      })
+    } catch (error) {
+      dispatch({
+        type: ERROR_SURVEYS
+      })
+      
+    }
+  }
+
   return ( 
     <SurveysContext.Provider value={{
       surveys: state.surveys,
       surveysError: state.surveysError,
       getSurveys,
-      addSurveys
+      addSurveys,
+      deleteSurveys
     }} >
       {children}
     </SurveysContext.Provider>

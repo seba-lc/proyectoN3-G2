@@ -1,4 +1,4 @@
-import { ADD_SURVEYS, GET_SURVEYS } from "../../types"
+import { ADD_SURVEYS, DELETE_SURVEYS, GET_SURVEYS } from "../../types"
 
 
 export default (state, action) =>{
@@ -12,6 +12,11 @@ export default (state, action) =>{
       return{
         ...state,
         surveys: state.surveys.push(action.payload)
+      }
+    case DELETE_SURVEYS:
+      return{
+        ...state,
+        surveys: state.surveys.filter(survey => survey.id != action.payload)
       }
   }
 }

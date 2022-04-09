@@ -8,6 +8,7 @@ import PendingSurveys from './pages/PendingSurveys';
 import SurveysState from './context/surveys/SurveysState';
 import CategoriesState from './context/categories/CategoriesState';
 import PublishedSurveys from './pages/PublishedSurveys';
+import SurveyDetail from './pages/SurveyDetail';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path='/newsurvey' element={<NewSurvey/>}/>
           <Route path='/pendingsurveys' element={<PendingSurveys/>}/>
           <Route path='/publishedsurveys' element={<PublishedSurveys/>}/>
+          <Route path='/surveydetail/:id' element={<SurveyDetail/>}/>
         </Routes>
       </Layout>
       </CategoriesState>

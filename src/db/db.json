@@ -24,14 +24,42 @@
   ],
   "surveys": [
     {
-      "name": "Lo mejor de tu día?",
+      "name": "Mundial Qatar 2022",
       "state": false,
-      "questions": {
-        "question": "Cafe o Mate",
-        "response": ""
-      },
-      "category": "Salud",
-      "id": 3
+      "questions": [
+        {
+          "question": "Quien será el campeón?",
+          "response": []
+        },
+        {
+          "question": "Cual es el grupo de la muerte?",
+          "response": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ]
+        },
+        {
+          "question": "Quien será la sorpresa del mundial?",
+          "response": []
+        },
+        {
+          "question": "Quien será el goleador?",
+          "response": []
+        },
+        {
+          "question": "Contra que equipo te gustaría que Argentina juegue la final?",
+          "response": [
+            "Brasil",
+            "Francia",
+            "Holanda",
+            "España"
+          ]
+        }
+      ],
+      "category": "Deportes",
+      "id": 1
     }
   ],
   "categories": [
