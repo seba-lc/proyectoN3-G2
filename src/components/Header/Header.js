@@ -3,36 +3,48 @@ import { NavDropdown, Navbar, Container, Nav } from "react-bootstrap";
 import styled from "styled-components";
 import Logo from "../Logo/Logo";
 import {Link} from "react-router-dom"; 
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 
-
-const MyNavbar = styled(Navbar)`
-    height: 12vh;
-    background-color: var(--azure);
-    font-family: var(--letra1);
-    font-size: 20px;
-    position: sticky;
-    top: 0;
-    z-index: 13
-  `;
 const Header = () => {
   const {user, setUser} = useContext(UserContext);
+  const [headerClass, setHeaderClass] = useState('header-nav');
   
   useEffect(() => {
     const userLogged = JSON.parse(localStorage.getItem("user"));
     if (userLogged) {
       setUser(userLogged);
     }
+    
+    window.addEventListener('scroll', ()=>{
+      if (window.scrollY==0){
+        setHeaderClass('header-nav-top')
+      } else{
+        setHeaderClass('header-nav-no-top')
+      }
+    })
   },[]);
+
   const handleClick = () =>{
     localStorage.clear();
     setUser(null);
   }
 
+  useEffect(() => {
+    window.addEventListener('scroll', ()=>{
+      if (window.scrollY==0){
+        setHeaderClass('header-nav-top');
+      } else{
+        setHeaderClass('header-nav-no-top');
+      }
+    })
+  },[]);
+
+
+
 
   return (
-    <MyNavbar collapseOnSelect expand="lg" variant="dark">
+    <Navbar collapseOnSelect expand="lg" variant="dark" className={headerClass}>
       <Container>
         <Logo/>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -72,7 +84,7 @@ const Header = () => {
         </Navbar.Collapse>
       </Container>
       
-    </MyNavbar>
+    </Navbar>
   );
 };
 
