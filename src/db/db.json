@@ -139,13 +139,13 @@
     },
     {
       "name": "Salud",
-      "id": "22",
+      "id": "3",
       "state": "true",
       "bgColor": "--maximum-yellow-red"
     },
     {
       "name": "Politica",
-      "id": "23",
+      "id": "8",
       "state": "true",
       "bgColor": "--lime-green"
     },

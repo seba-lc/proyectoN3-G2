@@ -1,5 +1,5 @@
 import "./Header.css";
-import { NavDropdown, Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
 import styled from "styled-components";
 import Logo from "../Logo/Logo";
 import {Link} from "react-router-dom"; 
@@ -46,20 +46,14 @@ const Header = () => {
   return (
     <Navbar collapseOnSelect expand="lg" variant="dark" className={headerClass}>
       <Container>
-        <Logo/>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
+      <Logo/>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav ms-auto" />
+        <Navbar.Collapse id="responsive-navbar-nav ">
         {user ? user.role ==='ADMIN'?(
             <>
           <Nav className="m-auto">
           </Nav>
           <Nav>
-            <NavDropdown title="Categorías" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">1</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">2</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">3</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4">4</NavDropdown.Item>
-            </NavDropdown>
               <Link to="/" onClick={handleClick} className="nav-link">
                 Cerrar sesión
               </Link>

@@ -1,27 +1,11 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import EncuestasCards from "../EncuestasCards/EncuestasCards";
 import "./HomePage.css";
-import { useState, useEffect, useContext } from "react";
-import axios from "axios";
+import { useEffect, useContext } from "react";
 import CategoriesContext from './../../context/categories/CategoriesContext'
-
-
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
-  //const [categorie, setCategorie] = useState([]);
-  //useEffect(() => {
-  //  const getCategories = async () => {
-  //    try {
-  //      const response = await axios.get("http://localhost:3000/categories/");
-  //      const { data } = response;
-  //      setCategorie(data);
- //     } catch (error) {
-  //      console.warn(error);
-  //    }
- //   };
-  //  getCategories();
- // }, []);
- // console.log(categorie);
 
  const {categories, getCategories} = useContext(CategoriesContext);
 
@@ -30,22 +14,24 @@ useEffect(()=>{
 },[]) 
 
   return (
-    
-    
    
-    <Container
-      fluid
-      className="d-flex justify-content-center align-items-center homePage-style"
-    >
-      <Row className="m-1 d-flex  justify-content-center align-items-center">
-        
+    <Container fluid className="d-flex flex-column justify-content-center align-items-center homePage-style">
+      <Row className="flicker-1">
+        <Col className="title-box">
+          <h1>Encuestas Rolling Code</h1>
+        </Col>
+      </Row>
+      <Row className="m-1 d-flex  justify-content-center align-items-center">    
         {categories.map((category, index) => (
-          <Col className="m-1" xs={6} md={4} lg={3}>
-              <EncuestasCards key={index} category={category} />
+          <Col key={index} className="m-1" xs={6} md={4} lg={3}>
+              <EncuestasCards  category={category} />
               </Col>
-            ))} 
-        
-       
+            ))}     
+      </Row>
+      <Row>
+        <Col className="main_div">
+        <Button className="glow-on-hover border-none">Crear Encuesta</Button>
+        </Col>
       </Row>
     </Container>
   ); 
