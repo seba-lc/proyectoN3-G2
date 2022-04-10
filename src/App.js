@@ -10,6 +10,10 @@ import PendingSurveys from './pages/PendingSurveys';
 import SurveysState from './context/surveys/SurveysState';
 import CategoriesState from './context/categories/CategoriesState';
 import PublishedSurveys from './pages/PublishedSurveys';
+<<<<<<< HEAD
+import Categories from './pages/Categories';
+=======
+>>>>>>> 6fdc06daa7bf66bbb91ac7195a26ff4cc93e8c4c
 import UserProvider from "./context/UserContext";
 
 
@@ -23,6 +27,7 @@ function App() {
         <Routes>
           <Route path='*' element={<Home />} />
           <Route path='/' element={<Home />} />
+          <Route path='/Categories' element={<Categories/>}/>
           <Route path='/admin' element={<Admin />} />
           <Route path='/Register' element={<Register />} />
           <Route path='/Login' element={<Login />} />
