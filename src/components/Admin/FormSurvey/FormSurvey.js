@@ -3,7 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import CategoriesContext from "../../../context/categories/CategoriesContext";
 import useForm from "../../../hooks/useForm";
 import SelectCategories from "../SelectCategories/SelectCategories";
-import SurveysContext from "../../../context/surveys/SurveysContext"
+import SurveysContext from "../../../context/surveys/SurveysContext";
 import ModalSurvey from "../ModalSurvey/ModalSurvey";
 import QuestionInputAdded from "../QuestionInputAdded/QuestionInputAdded";
 import ModalMultipleChoice from "../ModalMultipleChoise/ModalMultipleChoice";
@@ -27,13 +27,11 @@ const FormSurvey = () => {
 
   const sendData = () => {
     addSurveys(values);
-    setearState()
+    setearState();
   };
 
-  const { handleChange, handleSubmit, handleDelete, setearState, values } = useForm(
-    initialValues,
-    sendData
-  );
+  const { handleChange, handleSubmit, handleDelete, setearState, values } =
+    useForm(initialValues, sendData);
 
   const handleCloseMS = () => setShowMS(false);
   const handleShowMS = () => setShowMS(true);
@@ -61,25 +59,28 @@ const FormSurvey = () => {
           </Form.Select>
         </Form.Group>
         <div className="d-flex justify-content-around">
-        <Button variant="outline-info" onClick={handleShowMS}>
-          Pregunta Simple
-        </Button>
-        <Button variant="outline-info" >
-          Pregunta con Imagen
-        </Button>
-        <Button variant="outline-info" onClick={handleShowMC}>
-          Multiple Choice
-        </Button>
+          <Button variant="outline-info" onClick={handleShowMS}>
+            Pregunta Simple
+          </Button>
+          <Button variant="outline-info">Pregunta con Imagen</Button>
+          <Button variant="outline-info" onClick={handleShowMC}>
+            Multiple Choice
+          </Button>
         </div>
         <hr></hr>
         <div className="d-flex justify-content-around">
-        <Button variant="outline-success" type="submit">
-          Guardar Encuesta
-        </Button>
+          <Button variant="outline-success" type="submit">
+            Guardar Encuesta
+          </Button>
         </div>
         <hr></hr>
-        {values.questions.map((question, index)=>(
-          <QuestionInputAdded key={index} question={question} values={values} handleDelete={handleDelete}/>
+        {values.questions.map((question, index) => (
+          <QuestionInputAdded
+            key={index}
+            question={question}
+            values={values}
+            handleDelete={handleDelete}
+          />
         ))}
       </Form>
       <ModalSurvey

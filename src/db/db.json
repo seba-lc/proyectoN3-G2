@@ -32,34 +32,51 @@
           "response": []
         },
         {
-          "question": "Cual es el grupo de la muerte?",
+          "question": "Quien será el goleador?",
           "response": [
-            "A",
-            "B",
-            "C",
-            "D"
+            "Messi",
+            "Cristiano",
+            "Mbappe",
+            "Kane"
           ]
         },
         {
+          "question": "Quien quieres que gane?",
+          "response": []
+        },
+        {
           "question": "Quien será la sorpresa del mundial?",
-          "response": []
-        },
-        {
-          "question": "Quien será el goleador?",
-          "response": []
-        },
-        {
-          "question": "Contra que equipo te gustaría que Argentina juegue la final?",
           "response": [
-            "Brasil",
-            "Francia",
-            "Holanda",
-            "España"
+            "Dinamarca",
+            "Senegal",
+            "Canadá",
+            "Gales"
           ]
         }
       ],
       "category": "Deportes",
       "id": 1
+    },
+    {
+      "name": "prueba",
+      "state": false,
+      "questions": [
+        {
+          "question": "pregunta 1",
+          "response": []
+        },
+        {
+          "question": "pregunta 2",
+          "response": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ]
+        }
+      ],
+      "category": "",
+      "id": 2
     }
   ],
   "categories": [

@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 
 const useForm = (initialValues, submit) => {
   const [values, setValues] = useState(initialValues);
+  const [edit, setEdit] = useState( true )
   /* const [errors, setErrors] = useState({});
   const[submitting, setSubmitting] = useState(false) */
-  useEffect(()=>{
-  },[])
+  
   const handleChange = (e) => {
     e.preventDefault();
    
@@ -45,6 +45,52 @@ const useForm = (initialValues, submit) => {
     }
   };
 
+  const handleEditt = (e)=>{
+    e.preventDefault();
+   //console.log(e.target.value);
+    let arrayResponse = []
+    
+    
+    if(e.target.id == 'response'){
+     /*  let cont = 0
+      while (cont < 4) { */
+        let arr = (e)=>[...arrayResponse,
+        arrayResponse.push(e.target.value)]
+        console.log(arrayResponse);
+
+        arr(e)
+      /*   cont ++
+      } */
+      console.log(arrayResponse);
+   
+    }else if(e.target.id == 'question') {
+      setValues({
+        ...values,
+        questions: [
+          ...values.questions,
+          {
+            question: e.target.value,
+            response: arrayResponse,
+          },
+        ],
+      });
+      /* setValues({
+        ...values,
+        questions: [...values.questions, e.target.questions.value],
+      }); */
+      /* setValues({
+        ...values,
+        questions: values.questions.set(e.target.questions.value, '')
+      }); */
+    } else {
+      setValues({
+        ...values,
+        [e.target.name]: e.target.value,
+      });
+    }
+    console.log(values);
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     /*  if(validations){
@@ -67,6 +113,10 @@ const useForm = (initialValues, submit) => {
     });
   };
 
+  const handleEdit = () => {
+    setEdit(true)
+  }
+
   const setearState = ()=>{
       setValues({
         name: "",
@@ -75,13 +125,16 @@ const useForm = (initialValues, submit) => {
         category: "",
       });
   }
-
+  
   return {
     values,
     handleChange,
     handleSubmit,
     handleDelete,
-    setearState
+    setearState,
+    handleEdit,
+    handleEditt,
+    edit
   };
 };
 

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useReducer } from "react";
 import { URL_SURVEYS } from "../../constants";
-import { ADD_SURVEYS, DELETE_SURVEYS, ERROR_SURVEYS, GET_SURVEYS } from "../../types";
+import { ADD_SURVEYS, DELETE_SURVEYS, ERROR_SURVEYS, GET_SURVEYS, UPDATE_SURVEYS } from "../../types";
 import SurveysReducer from "./SurveysReducer";
 import SurveysContext from "./SurveysContext";
 
@@ -57,13 +57,28 @@ const SurveysState = ({children}) => {
     }
   }
 
+  const updateSurveys = async(id, data)=>{
+    try {
+      await axios.put(URL_SURVEYS+id)
+      dispatch({
+        type: UPDATE_SURVEYS,
+        payload: data
+      })
+    } catch (error) {
+      dispatch({
+        type: ERROR_SURVEYS
+      })
+    }
+  }
+
   return ( 
     <SurveysContext.Provider value={{
       surveys: state.surveys,
       surveysError: state.surveysError,
       getSurveys,
       addSurveys,
-      deleteSurveys
+      deleteSurveys,
+      updateSurveys
     }} >
       {children}
     </SurveysContext.Provider>

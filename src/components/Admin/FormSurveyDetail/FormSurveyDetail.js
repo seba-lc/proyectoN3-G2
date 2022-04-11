@@ -2,10 +2,13 @@ import { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { URL_SURVEYS } from "../../../constants";
 import SurveysContext from "../../../context/surveys/SurveysContext";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container, Form } from "react-bootstrap";
 import FormGroupSimpleQuestion from "../FormGroupSimpleQuestion/FormGroupSimpleQuestion";
 import FormGroupMultipleChoice from "../FormGroupMultipleChoice/FormGroupMultipleChoice";
 import FormGroupQuestionWithImage from "../FormGroupQuestionWithImage/FormGroupQuestionWithImage";
+import ButtonsForAdmin from "../ButtonsForAdmin/ButtonsForAdmin";
+import useForm from "../../../hooks/useForm";
+import FormGroupTitleCategory from "../FormGroupTitleCategory/FormGroupTitleCategory";
 
 const FormSurveyDetail = () => {
   const { surveys, getSurveys } = useContext(SurveysContext);
@@ -15,29 +18,33 @@ const FormSurveyDetail = () => {
     getSurveys(URL_SURVEYS + params.id);
   }, []);
 
-  //console.log(surveys.questions);
-  //console.log(Object.values(surveys));
-  /* setTimeout(()=>{
-        let arr = Object.values(surveys)
-        console.log(arr);
-    },1000)  */
+  const initialValues = {
+    name: "",
+    state: false,
+    questions: [],
+    category: "",
+  };
 
-  console.log(surveys.questions);
+  const { edit } = useForm()
+
+
   return (
     <>
-    <Container className="p-5">
+    <Container className="py-3">
       <Row>
-        <h3>{surveys.name}</h3>
-        <h5>{surveys.category}</h5>    
-        {surveys.questions.map((question, index) =>
+        <div className="border border-dark p-4">
+        <ButtonsForAdmin id={surveys.id}/>
+        <FormGroupTitleCategory surveys={surveys} edit={edit}/>
+        {surveys.questions?.map((question, index) =>
           question.response.length > 1 ? (
-            <FormGroupMultipleChoice key={index} question={question} />
+            <FormGroupMultipleChoice key={index} question={question} edit={edit} initialValues={initialValues}/>
           ) : question.response.length == 1 ? (
-            <FormGroupQuestionWithImage key={index} question={question} />
+            <FormGroupQuestionWithImage key={index} question={question} edit={edit} initialValues={initialValues}/>
           ) : (
-            <FormGroupSimpleQuestion key={index} question={question} />
+            <FormGroupSimpleQuestion key={index} question={question} edit={edit} initialValues={initialValues}/>
           )
-        )}
+        )} 
+        </div>
       </Row>
     </Container>
     </>
