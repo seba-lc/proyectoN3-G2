@@ -1,24 +1,23 @@
 import {Card} from 'react-bootstrap'
 import './EncuestasCards.css'
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
 
 const MyCard = styled(Card)`
-background-color: ${props=>props.color});
-border-radius: 296px 147px 371px 201px / 128px 119px 140px 111px;
+background-color: var(${props=>props.color}) !important;
+border-radius: 15px;
+color: white;
+box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 `
 
-const EncuestasCards = (props) => {
+const EncuestasCards = ({category,id}) => {
+
   return (
-    <MyCard color={props.color} className="mb-5 d-flex justify-content-center" style={{ width: "18rem" }}>
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Card.Link href="#">Card Link</Card.Link>
-        <Card.Link href="#">Another Link</Card.Link>
+    <MyCard id={category.id} color={category.bgColor} className="mb-5 d-flex justify-content-center my-card" >
+      <Card.Body className="d-flex flex-column justify-content-center align-items-center my-card2">
+        <Card.Title className="card-title box-pop-up-top">{category.name}</Card.Title>
+        <Link to={"/categories/" + category.name} className='btn-card m-3 p-1' >Ver Encuestas</Link>
       </Card.Body>
     </MyCard>
   );

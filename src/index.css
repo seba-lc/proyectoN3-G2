@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 
 :root {
+  --white: #ffffffff;
+  --fuchsia-rose: #c94277ff;
+  --jet: #302b27ff;
+  --blue-munsell: #2c8c99ff;
+  --orange-yellow-crayola: #ffd166ff;
   --red-violet-crayola: #c43a9bff;
   --maximum-yellow-red: #ffc64bff;
   --lime-green: rgb(77, 216, 72);
-  --white: #ffffffff;
   --azure: #5084e4ff;
   --letra1:'Oswald', sans-serif;
 }

@@ -3,16 +3,16 @@ import {Navbar} from 'react-bootstrap'
 import './Logo.css'
 
 const MyLogo = styled(Navbar)`
-font-family: "Permanent Marker", cursive;
-font-size: 25px;
-padding-left: 2rem;
-`;
+font-family: 'Zen Dots', cursive;
+`
 
 const Logo = () => {
     return ( 
-        <MyLogo href="#home" className="gradient-text">
-          Encuestas Rolling Code!
+      <div className="neon-box">
+        <MyLogo href="#home" className="neon-text">
+          E21i
         </MyLogo>
+        </div>
      );
 }
  

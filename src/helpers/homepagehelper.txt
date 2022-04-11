@@ -1,0 +1,66 @@
+import { Container, Row, Col } from "react-bootstrap";
+import EncuestasCards from "../EncuestasCards/EncuestasCards";
+import "./HomePage.css";
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+
+
+const HomePage = () => {
+  const [categorie, setCategorie] = useState([]);
+  useEffect(() => {
+    const getCategories = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/home");
+        const { data } = response;
+        setCategorie(data);
+      } catch (error) {
+        console.warn(error);
+      }
+    };
+    getCategories();
+  }, []);
+  console.log(categorie);
+
+  return (
+    <>
+    {
+    categories.map(categorie => {
+    <Container
+      fluid
+      className="d-flex justify-content-center align-items-center homePage-style"
+    >
+      <Row className="m-1 d-flex justify-content-center align-items-center">
+        <Col className="m-1" xs={6} md={4} lg={3}>
+          <EncuestasCards
+            key={categorie.id}
+            category={categorie.name}
+            id={categorie.id}
+            
+          />
+        </Col>
+        <Col className="m-1" xs={6} md={4} lg={3}>
+          <EncuestasCards />
+        </Col>
+        <Col className="m-1" xs={6} md={4} lg={3}>
+          <EncuestasCards />
+        </Col>
+        <Col className="m-1" xs={6} md={4} lg={3}>
+          <EncuestasCards />
+        </Col>
+        <Col className="m-1" xs={6} md={4} lg={3}>
+          <EncuestasCards />
+        </Col>
+        <Col className="m-1" xs={6} md={4} lg={3}>
+          <EncuestasCards />
+        </Col>
+      </Row>
+    </Container>;
+        }
+    )
+      }
+        </>
+    );
+};
+
+export default HomePage;

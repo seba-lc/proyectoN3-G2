@@ -1,9 +1,9 @@
 import { Form } from "react-bootstrap";
 import useForm from "../../../hooks/useForm";
 
-const FormGroupMultipleChoice = ({ question, index, edit, initialValues }) => {
+const FormGroupMultipleChoice = ({ question, index, edit, values }) => {
 
-  const { values, handleEditt } = useForm(initialValues)
+  const { handleEditt } = useForm(values)
 
   return edit == false ? (
     <Form.Group className="mb-3">
@@ -23,14 +23,6 @@ const FormGroupMultipleChoice = ({ question, index, edit, initialValues }) => {
         <Form.Control name="questions" placeholder={question.question} onChange={(e)=>handleEditt(e)}></Form.Control>
         </Form.Group>
 
-    {/*     <div>
-        <Form.Group controlId={`response`} key="1" className="mb-3"> 
-        <Form.Label><h6>Respuestas</h6></Form.Label>
-              <Form.Control name="response" onChange={(e)=>handleEditt(e)} key="1" placeholder="response" type="text"/> 
-              </Form.Group>     
-        </div> */}
-        
-          
           <div  className="mb-3">
           <Form.Label><h6>Respuestas</h6></Form.Label>
             {question.response.map((response, index) => (

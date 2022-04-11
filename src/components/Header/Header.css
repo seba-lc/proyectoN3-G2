@@ -1,0 +1,29 @@
+.header-nav{
+    background-color: transparent;
+    padding: 20px 0px;
+    position: fixed;
+    
+    top: 0;
+    width: 100vw;
+    animation: appear 1s linear alternate both;
+    animation-delay: 2s;
+}
+
+.header-nav-top{
+    background-color: transparent;
+    padding: 20px 0px;
+    position: fixed;
+    top:0;
+    width: 100vw;
+    transition: .25s;
+}
+
+.header-nav-no-top{
+    background: #25221f ;
+    padding: 20px 0px;
+    position: fixed;
+    top:0;
+    width: 100vw;
+    z-index: 1;
+    transition: .25s;
+}

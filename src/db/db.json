@@ -82,23 +82,33 @@
   "categories": [
     {
       "name": "Educacion",
-      "state": "true"
+      "id": "21",
+      "state": "true",
+      "bgColor": "--fuchsia-rose"
     },
     {
       "name": "Salud",
-      "state": "true"
+      "id": "3",
+      "state": "true",
+      "bgColor": "--maximum-yellow-red"
     },
     {
       "name": "Politica",
-      "state": "true"
+      "id": "8",
+      "state": "true",
+      "bgColor": "--lime-green"
     },
     {
       "name": "Deportes",
-      "state": "true"
+      "id": "24",
+      "state": "true",
+      "bgColor": "--azure"
     },
     {
       "name": "Animales",
-      "state": "true"
+      "id": "25",
+      "state": "true",
+      "bgColor": "--red-violet-crayola"
     }
   ]
 }
