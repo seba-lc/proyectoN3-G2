@@ -1,19 +1,26 @@
 import "./CategoriesPage.css";
 import { Container, Row, Col } from "react-bootstrap";
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import SurveysContext from "./../../context/surveys/SurveysContext";
 import EncuestasCategoria from "../EncuestasCategoria/EncuestasCategoria";
 import useGet from './../../hooks/useGet'
+import { useParams } from "react-router-dom";
 
 const CategoriesPage = ({}) => {
-
-  //const categorie = useGet('http://localhost:3004/surveys/' + category.id)
-
   const { surveys, getSurveys } = useContext(SurveysContext);
-console.log(surveys);
+  const params = useParams();
+  const [filerSurveys, setFilterSurveys] = useState([]);
+
   useEffect(() => {
     getSurveys();
   }, []);
+
+  useEffect(() => {
+    const surveysSup = surveys;
+    const filteredSurveys = surveysSup.filter(item => item.category === params.category);
+    setFilterSurveys(filteredSurveys);
+  }, [surveys])
+
 
   return (
     <Container fluid className="d-flex flex-column justify-content-center align-items-center homePage-style">
@@ -23,7 +30,7 @@ console.log(surveys);
         </Col>
       </Row>
       <Row className="m-1 d-flex  justify-content-center align-items-center">
-        {surveys.map((survey,index)=>(
+        {filerSurveys.map((survey,index)=>(
           <Col key={index}>
           <EncuestasCategoria name={survey}/>
         </Col>

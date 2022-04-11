@@ -17,7 +17,7 @@ const EncuestasCards = ({category,id}) => {
     <MyCard id={category.id} color={category.bgColor} className="mb-5 d-flex justify-content-center my-card" >
       <Card.Body className="d-flex flex-column justify-content-center align-items-center my-card2">
         <Card.Title className="card-title box-pop-up-top">{category.name}</Card.Title>
-        <Link to={"/categories/" + category.id} className='btn-card m-3 p-1' >Ver Encuestas</Link>
+        <Link to={"/categories/" + category.name} className='btn-card m-3 p-1' >Ver Encuestas</Link>
       </Card.Body>
     </MyCard>
   );
