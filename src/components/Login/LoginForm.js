@@ -16,14 +16,14 @@ const LoginFormulary = () => {
   const {login, auth} = useContext(UserContext);
     return (   <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label>Email</Form.Label>
           <Form.Control type="email" placeholder="Enter email" />
           <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
+            No compartiremos tu dirección email con nadie.
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+          <Form.Label>Contraseña</Form.Label>
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
@@ -32,7 +32,7 @@ const LoginFormulary = () => {
         <Button variant="primary" type="submit">
           Submit
         </Button>
-      </Form>  
+      </Form> 
       );
         };
  

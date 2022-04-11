@@ -2,17 +2,18 @@ import { useEffect, useState } from "react";
 
 const useForm = (initialValues, submit, validation) => {
   const [values, setValues] = useState(initialValues);
-   const [errors, setErrors] = useState({});
-  const[submitting, setSubmitting] = useState(false)
- 
-  useEffect(()=>{
-    if(submitting){
-      if(Object.keys(errors).length===0){
+  const [errors, setErrors] = useState({});
+  const [submitting, setSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (submitting) {
+      if (Object.keys(errors).length === 0) {
         submit();
       }
       setSubmitting(false);
     }
-  },[errors]) 
+  }, [errors]);
+
   const handleChange = (e) => {
     e.preventDefault();
     if (e.target.questions) {
@@ -42,25 +43,28 @@ const useForm = (initialValues, submit, validation) => {
     }
   };
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault();
     setErrors(validation(values));
     setSubmitting(true);
   };
 
-  const handleKeyUp = (e)=>{
+  const handleKeyUp = (e) => {
     setValues({
       ...values,
-      [e.target.name]: e.target.value
-    })
+      [e.target.name]: e.target.value,
+    });
   };
+  
   const handleDelete = (e) => {
     e.preventDefault();
     console.log(e);
-    let newArray = values.questions.filter((item) => item.question !== e.target.id)
+    let newArray = values.questions.filter(
+      (item) => item.question !== e.target.id
+    );
     setValues({
       ...values,
-      questions: newArray
+      questions: newArray,
     });
   };
 
@@ -72,11 +76,8 @@ const useForm = (initialValues, submit, validation) => {
     handleKeyUp,
     handleSubmit,
     values,
-    errors
+    errors,
   };
 };
 
 export default useForm;
-
-
-
