@@ -11,7 +11,7 @@ color: white;
 box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 `
 
-const EncuestasCards = ({category,id}) => {
+const EncuestasCards = ({category}) => {
 
   return (
     <MyCard id={category.id} color={category.bgColor} className="mb-5 d-flex justify-content-center my-card" >
@@ -24,3 +24,5 @@ const EncuestasCards = ({category,id}) => {
 };
 
 export default EncuestasCards;
+
+//category.categoryName.substring(0,1) + category.categoryName.substring(1).toLowerCase()

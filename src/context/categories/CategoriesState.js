@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useReducer } from "react";
+import axiosClient from "../../config/axiosClient";
 import { URL_CATEGORIES } from "../../constants";
 import { ERROR_CATEGORIES, GET_CATEGORIES } from "../../types";
 import CategoriesContext from "./CategoriesContext";
@@ -14,7 +15,7 @@ const CategoriesState = ({children}) => {
 
     const getCategories = async ()=>{
         try {
-            const response = await axios.get(URL_CATEGORIES)
+            const response = await axios.get(URL_CATEGORIES);
             dispatch({
                 type: GET_CATEGORIES,
                 payload: response.data
@@ -23,7 +24,6 @@ const CategoriesState = ({children}) => {
             dispatch({
                 type: ERROR_CATEGORIES
             })
-            
         }
     }
     return (
