@@ -4,11 +4,14 @@ import "./HomePage.css";
 import { useEffect, useContext } from "react";
 import CategoriesContext from "./../../context/categories/CategoriesContext";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
 
 const HomePage = () => {
   const { categories, getCategories } = useContext(CategoriesContext);
+  const { getAuth } = useContext(UserContext)
 
   useEffect(() => {
+    getAuth();
     getCategories();
   }, []);
 
