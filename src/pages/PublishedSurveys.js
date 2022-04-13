@@ -1,16 +1,15 @@
 import ContainerCards from "../components/Admin/ContainerCards/ContainerCards";
 import Navegation from "../components/Admin/Navegation/Navegation";
 import { Container } from "react-bootstrap";
-import { useLocation } from "react-router-dom";
+import { URL_SURVEYS_PUBLICADAS } from "../constants";
 
 const PublishedSurveys = () => {
     
-    const location = useLocation();
     return ( 
         <>
         <Navegation></Navegation>
         <Container>
-            <ContainerCards location={location}></ContainerCards>
+            <ContainerCards location={URL_SURVEYS_PUBLICADAS}></ContainerCards>
         </Container>
         </>
             );

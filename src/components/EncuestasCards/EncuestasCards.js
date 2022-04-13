@@ -24,3 +24,5 @@ const EncuestasCards = ({category}) => {
 };
 
 export default EncuestasCards;
+
+//category.categoryName.substring(0,1) + category.categoryName.substring(1).toLowerCase()
