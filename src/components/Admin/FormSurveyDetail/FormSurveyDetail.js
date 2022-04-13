@@ -2,7 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { URL_SURVEYS } from "../../../constants";
 import SurveysContext from "../../../context/surveys/SurveysContext";
-import { Row, Col, Container, Form, FormControl } from "react-bootstrap";
+import CategoriesContext from "../../../context/categories/CategoriesContext";
+import { Container, Form, FormControl } from "react-bootstrap";
 import useForm from "../../../hooks/useForm";
 import { Button } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -15,38 +16,32 @@ import "./FormSurveyDetail.css";
 
 const FormSurveyDetail = () => {
   const { surveys, getSurveys, deleteSurveys } = useContext(SurveysContext);
+  const { categories, getCategories } = useContext(CategoriesContext);
   const params = useParams();
 
   useEffect(() => {
     getSurveys(URL_SURVEYS + params.id);
+    getCategories();
   }, []);
 
-  /* let initialValues = {
-    name: surveys.name,
-    state: surveys.state,
-    questions: surveys.questions,
-    category: surveys.category,
-  }; */
- const initialValues = {
+  const initialValues = {
     name: "",
     state: "",
     questions: [],
     category: "",
   };
-  //Object.assign({}, surveys)
-  //console.log(editValues);
-  //console.log(surveys.questions[1]);
-  const { values, edit, handleEdit, handleEditt } = useForm(initialValues);
+
+  const { values, admin, handleAdmin, handleEdit } = useForm(initialValues);
   const navigate = useNavigate();
   const location = useLocation();
 
-  return edit == false && location.pathname != "/admin" ? (
+  return admin == false? (
     <>
       <p>user</p>
     </>
   ) : (
     <Container>
-      <Form onSubmit={(e) => handleEditt(e)}>
+      <Form onSubmit={(e) => handleEdit(e)}>
         <div className="borderM p-4">
           <div className="d-flex justify-content-end">
             <Button
@@ -65,41 +60,46 @@ const FormSurveyDetail = () => {
           </div>
 
           <div>
-            <Form.Group controlId="name">
+            <Form.Group>
               <Form.Label>
                 <h5>Titulo</h5>
               </Form.Label>
               <Form.Control
-                onKeyUp={(e) => handleEditt(e, surveys)}
+                onChange={(e) => handleEdit(e, surveys)}
                 name="name"
                 placeholder={surveys.name}
                 type="text"
               ></Form.Control>
             </Form.Group>
-            <Form.Group controlId="category">
+          </div>
+          <div>
+            <Form.Group className="mb-3">
               <Form.Label>
                 <h5>Categoria</h5>
               </Form.Label>
-              <Form.Control
-                onKeyUp={(e) => handleEditt(e, surveys)}
-                name="category"
-                placeholder={surveys.category}
+              <Form.Select
                 type="text"
-              ></Form.Control>
+                name="category"
+                onChange={(e) => handleEdit(e, surveys)}
+              >
+                <option>{surveys.category}</option>
+                {categories?.map((category, index) => (
+                  <option key={index}>{category.name}</option>
+                ))}
+              </Form.Select>
             </Form.Group>
           </div>
 
           {surveys.questions?.map((question, index) =>
             question.response.length > 1 ? (
               <div key={`questions${index}`} className="mb-3">
-                <Form.Group  controlId={index} className="mb-3">
+                <Form.Group controlId={index} className="mb-3">
                   <Form.Label>
                     <h5>Multiple Choice</h5>
                   </Form.Label>
                   <Form.Control
-                    
                     name="questions"
-                    onKeyUp={(e) => handleEditt(e, surveys)}
+                    onChange={(e) => handleEdit(e, surveys)}
                     placeholder={question.question}
                     type="text"
                   ></Form.Control>
@@ -109,11 +109,14 @@ const FormSurveyDetail = () => {
                   <h6>Respuestas</h6>
                 </Form.Label>
                 {question.response.map((response, index) => (
-                  <Form.Group key={`response${index}`} controlId={index} className="mb-3">
+                  <Form.Group
+                    key={`response${index}`}
+                    controlId={index}
+                    className="mb-3"
+                  >
                     <Form.Control
-                      
                       name="response"
-                      onKeyUp={(e) => handleEditt(e, surveys)}
+                      onChange={(e) => handleEdit(e, surveys)}
                       placeholder={response}
                       type="text"
                     />
@@ -121,17 +124,24 @@ const FormSurveyDetail = () => {
                 ))}
               </div>
             ) : question.response.length == 1 ? (
-              <Form.Group key={`image${index}`} controlId={index} className="mb-3">
-                <Form.Control  label="Pregunta imagen" type="text" />
+              <Form.Group
+                key={`image${index}`}
+                controlId={index}
+                className="mb-3"
+              >
+                <Form.Control label="Pregunta imagen" type="text" />
               </Form.Group>
             ) : (
-              <Form.Group key={`questions${index}`} controlId={index} className="mb-3">
+              <Form.Group
+                key={`questions${index}`}
+                controlId={index}
+                className="mb-3"
+              >
                 <Form.Label>
                   <h5>Pregunta Simple</h5>
                 </Form.Label>
                 <FormControl
-                  
-                  onKeyUp={(e) => handleEditt(e, surveys)}
+                  onChange={(e) => handleEdit(e, surveys)}
                   name="questions"
                   placeholder={question.question}
                   type="text"

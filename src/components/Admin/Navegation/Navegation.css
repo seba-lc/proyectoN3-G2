@@ -1,3 +1,5 @@
 .navegation{
     font-family: var(--letra1);
+    z-index: 200;
+    
 }

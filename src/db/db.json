@@ -77,37 +77,70 @@
       ],
       "category": "",
       "id": 2
+    },
+    {
+      "name": "cas",
+      "state": false,
+      "questions": [
+        {
+          "question": "Quien gana?",
+          "response": []
+        }
+      ],
+      "category": "Deportes",
+      "id": 3
+    },
+    {
+      "name": "asdasd",
+      "state": false,
+      "questions": [
+        {
+          "question": "sacas",
+          "response": []
+        },
+        {
+          "question": "sac",
+          "response": [
+            "asdg",
+            "adfg",
+            "dfg",
+            "dg"
+          ]
+        }
+      ],
+      "category": "Deportes",
+      "id": 4
     }
   ],
   "categories": [
     {
-      "name": "Educacion",
+      "name": "Educación",
       "id": "21",
-      "state": "true",
+      "state": true,
       "bgColor": "--fuchsia-rose"
     },
     {
       "name": "Salud",
       "id": "3",
-      "state": "true",
+      "state": true,
       "bgColor": "--maximum-yellow-red"
     },
     {
       "name": "Politica",
       "id": "8",
-      "state": "true",
+      "state": true,
       "bgColor": "--lime-green"
     },
     {
       "name": "Deportes",
       "id": "24",
-      "state": "true",
+      "state": true,
       "bgColor": "--azure"
     },
     {
       "name": "Animales",
       "id": "25",
-      "state": "true",
+      "state": true,
       "bgColor": "--red-violet-crayola"
     }
   ]

@@ -13,6 +13,7 @@ import PublishedSurveys from './pages/PublishedSurveys';
 import SurveyDetail from './pages/SurveyDetail';
 import Categories from './pages/Categories';
 import UserProvider from "./context/UserContext";
+import EditCategories from './pages/EditCategories';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route path='/pendingsurveys' element={<PendingSurveys/>}/>
           <Route path='/publishedsurveys' element={<PublishedSurveys/>}/>
           <Route path='/surveydetail/:id' element={<SurveyDetail/>}/>
+          <Route path='/editcategories' element={<EditCategories/>}/>
         </Routes>
       </Layout>
       </CategoriesState>

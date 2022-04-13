@@ -5,8 +5,13 @@ h5, h6{
     border-style:double;
     border-color: var(--blue-munsell);
 }
+select[type="text"] {
+    margin-left: 5%;
+    width: 70%;
+    
+}
 input[type="text"] {
-    margin-left: 2%;
-    width: 75%;
+    margin-left: 5%;
+    width: 70%;
     
 }

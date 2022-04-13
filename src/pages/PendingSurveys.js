@@ -2,12 +2,13 @@ import { Container } from "react-bootstrap";
 import Navegation from "../components/Admin/Navegation/Navegation";
 import ContainerCards from "../components/Admin/ContainerCards/ContainerCards";
 import { URL_SURVEYS_PENDIENTES } from "../constants";
+import useForm from "../hooks/useForm";
 
 const PendingSurveys = () => {
-
+    const {admin} = useForm()
     return ( 
         <>
-        <Navegation></Navegation>
+        {admin?(<Navegation/>):(null)}
         <Container>
             <ContainerCards location={URL_SURVEYS_PENDIENTES}></ContainerCards>
         </Container>

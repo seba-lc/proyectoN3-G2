@@ -2,7 +2,7 @@ import axios from "axios";
 import { useReducer } from "react";
 import axiosClient from "../../config/axiosClient";
 import { URL_CATEGORIES } from "../../constants";
-import { ERROR_CATEGORIES, GET_CATEGORIES } from "../../types";
+import { ADD_CATEGORIES, DELETE_CATEGORIES, ERROR_CATEGORIES, GET_CATEGORIES } from "../../types";
 import CategoriesContext from "./CategoriesContext";
 import CategoriesReducer from "./CategoriesReducer";
 
@@ -26,6 +26,36 @@ const CategoriesState = ({children}) => {
             })
         }
     }
+
+    const deleteCategories = async(id)=>{
+        try {
+          await axios.delete(URL_CATEGORIES+id)
+          dispatch({
+            type: DELETE_CATEGORIES,
+            payload: id
+          })
+        } catch (error) {
+          dispatch({
+            type: ERROR_CATEGORIES
+          })
+          
+        }
+      }
+
+      const addCategories = async(data)=>{
+        try {
+          await axios.post(URL_CATEGORIES, data)
+          dispatch({
+            type: ADD_CATEGORIES,
+            payload: data
+          })
+        } catch (error) {
+          dispatch({
+            type: ERROR_CATEGORIES
+          })
+        }
+      }
+
     return (
         <CategoriesContext.Provider value={{
             categories: state.categories,
