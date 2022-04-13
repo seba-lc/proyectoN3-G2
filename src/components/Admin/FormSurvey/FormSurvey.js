@@ -21,7 +21,10 @@ const FormSurvey = () => {
   const initialValues = {
     name: "",
     state: false,
-    questions: [],
+    questions: {
+      question: "",
+      response: []
+    },
     category: "",
   };
 
