@@ -4,6 +4,7 @@ import { URL_SURVEYS } from "../../constants";
 import { ADD_SURVEYS, DELETE_SURVEYS, ERROR_SURVEYS, GET_SURVEYS, UPDATE_SURVEYS } from "../../types";
 import SurveysReducer from "./SurveysReducer";
 import SurveysContext from "./SurveysContext";
+import axiosClient from "../../config/axiosClient";
 
 const SurveysState = ({children}) => {
 
@@ -14,9 +15,9 @@ const SurveysState = ({children}) => {
 
   const [state, dispatch] = useReducer(SurveysReducer, initialState);
 
-  const getSurveys = async(URL) =>{
+  const getSurveys = async(category) =>{
     try {
-      const response = await axios.get(URL);
+      const response = await axiosClient.get(`/surveys/${category}`);
       dispatch({
         type:GET_SURVEYS,
         payload:response.data

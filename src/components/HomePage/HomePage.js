@@ -11,7 +11,9 @@ const HomePage = () => {
   const { getAuth } = useContext(UserContext)
 
   useEffect(() => {
-    getAuth();
+    if(localStorage.getItem('token') !== null){
+      getAuth();
+    }
     getCategories();
   }, []);
 

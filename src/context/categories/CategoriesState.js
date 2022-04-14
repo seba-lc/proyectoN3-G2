@@ -16,7 +16,6 @@ const CategoriesState = ({children}) => {
     const getCategories = async ()=>{
         try {
             const response = await axiosClient.get('/category');
-
             dispatch({
                 type: GET_CATEGORIES,
                 payload: response.data
