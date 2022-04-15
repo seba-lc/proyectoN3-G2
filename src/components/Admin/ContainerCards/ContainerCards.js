@@ -13,7 +13,7 @@ const ContainerCards = ({ location }) => {
   }, []);
 
   return (
-    <Row>
+    <Row className="pt-5">
       {surveys?.map((survey, index) => (
         <Col lg="3" key={index}>
           <SurveysCards

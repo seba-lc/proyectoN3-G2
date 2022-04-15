@@ -11,6 +11,7 @@ const UserProvider = ({children})=>{
   const login = async (values)=>{ //revisar como vienen los values
     try {
       const {data} = await axiosClient.post('/users', values);
+
       setToken(data.id);
       setAuth(true);
       localStorage.setItem('token', data.id);
