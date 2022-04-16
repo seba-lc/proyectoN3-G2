@@ -24,9 +24,6 @@ const Footer = () => {
               <h5>+54 381-652548</h5>
             </Col>
           </Row>
-          <Row>
-            <Col></Col>
-          </Row>
         </Container>
       </div>
   );
