@@ -11,16 +11,18 @@ color: white;
 box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 `
 
-const EncuestasCards = ({category,id}) => {
+const EncuestasCards = ({category}) => {
 
   return (
-    <MyCard id={category.id} color={category.bgColor} className="mb-5 d-flex justify-content-center my-card" >
+    <MyCard id={category._id} color={category.bgColor} className="mb-5 d-flex justify-content-center my-card" >
       <Card.Body className="d-flex flex-column justify-content-center align-items-center my-card2">
-        <Card.Title className="card-title box-pop-up-top">{category.name}</Card.Title>
-        <Link to={"/categories/" + category.name} className='btn-card m-3 p-1' >Ver Encuestas</Link>
+        <Card.Title className="card-title box-pop-up-top">{category.categoryName.substring(0,1) + category.categoryName.substring(1).toLowerCase()}</Card.Title>
+        <Link to={"/categories/" + category.categoryName.substring(0,1) + category.categoryName.substring(1).toLowerCase()} className='btn-card m-3 p-1' >Ver Encuestas</Link>
       </Card.Body>
     </MyCard>
   );
 };
 
 export default EncuestasCards;
+
+//category.categoryName.substring(0,1) + category.categoryName.substring(1).toLowerCase()

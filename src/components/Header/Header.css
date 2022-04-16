@@ -6,6 +6,7 @@
     width: 100vw;
     animation: appear 1s linear alternate both;
     animation-delay: 2s;
+    z-index: 10 !important;
 }
 
 .header-nav-top{
@@ -15,6 +16,7 @@
     top:0;
     width: 100vw;
     transition: .25s;
+    z-index: 10 !important;
 }
 
 .header-nav-no-top{
