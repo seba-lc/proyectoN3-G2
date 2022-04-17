@@ -1,15 +1,22 @@
 .register-style{
   padding-top: 80px;
-  background-color: white;
-  height: 100vh;
+  background-color: var(--jet);
+  width: 100vw;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
 }
 
 .register-box{
+  margin-top: 8rem;
+  margin-bottom: 8rem;
   border-radius: 30px;
+  box-shadow: 0 0 5px white, 0 0 10px #2c8c99ff, 0 0 20px #2c8c99ff, 0 0 30px #2c8c99ff, 0 0 80px #2c8c99ff,
+  inset 0 0 5px white, inset 0 0 10px #2c8c99ff, inset 0 0 20px #2c8c99ff, inset 0 0 80px #2c8c99ff;
 }
+
 
 .success-submit{
   position: absolute !important;

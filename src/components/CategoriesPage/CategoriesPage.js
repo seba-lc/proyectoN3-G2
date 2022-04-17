@@ -10,6 +10,7 @@ const CategoriesPage = ({}) => {
   const { surveys, getSurveys } = useContext(SurveysContext);
   const params = useParams();
   const [filterSurveys, setFilterSurveys] = useState([]);
+  
 
   useEffect(() => {
     getSurveys(params.category.toLowerCase());
@@ -21,11 +22,13 @@ const CategoriesPage = ({}) => {
 
 
   return (
-    <Container fluid className="d-flex flex-column justify-content-center align-items-center homePage-style">
+    <Container className="d-flex flex-column justify-content-center align-items-center container polls-box">
       <Row>
-        <Col>
-          <h3 className="pb-3 text-light">Encuestas de {params.category}</h3>
+
+        <Col className="pb-3 text-light">
+          <h3>Encuestas de {params.category}</h3>
         </Col>
+         
       </Row>
       <Row className="m-1 d-flex  justify-content-center align-items-center">
         {

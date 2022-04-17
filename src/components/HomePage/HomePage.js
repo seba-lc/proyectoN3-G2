@@ -19,13 +19,12 @@ const HomePage = () => {
 
   return (
     <Container
-      fluid
       className="d-flex flex-column justify-content-center align-items-center homePage-style"
     >
-      <Row className="flicker-1">
-        <Col className="title-box">
-          <h1>Encuestas Rolling Code</h1>
-        </Col>
+      <Row className="d-flex flex-column justify-content-center align-items-center flicker-1">
+        <Col className="title-box" xs={12} md={12} lg={12}>
+          <h1 className="titulo">Encuestas Rolling Code</h1>
+        </Col> 
       </Row>
       <Row className="m-1 d-flex  justify-content-center align-items-center">
         {categories.map((category, index) => (
@@ -35,8 +34,8 @@ const HomePage = () => {
         ))}
       </Row>
       <Row>
-        <Col className="main_div">
-          <Button className="glow-on-hover border-none">Crear Encuesta</Button>
+        <Col className="">
+          <Button className="glow-on-hover home-boton">Crear Encuesta</Button>
         </Col>
       </Row>
     </Container>

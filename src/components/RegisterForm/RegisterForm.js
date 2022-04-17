@@ -1,16 +1,10 @@
 import { Form, Button} from "react-bootstrap";
 import { Alert } from 'react-bootstrap';
-import useForm from '../../hooks/useForm';
-import { UserContext } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import useGet from '../../hooks/useGet';
-import { URL_USERS } from '../../constants'
 import { useState } from "react";
 import { validationRegister } from "../../helpers/Validations";
 import axiosClient from "../../config/axiosClient";
 import Spinner from "../Spinner/Spinner";
-
 
 
 const RegisterFormulary= () => {
@@ -66,7 +60,7 @@ const RegisterFormulary= () => {
       }
       <Form.Group className="mb-3 mx-5" controlId="formName">
         <Form.Label className="mt-5">Nombre</Form.Label>
-        <Form.Control name="name" type="text" placeholder="Ingresá tu nombre" onKeyUp={handleKeyUp} />
+        <Form.Control name="name" type="name" placeholder="Ingresá tu nombre" onKeyUp={handleKeyUp} />
       </Form.Group>
       <Form.Group className="mb-3 mx-5" controlId="formEmail">
         <Form.Label>Email</Form.Label>
@@ -90,7 +84,7 @@ const RegisterFormulary= () => {
         )
       }
 
-      <Button variant="primary" type="submit" className="mb-5 mx-5">
+      <Button type="submit" className="mb-5 mx-5 glow-on-hover">
         Registrarme
       </Button>
     </Form>
