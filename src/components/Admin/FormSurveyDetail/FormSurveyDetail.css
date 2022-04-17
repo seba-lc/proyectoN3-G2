@@ -1,0 +1,12 @@
+h5, h6{
+ color: var(--blue-munsell);
+}
+.borderM{
+    border-style:double;
+    border-color: var(--blue-munsell);
+}
+input[type="text"] {
+    margin-left: 2%;
+    width: 75%;
+    
+}

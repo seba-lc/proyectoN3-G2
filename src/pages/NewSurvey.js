@@ -7,7 +7,7 @@ const NewSurvey = () => {
   return (
     <>
       <Navegation></Navegation>
-      <h2 className="mt-3 text-center">Nueva Encuesta</h2>
+      <h2 className="mt-3 text-center">Crear Encuesta</h2>
       <Container className="d-flex flex-column w-50 p-4">
         <FormSurvey/>
       </Container>

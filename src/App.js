@@ -10,8 +10,11 @@ import PendingSurveys from './pages/PendingSurveys';
 import SurveysState from './context/surveys/SurveysState';
 import CategoriesState from './context/categories/CategoriesState';
 import PublishedSurveys from './pages/PublishedSurveys';
+import SurveyDetail from './pages/SurveyDetail';
 import Categories from './pages/Categories';
 import UserProvider from "./context/UserContext";
+import Error404 from './pages/Error404';
+import Landing from './pages/Landing';
 
 
 function App() {
@@ -22,8 +25,9 @@ function App() {
       <CategoriesState>
       <Layout>
         <Routes>
-          <Route path='*' element={<Home />} />
-          <Route path='/' element={<Home />} />
+          <Route path='*' element={<Landing />} />
+          <Route path='/' element={<Landing />} />
+          <Route path='/home' element={<Home/>}/>
           <Route path='/categories/:category' element={<Categories/>}/>
           <Route path='/admin' element={<Admin />} />
           <Route path='/Register' element={<Register />} />
@@ -31,6 +35,8 @@ function App() {
           <Route path='/newsurvey' element={<NewSurvey/>}/>
           <Route path='/pendingsurveys' element={<PendingSurveys/>}/>
           <Route path='/publishedsurveys' element={<PublishedSurveys/>}/>
+          <Route path='/surveydetail/:id' element={<SurveyDetail/>}/>
+          <Route path='/error404' element={<Error404/>}/>
         </Routes>
       </Layout>
       </CategoriesState>

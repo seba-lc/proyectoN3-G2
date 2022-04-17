@@ -9,33 +9,33 @@ import { useParams } from "react-router-dom";
 const CategoriesPage = ({}) => {
   const { surveys, getSurveys } = useContext(SurveysContext);
   const params = useParams();
-  const [filerSurveys, setFilterSurveys] = useState([]);
+  const [filterSurveys, setFilterSurveys] = useState([]);
+  
 
   useEffect(() => {
-    getSurveys();
+    getSurveys(params.category.toLowerCase());
   }, []);
 
   useEffect(() => {
-    const surveysSup = surveys;
-    const filteredSurveys = surveysSup.filter(item => item.category === params.category);
-    setFilterSurveys(filteredSurveys);
+    setFilterSurveys(surveys);
   }, [surveys])
 
 
   return (
-    <Container fluid className="d-flex flex-column justify-content-center align-items-center homePage-style">
+    <Container className="d-flex flex-column justify-content-center align-items-center container polls-box">
       <Row>
-        <Col>
-          <h3 className="pb-3">titulo</h3>
+
+        <Col className="pb-3 text-light">
+          <h3>Encuestas de {params.category}</h3>
         </Col>
+         
       </Row>
       <Row className="m-1 d-flex  justify-content-center align-items-center">
-        {filerSurveys.map((survey,index)=>(
-          <Col key={index}>
-          <EncuestasCategoria name={survey}/>
-        </Col>
-        ))}
-        
+        {
+          filterSurveys.length !== 0 ? (
+            filterSurveys.map((item, index)=> <EncuestasCategoria key={index} filterSurvey={item} />)
+          ) : <div className="d-flex justify-content-center bg-light border px-5 py-2 m-2">Al momento no hay encuestas disponibles en esta categoría</div>
+        }
       </Row>
     </Container>
   );

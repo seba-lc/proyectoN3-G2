@@ -1,6 +1,5 @@
 import "./Header.css";
 import { Navbar, Container, Nav } from "react-bootstrap";
-import styled from "styled-components";
 import Logo from "../Logo/Logo";
 import {Link} from "react-router-dom"; 
 import { useEffect, useContext, useState } from "react";
@@ -40,13 +39,12 @@ const Header = () => {
     })
   },[]);
 
-
-
-
   return (
     <Navbar collapseOnSelect expand="lg" variant="dark" className={headerClass}>
       <Container>
-      <Logo/>
+        <Link to="/landing" className="logo-nav">
+        <Logo />
+        </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav ms-auto" />
         <Navbar.Collapse id="responsive-navbar-nav ">
         {user ? user.role ==='ADMIN'?(
@@ -67,9 +65,11 @@ const Header = () => {
             </>
         ) :(
           <Nav className="ms-auto">
+            <hr />
                 <Link to="/Login" className="nav-link">
                 Iniciar sesión
                 </Link>
+                <hr />
                 <Link className="nav-link" to='/Register'>
                   Registrarse
                 </Link>

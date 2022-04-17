@@ -1,0 +1,431 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100&display=swap');
+
+
+.errorPage-style{
+    width: 100vw;
+    height: auto;
+    
+}
+
+.error-title{
+  font-size: 4rem;
+  margin-top: 10rem;
+    font-family: 'Rubik Glitch', cursive;
+    color: white;
+    text-shadow: 0 0 5px white, 0 0 10px rgb(178, 17, 17), 0 0 20px rgb(178, 17, 17), 0 0 30px rgb(178, 17, 17), 0 0 40px rgb(178, 17, 17),
+    0 0 70px rgb(178, 17, 17), 0 0 80px rgb(178, 17, 17), 0 0 100px rgb(178, 17, 17);
+    margin-bottom: 2rem;
+}
+
+.frase-error{
+    font-size: 1.5rem;
+    color:rgb(255, 254, 254);
+    text-shadow: 2px 2px 4px #000000;
+    
+}
+
+.flicker-4 {
+	-webkit-animation: flicker-4 4s linear infinite both;
+	        animation: flicker-4 4s linear infinite both;
+}
+
+.error-group{
+  margin-bottom: 5rem;
+  width: 25rem;  
+}
+
+.text-flicker-out-glow {
+	-webkit-animation: text-flicker-out-glow 2.5s linear both;
+	        animation: text-flicker-out-glow 2.5s linear both;
+}
+
+@-webkit-keyframes text-flicker-out-glow {
+    0% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.45), 0 0 110px rgba(255, 255, 255, 0.25), 0 0 100px rgba(255, 255, 255, 0.1);
+    }
+    13.9% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.45), 0 0 110px rgba(255, 255, 255, 0.25), 0 0 100px rgba(255, 255, 255, 0.1);
+    }
+    14% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    14.9% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    15% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.4), 0 0 110px rgba(255, 255, 255, 0.2), 0 0 100px rgba(255, 255, 255, 0.1);
+    }
+    22.9% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.4), 0 0 110px rgba(255, 255, 255, 0.2), 0 0 100px rgba(255, 255, 255, 0.1);
+    }
+    23% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    24.9% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    25% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.35), 0 0 100px rgba(255, 255, 255, 0.1);
+    }
+    34.9% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.35), 0 0 100px rgba(255, 255, 255, 0.1);
+    }
+    35% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    39.9% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    40% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.35);
+    }
+    42.9% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.35);
+    }
+    43% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    44.9% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    45% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(255, 255, 255, 0.25);
+    }
+    50% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(255, 255, 255, 0.25);
+    }
+    54.9% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(255, 255, 255, 0.25);
+    }
+    55% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    69.4% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    69.5% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(255, 255, 255, 0.25);
+    }
+    69.9% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(255, 255, 255, 0.25);
+    }
+    70% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    79.4% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    79.9% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
+    }
+    80% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    89.8% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    89.9% {
+      opacity: 1;
+      text-shadow: none;
+    }
+    90% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes text-flicker-out-glow {
+    0% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.45), 0 0 110px rgba(255, 255, 255, 0.25), 0 0 100px rgba(255, 255, 255, 0.1);
+    }
+    13.9% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.45), 0 0 110px rgba(255, 255, 255, 0.25), 0 0 100px rgba(255, 255, 255, 0.1);
+    }
+    14% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    14.9% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    15% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.4), 0 0 110px rgba(255, 255, 255, 0.2), 0 0 100px rgba(255, 255, 255, 0.1);
+    }
+    22.9% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.4), 0 0 110px rgba(255, 255, 255, 0.2), 0 0 100px rgba(255, 255, 255, 0.1);
+    }
+    23% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    24.9% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    25% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.35), 0 0 100px rgba(255, 255, 255, 0.1);
+    }
+    34.9% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.35), 0 0 100px rgba(255, 255, 255, 0.1);
+    }
+    35% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    39.9% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    40% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.35);
+    }
+    42.9% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.35);
+    }
+    43% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    44.9% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    45% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(255, 255, 255, 0.25);
+    }
+    50% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(255, 255, 255, 0.25);
+    }
+    54.9% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(255, 255, 255, 0.25);
+    }
+    55% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    69.4% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    69.5% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(255, 255, 255, 0.25);
+    }
+    69.9% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(255, 255, 255, 0.25);
+    }
+    70% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    79.4% {
+      opacity: 0;
+      text-shadow: none;
+    }
+    79.9% {
+      opacity: 1;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
+    }
+}
+  
+@-webkit-keyframes flicker-4 {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    31.98% {
+      opacity: 1;
+    }
+    32% {
+      opacity: 0;
+    }
+    32.8% {
+      opacity: 0;
+    }
+    32.82% {
+      opacity: 1;
+    }
+    34.98% {
+      opacity: 1;
+    }
+    35% {
+      opacity: 0;
+    }
+    35.7% {
+      opacity: 0;
+    }
+    35.72% {
+      opacity: 1;
+    }
+    36.98% {
+      opacity: 1;
+    }
+    37% {
+      opacity: 0;
+    }
+    37.6% {
+      opacity: 0;
+    }
+    37.62% {
+      opacity: 1;
+    }
+    67.98% {
+      opacity: 1;
+    }
+    68% {
+      opacity: 0;
+    }
+    68.4% {
+      opacity: 0;
+    }
+    68.42% {
+      opacity: 1;
+    }
+    95.98% {
+      opacity: 1;
+    }
+    96% {
+      opacity: 0;
+    }
+    96.7% {
+      opacity: 0;
+    }
+    96.72% {
+      opacity: 1;
+    }
+    98.98% {
+      opacity: 1;
+    }
+    99% {
+      opacity: 0;
+    }
+    99.6% {
+      opacity: 0;
+    }
+    99.62% {
+      opacity: 1;
+    }
+  }
+  @keyframes flicker-4 {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    31.98% {
+      opacity: 1;
+    }
+    32% {
+      opacity: 0;
+    }
+    32.8% {
+      opacity: 0;
+    }
+    32.82% {
+      opacity: 1;
+    }
+    34.98% {
+      opacity: 1;
+    }
+    35% {
+      opacity: 0;
+    }
+    35.7% {
+      opacity: 0;
+    }
+    35.72% {
+      opacity: 1;
+    }
+    36.98% {
+      opacity: 1;
+    }
+    37% {
+      opacity: 0;
+    }
+    37.6% {
+      opacity: 0;
+    }
+    37.62% {
+      opacity: 1;
+    }
+    67.98% {
+      opacity: 1;
+    }
+    68% {
+      opacity: 0;
+    }
+    68.4% {
+      opacity: 0;
+    }
+    68.42% {
+      opacity: 1;
+    }
+    95.98% {
+      opacity: 1;
+    }
+    96% {
+      opacity: 0;
+    }
+    96.7% {
+      opacity: 0;
+    }
+    96.72% {
+      opacity: 1;
+    }
+    98.98% {
+      opacity: 1;
+    }
+    99% {
+      opacity: 0;
+    }
+    99.6% {
+      opacity: 0;
+    }
+    99.62% {
+      opacity: 1;
+    }
+  }
+  

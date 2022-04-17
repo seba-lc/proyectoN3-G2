@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
 
 .homePage-style{
-  margin-top: 9rem;
-  margin-bottom: 9rem;
-  max-height: 100vh;
+  width: 100vw;
+  height: auto;
+  text-align: center;
 }
 
 body{
@@ -12,20 +12,24 @@ body{
 
 .title-box{
   border: solid white;
-  margin-top: 4rem;
+  margin-top:15rem;
   margin-bottom: 7rem;
   border-radius: 15px;
   box-shadow: 0 0 5px white, 0 0 10px #81249A, 0 0 20px #81249A, 0 0 30px #81249A, 0 0 80px #81249A,
   inset 0 0 5px white, inset 0 0 10px #81249A, inset 0 0 20px #81249A, inset 0 0 80px #81249A;
 }
 
-h1{
+.titulo{
   font-family: 'Yellowtail', cursive;
   color: white;
-  padding: 4rem;
+  padding: 3rem;
   font-size: 4rem;
   text-shadow:0 0 5px white, 0 0 10px #81249A, 0 0 20px #81249A, 0 0 30px #81249A, 0 0 40px #81249A,
   0 0 70px #81249A, 0 0 80px #81249A, 0 0 100px #81249A;
+}
+
+.home-boton{
+  margin-bottom: 10rem;
 }
 
 .glow-on-hover {
@@ -39,6 +43,10 @@ h1{
   position: relative;
   z-index: 0;
   border-radius: 10px;
+}
+
+.glow-on-hover:hover{
+  color:white;
 }
 
 .glow-on-hover:before {
@@ -87,10 +95,6 @@ h1{
   50% { background-position: 400% 0; }
   100% { background-position: 0 0; }
 }
-
-
-
- 
 
 .flicker-1 {
 	-webkit-animation: flicker-1 2s linear infinite both;
@@ -157,3 +161,4 @@ h1{
     opacity: 1;
   }
 }
+

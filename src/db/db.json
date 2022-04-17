@@ -24,110 +24,59 @@
   ],
   "surveys": [
     {
-      "name": "Lo mejor de tu día?",
-      "state": false,
-      "questions": {
-        "question": "Cafe o Mate",
-        "response": ""
-      },
-      "category": "Salud",
-      "id": 3
-    },
-    {
-      "name": "Guerra Ucrania - Rusia",
+      "name": "Mundial Qatar 2022",
       "state": false,
       "questions": [
         {
-          "question": "Quien gana?",
-          "response": ""
-        },
-        {
-          "question": "Quien tiene la razón?",
-          "response": ""
-        },
-        {
-          "question": "Quien quieres que gane?",
-          "response": ""
-        }
-      ],
-      "category": "Politica",
-      "id": 4
-    },
-    {
-      "name": "Guerra Ucrania - Rusia",
-      "state": false,
-      "questions": [
-        {
-          "question": "Quien gana?",
-          "response": ""
-        },
-        {
-          "question": "Quien tiene la razón?",
-          "response": ""
-        },
-        {
-          "question": "Quien quieres que gane?",
-          "response": ""
-        }
-      ],
-      "category": "Politica",
-      "id": 5
-    },
-    {
-      "name": "Guerra Ucrania - Rusia",
-      "state": false,
-      "questions": [
-        {
-          "question": "Quien gana?",
+          "question": "Quien será el campeón?",
           "response": []
         },
         {
-          "question": "Quien tiene la razón?",
-          "response": []
+          "question": "Quien será el goleador?",
+          "response": [
+            "Messi",
+            "Cristiano",
+            "Mbappe",
+            "Kane"
+          ]
         },
         {
           "question": "Quien quieres que gane?",
           "response": []
-        }
-      ],
-      "category": "Politica",
-      "id": 6
-    },
-    {
-      "name": "Guerra Ucrania - Rusia",
-      "state": false,
-      "questions": [
+        },
         {
-          "question": "sdf",
-          "response": []
-        }
-      ],
-      "category": "Politica",
-      "id": 7
-    },
-    {
-      "name": "Guerra Ucrania - Rusia",
-      "state": false,
-      "questions": [
-        {
-          "question": "sdf",
-          "response": []
-        }
-      ],
-      "category": "Politica",
-      "id": 8
-    },
-    {
-      "name": "Carlos Mocsary",
-      "state": false,
-      "questions": [
-        {
-          "question": "casa",
-          "response": []
+          "question": "Quien será la sorpresa del mundial?",
+          "response": [
+            "Dinamarca",
+            "Senegal",
+            "Canadá",
+            "Gales"
+          ]
         }
       ],
       "category": "Deportes",
-      "id": 9
+      "id": 1
+    },
+    {
+      "name": "prueba",
+      "state": false,
+      "questions": [
+        {
+          "question": "pregunta 1",
+          "response": []
+        },
+        {
+          "question": "pregunta 2",
+          "response": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ]
+        }
+      ],
+      "category": "",
+      "id": 2
     }
   ],
   "categories": [

@@ -1,0 +1,11 @@
+.polls-box{
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+    position: relative;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 0 5px white, 0 0 10px var(--other-green), 0 0 20px var(--other-green), 0 0 30px var(--other-green), 0 0 80px var(--other-green),
+    inset 0 0 5px white, inset 0 0 10px var(--other-green), inset 0 0 20px var(--other-green), inset 0 0 80px var(--other-green);
+}
+

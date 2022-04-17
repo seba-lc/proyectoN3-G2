@@ -1,20 +1,10 @@
 import "./EncuestasCategoria.css";
-import { Card, ListGroup, Container } from "react-bootstrap";
-import { useEffect } from "react";
 
-const EncuestasCategoria = ({name}) => {
-  
-  useEffect(() => {
-    console.log(name);
-  }, [])
+const EncuestasCategoria = ({filterSurvey}) => {
   return (
-    <Container className="m-5 d-flex flex-column justify-content-center align-items-center">
-      <Card fluid>
-        <ListGroup variant="flush">
-          <ListGroup.Item action></ListGroup.Item>
-        </ListGroup>
-      </Card>
-    </Container>
+   
+    <div className="d-flex justify-content-center border px-5 py-2 m-2 polls">{filterSurvey.surveyName}</div>
+   
   );
 };
 
