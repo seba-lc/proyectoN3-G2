@@ -10,7 +10,6 @@ const Admin = () => {
     <>
       {admin?(<Navegation/>):(null)}
       <Container>
-            <h2 className="mt-3 text-center">Todas las Encuestas</h2>
             <ContainerCards location={URL_SURVEYS}></ContainerCards>
       </Container>
     </>

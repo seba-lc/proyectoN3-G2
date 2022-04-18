@@ -3,10 +3,9 @@ import { useParams } from "react-router-dom";
 import { URL_SURVEYS } from "../../../constants";
 import SurveysContext from "../../../context/surveys/SurveysContext";
 import CategoriesContext from "../../../context/categories/CategoriesContext";
-import { Container, Form, FormControl } from "react-bootstrap";
+import { Container, Form, Row } from "react-bootstrap";
 import useForm from "../../../hooks/useForm";
 import { Button } from "react-bootstrap";
-import { useLocation, useNavigate } from "react-router-dom";
 import FormGroupMultipleChoice from "../FormGroupMultipleChoice/FormGroupMultipleChoice";
 import FormGroupSimpleQuestion from "../FormGroupSimpleQuestion/FormGroupSimpleQuestion";
 import FormGroupQuestionWithImage from "../FormGroupQuestionWithImage/FormGroupQuestionWithImage";
@@ -15,15 +14,6 @@ import FormGroupTitleCategory from "../FormGroupTitleCategory/FormGroupTitleCate
 import "./FormSurveyDetail.css";
 
 const FormSurveyDetail = () => {
-  const { surveys, getSurveys, deleteSurveys } = useContext(SurveysContext);
-  const { categories, getCategories } = useContext(CategoriesContext);
-  const params = useParams();
-
-  useEffect(() => {
-    getSurveys(URL_SURVEYS + params.id);
-    getCategories();
-  }, []);
-
   const initialValues = {
     name: "",
     state: "",
@@ -31,27 +21,90 @@ const FormSurveyDetail = () => {
     category: "",
   };
 
-  const { values, admin, handleAdmin, handleEdit } = useForm(initialValues);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const { getSurvey, surveySelected } = useContext(SurveysContext);
+  const { categories, getCategories } = useContext(CategoriesContext);
+  const { setValues, values, admin } = useForm(initialValues);
+  const params = useParams();
 
-  return admin == false? (
-    <>
-      <p>user</p>
-    </>
+  useEffect(() => {
+    getSurvey(URL_SURVEYS + params.id);
+    getCategories();
+    setValues(surveySelected);
+  }, []);
+
+  console.log(values);
+  console.log(surveySelected);
+
+  return admin == false ? (
+    <Container className="py-3">
+      <Row>
+        <div className="borderM p-4">
+          <FormGroupTitleCategory
+            key={surveySelected.id}
+            surveys={surveySelected}
+            values={values}
+          />
+          {surveySelected.questions?.map((question, index) =>
+            question.response.length > 1 ? (
+              <FormGroupMultipleChoice
+                key={index}
+                question={question}
+                values={values}
+              />
+            ) : question.response.length == 1 ? (
+              <FormGroupQuestionWithImage
+                key={index}
+                question={question}
+                values={values}
+              />
+            ) : (
+              <FormGroupSimpleQuestion
+                key={index}
+                question={question}
+                initialValues={initialValues}
+              />
+            )
+          )}
+          <div className="mt-5 me-5 d-flex justify-content-end">
+            <Button>Guardar</Button>
+          </div>
+        </div>
+      </Row>
+    </Container>
   ) : (
     <Container>
-      <Form onSubmit={(e) => handleEdit(e)}>
+      <Form>
+        <div className="borderM p-4">
+          <ButtonsForAdmin surveySelected={surveySelected} values={values} />
+          <FormGroupTitleCategory surveySelected={surveySelected} categories={categories} />
+          {surveySelected?.questions?.map((question, index) =>
+            question.response.length > 1 ? (
+              <FormGroupMultipleChoice key={index} question={question} />
+            ) : question.response.length == 1 ? (
+              <FormGroupQuestionWithImage key={index} question={question} />
+            ) : (
+              <FormGroupSimpleQuestion key={index} question={question} />
+            )
+          )}
+        </div>
+      </Form>
+    </Container>
+  );
+};
+
+export default FormSurveyDetail;
+/* 
+<Form>
         <div className="borderM p-4">
           <div className="d-flex justify-content-end">
             <Button
               className="m-1"
               variant="danger"
-              onClick={() => deleteSurveys(surveys.id)}
+              onClick={() => deleteSurveys(surveySelected?.id)}
             >
               Eliminar
             </Button>
-            <Button className="m-1" variant="primary" type="submit">
+            <Button className="m-1" variant="primary" onClick={()=> updateSurveys(surveySelected?.id, values)}>
               Modificar
             </Button>
             <Button className="m-1" variant="secondary">
@@ -65,9 +118,9 @@ const FormSurveyDetail = () => {
                 <h5>Titulo</h5>
               </Form.Label>
               <Form.Control
-                onChange={(e) => handleEdit(e, surveys)}
+                onChange={(e) => handleEdit(e)}
                 name="name"
-                placeholder={surveys.name}
+                placeholder={surveySelected?.name}
                 type="text"
               ></Form.Control>
             </Form.Group>
@@ -80,9 +133,9 @@ const FormSurveyDetail = () => {
               <Form.Select
                 type="text"
                 name="category"
-                onChange={(e) => handleEdit(e, surveys)}
+                onChange={(e) => handleEdit(e)}
               >
-                <option>{surveys.category}</option>
+                <option>{surveySelected?.category}</option>
                 {categories?.map((category, index) => (
                   <option key={index}>{category.name}</option>
                 ))}
@@ -90,7 +143,7 @@ const FormSurveyDetail = () => {
             </Form.Group>
           </div>
 
-          {surveys.questions?.map((question, index) =>
+          {surveySelected?.questions?.map((question, index) =>
             question.response.length > 1 ? (
               <div key={`questions${index}`} className="mb-3">
                 <Form.Group controlId={index} className="mb-3">
@@ -99,7 +152,7 @@ const FormSurveyDetail = () => {
                   </Form.Label>
                   <Form.Control
                     name="questions"
-                    onChange={(e) => handleEdit(e, surveys)}
+                    onChange={(e) => handleEdit(e)}
                     placeholder={question.question}
                     type="text"
                   ></Form.Control>
@@ -116,7 +169,7 @@ const FormSurveyDetail = () => {
                   >
                     <Form.Control
                       name="response"
-                      onChange={(e) => handleEdit(e, surveys)}
+                      onChange={(e) => handleEdit(e)}
                       placeholder={response}
                       type="text"
                     />
@@ -141,7 +194,7 @@ const FormSurveyDetail = () => {
                   <h5>Pregunta Simple</h5>
                 </Form.Label>
                 <FormControl
-                  onChange={(e) => handleEdit(e, surveys)}
+                  onChange={(e) => handleEdit(e)}
                   name="questions"
                   placeholder={question.question}
                   type="text"
@@ -151,42 +204,4 @@ const FormSurveyDetail = () => {
           )}
         </div>
       </Form>
-    </Container>
-  );
-};
-
-export default FormSurveyDetail;
-/* {
-<Container className="py-3">
-    <Row>
-      <div className="border border-dark p-4">
-        <ButtonsForAdmin  id={surveys.id} />
-        <FormGroupTitleCategory key={surveys.id} surveys={surveys} edit={edit} values={values}/>
-        {surveys.questions?.map((question, index) =>
-          question.response.length > 1 ? (
-            <FormGroupMultipleChoice
-              key={index}
-              question={question}
-              edit={edit}
-              values={values}
-            />
-          ) : question.response.length == 1 ? (
-            <FormGroupQuestionWithImage
-              key={index}
-              question={question}
-              edit={edit}
-              values={values}
-            />
-          ) : (
-            <FormGroupSimpleQuestion
-              key={index}
-              question={question}
-              edit={edit}
-              initialValues={initialValues}
-            />
-          )
-        )}
-      </div>
-    </Row>
-    </Container>
-} */
+*/

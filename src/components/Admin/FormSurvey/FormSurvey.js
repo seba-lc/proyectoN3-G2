@@ -37,19 +37,20 @@ const FormSurvey = () => {
   const handleCloseMC = () => setShowMC(false);
   const handleShowMC = () => setShowMC(true);
 
-  console.log(values);
   return (
     <>
+    <h2 className="mt-3 text-center titleColor">Crear Encuesta</h2>
       <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-3 titleColor">
           <Form.Label>Nombre de la encuesta</Form.Label>
           <Form.Control
             placeholder="Nombre"
             name="name"
             onChange={handleChange}
+            required
           />
         </Form.Group>
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-3 titleColor">
           <Form.Label>Categoria</Form.Label>
           <Form.Select name="category" onChange={handleChange}>
             {categories?.map((category, index) => (
@@ -69,11 +70,11 @@ const FormSurvey = () => {
         <hr></hr>
         <div className="d-flex justify-content-around">
           {admin ? (
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Group className="mb-3 titleColor" controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="Publicar" />
             </Form.Group>
           ) : (
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Group className="mb-3 titleColor" controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="Publicar" disabled />
             </Form.Group>
           )}

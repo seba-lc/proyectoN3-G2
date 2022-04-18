@@ -1,0 +1,11 @@
+.login-container{
+    height: auto;
+}
+
+.login-form{
+    margin-top: 4rem;
+    padding: 4rem;
+    border-radius: 15px;
+    box-shadow: 0 0 5px white, 0 0 10px #c94277ff, 0 0 20px #c94277ff, 0 0 30px #c94277ff, 0 0 80px #c94277ff,
+    inset 0 0 5px white, inset 0 0 10px #c94277ff, inset 0 0 20px #c94277ff, inset 0 0 80px #c94277ff;
+}

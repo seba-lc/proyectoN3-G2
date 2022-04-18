@@ -1,0 +1,20 @@
+h5, h6{
+    color: var(--blue-munsell);
+   }
+   .borderM{
+       border-style:double;
+       border-color: var(--blue-munsell);
+   }
+   select[type="text"] {
+       margin-left: 5%;
+       width: 70%;
+       
+   }
+   .inputWidth{
+       width: 30%;
+       
+   }
+
+.titleColor{
+    color: var(--blue-munsell);
+}

@@ -1,8 +1,8 @@
 .header-nav{
+    margin-bottom: 15rem;
     background-color: transparent;
     padding: 20px 0px;
-    position: fixed;
-    
+    position: relative;
     top: 0;
     width: 100vw;
     animation: appear 1s linear alternate both;
@@ -11,6 +11,7 @@
 }
 
 .header-nav-top{
+    margin-bottom: 15rem;
     background-color: transparent;
     padding: 20px 0px;
     position: fixed;
@@ -21,6 +22,7 @@
 }
 
 .header-nav-no-top{
+    margin-bottom: 15rem;
     background: #25221f ;
     padding: 20px 0px;
     position: fixed;
@@ -28,4 +30,8 @@
     width: 100vw;
     z-index: 1;
     transition: .25s;
+}
+
+.logo-nav{
+    text-decoration: none;
 }

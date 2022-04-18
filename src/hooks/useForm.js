@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 
 const useForm = (initialValues, submit, validation) => {
   const [values, setValues] = useState(initialValues);
-  const [errors, setErrors] = useState({});
+  const [response, setResponse] = useState({answers:[]});
+  const [errors, setErrors] = useState();
   const [submitting, setSubmitting] = useState(false);
-  const [admin, setAdmin] = useState(false);
+  const [admin, setAdmin] = useState(true);
 
   useEffect(() => {
     if (submitting) {
@@ -28,18 +29,23 @@ const useForm = (initialValues, submit, validation) => {
     }
 
     if (e.target.questions) {
-      console.log({values});
       setValues({
         ...values,
         questions: [...values.questions,
-          {
-            
+          {           
             question: e.target.questions.value,
             response: arrayResponse,
           },
         ],
       });
-    } else {
+    } else if(e.target.name == 'state'){
+      console.log(e);
+      console.log(e.target.checked);
+      setValues({
+        ...values,
+        [e.target.name]: e.target.checked,
+      });
+    }  else {
       setValues({
         ...values,
         [e.target.name]: e.target.value,
@@ -57,7 +63,7 @@ const useForm = (initialValues, submit, validation) => {
 
   const handleEdit = (e) => {
     e.preventDefault();
-    console.log(initialValues);
+    console.log(values);
 
     if (e.target.name == 'questions') {
       let editArr=[...values.questions]
@@ -68,10 +74,10 @@ const useForm = (initialValues, submit, validation) => {
       });
       
     } else if(e.target.name == 'response'){
+      console.log(e.target.attributes.placeholder.value);
       let editArr = [...values.questions]
       editArr.forEach((element, index) => {
         if(element.response.includes(e.target.attributes.placeholder.value)){
-          console.log(index);
           editArr[index].response[e.target.id] = e.target.value
           setValues({
             ...values,
@@ -92,9 +98,11 @@ const useForm = (initialValues, submit, validation) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    submit();
-    setErrors(validation(values));
+    if(validation){
+      setErrors(validation(values));    
+    }
     setSubmitting(true);
+    submit();
   };
 
   const handleKeyUp = (e) => {
@@ -129,6 +137,39 @@ const useForm = (initialValues, submit, validation) => {
     });
   };
 
+  const handleResponses = (e) =>{
+    let op = false
+    e.preventDefault()
+    console.log(response);
+    const arrRes = [...response.answers]
+    console.log(arrRes);
+    arrRes.map((element, index) => {
+      console.log(element);
+      if(element.question.includes(e.target.name)){
+        arrRes[index] = {question: e.target.name, response: e.target.value}
+        setResponse({
+          ...response,
+          answers: arrRes
+        });
+        op = true
+      }
+    });
+    
+    /* if(!op){
+      console.log('1',arrRes);
+      arrRes.push({question: e.target.name, response: e.target.value})
+      console.log(arrRes);
+      setResponse({
+        ...response,
+        answers: arrRes
+      });
+    } */
+    /* console.log(e.target.value);
+    console.log(e); */
+    
+    console.log(response);
+    op = false
+  }
   return {
     values,
     handleChange,
@@ -140,6 +181,8 @@ const useForm = (initialValues, submit, validation) => {
     admin,
     handleKeyUp,
     errors,
+    setValues,
+    handleResponses
   };
 };
 
