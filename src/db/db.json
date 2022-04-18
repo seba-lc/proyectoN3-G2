@@ -80,6 +80,78 @@
       ],
       "category": "Politica",
       "id": 5
+    },
+    {
+      "name": "juan",
+      "state": false,
+      "questions": [
+        {
+          "question": "quien es el más grande del norte?",
+          "response": [
+            "San Martin de Tucumán",
+            "Atletico",
+            "Todas son correctas",
+            "Ninguna es correcta"
+          ]
+        },
+        {
+          "question": "Como me llamo?",
+          "response": []
+        }
+      ],
+      "category": "",
+      "id": 6
+    },
+    {
+      "name": "",
+      "state": false,
+      "questions": [
+        {
+          "question": "Sos sano?",
+          "response": [
+            "SI",
+            "NO",
+            "",
+            ""
+          ]
+        }
+      ],
+      "category": "Salud",
+      "id": 7
+    },
+    {
+      "name": "juansito",
+      "state": false,
+      "questions": [
+        {
+          "question": "sos sanisimo?",
+          "response": [
+            "ssi",
+            "nono",
+            "",
+            ""
+          ]
+        }
+      ],
+      "category": "",
+      "id": 8
+    },
+    {
+      "name": "pedro",
+      "state": false,
+      "questions": [
+        {
+          "question": "hola",
+          "response": [
+            "chau",
+            "",
+            "",
+            ""
+          ]
+        }
+      ],
+      "category": "",
+      "id": 9
     }
   ],
   "categories": [
