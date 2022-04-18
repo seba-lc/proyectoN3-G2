@@ -1,5 +1,13 @@
-import Login from './Login.css'
-import { Form, Button, Alert, Container, Row, Col, TabContainer } from "react-bootstrap";
+import Login from "./Login.css";
+import {
+  Form,
+  Button,
+  Alert,
+  Container,
+  Row,
+  Col,
+  TabContainer,
+} from "react-bootstrap";
 import styled from "styled-components";
 import { UserContext } from "../../context/UserContext";
 import { useContext, useEffect, useState } from "react";
@@ -45,8 +53,7 @@ const LoginFormulary = () => {
   }, [auth]);
 
   return (
-   
-     <div className='login-container'>
+    <div className="login-container">
       <Form className="text-light login-form" onSubmit={handleSubmit}>
         <Form.Group className="mb-3 " controlId="formLoginEmail">
           <Form.Label>Email</Form.Label>
@@ -85,8 +92,7 @@ const LoginFormulary = () => {
           Iniciar Sesión
         </Button>
       </Form>
-      </div>
-   
+    </div>
   );
 };
 

@@ -1,13 +1,8 @@
-
-import { FormContainer} from "../components/Login/LoginForm";
+import { FormContainer } from "../components/Login/LoginForm";
 import LoginFormulary from "../components/Login/LoginForm";
 
-
 const Login = () => {
-    return (
-    <FormContainer>
-        <LoginFormulary/>
-      </FormContainer>  );
-}
- 
+  return <LoginFormulary />;
+};
+
 export default Login;
