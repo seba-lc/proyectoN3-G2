@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 
 const useForm = (initialValues, submit, validation) => {
   const [values, setValues] = useState(initialValues);
-  const [errors, setErrors] = useState({});
+  const [response, setResponse] = useState({answers:[]});
+  const [errors, setErrors] = useState();
   const [submitting, setSubmitting] = useState(false);
-  const [edit, setEdit] = useState(true);
+  const [admin, setAdmin] = useState(true);
 
   useEffect(() => {
     if (submitting) {
@@ -16,8 +17,8 @@ const useForm = (initialValues, submit, validation) => {
   }, [errors]);
 
   const handleChange = (e) => {
-
     e.preventDefault();
+    
     let arrayResponse = [];
     if (e.target.response) {
       let cont = 0;
@@ -30,15 +31,21 @@ const useForm = (initialValues, submit, validation) => {
     if (e.target.questions) {
       setValues({
         ...values,
-        questions: [
-          ...values.questions,
-          {
+        questions: [...values.questions,
+          {           
             question: e.target.questions.value,
             response: arrayResponse,
           },
         ],
       });
-    } else {
+    } else if(e.target.name == 'state'){
+      console.log(e);
+      console.log(e.target.checked);
+      setValues({
+        ...values,
+        [e.target.name]: e.target.checked,
+      });
+    }  else {
       setValues({
         ...values,
         [e.target.name]: e.target.value,
@@ -54,34 +61,34 @@ const useForm = (initialValues, submit, validation) => {
       }); */
   };
 
-  const handleEditt = (e, values) => {
+  const handleEdit = (e) => {
     e.preventDefault();
     console.log(values);
 
     if (e.target.name == 'questions') {
-      console.log(values.questions[e.target.id]);
       let editArr=[...values.questions]
       editArr[e.target.id].question = e.target.value
-      
       setValues({
         ...values,
         questions: editArr,
       });
       
     } else if(e.target.name == 'response'){
-
-        console.log(e);
-        console.log(e.target.id);
-        let editArr = [...values.questions]
-        editArr[1].response[e.target.id] = e.target.value
-        setValues({
-          ...values,
-          response: editArr,
-        });
-        console.log(values.questions);
-    }
-    else{
+      console.log(e.target.attributes.placeholder.value);
+      let editArr = [...values.questions]
+      editArr.forEach((element, index) => {
+        if(element.response.includes(e.target.attributes.placeholder.value)){
+          editArr[index].response[e.target.id] = e.target.value
+          setValues({
+            ...values,
+            response: editArr,
+          });
+        }
+      });
+     
+    } else{
       console.log(e.target.name);
+      console.log(e.target.value);
       setValues({
         ...values,
         [e.target.name]: e.target.value,
@@ -91,9 +98,11 @@ const useForm = (initialValues, submit, validation) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    submit();
-    setErrors(validation(values));
+    if(validation){
+      setErrors(validation(values));    
+    }
     setSubmitting(true);
+    submit();
   };
 
   const handleKeyUp = (e) => {
@@ -115,8 +124,8 @@ const useForm = (initialValues, submit, validation) => {
     });
   };
 
-  const handleEdit = () => {
-    setEdit(true);
+  const handleAdmin = () => {
+    setAdmin(true);
   };
 
   const setearState = () => {
@@ -128,17 +137,52 @@ const useForm = (initialValues, submit, validation) => {
     });
   };
 
+  const handleResponses = (e) =>{
+    let op = false
+    e.preventDefault()
+    console.log(response);
+    const arrRes = [...response.answers]
+    console.log(arrRes);
+    arrRes.map((element, index) => {
+      console.log(element);
+      if(element.question.includes(e.target.name)){
+        arrRes[index] = {question: e.target.name, response: e.target.value}
+        setResponse({
+          ...response,
+          answers: arrRes
+        });
+        op = true
+      }
+    });
+    
+    /* if(!op){
+      console.log('1',arrRes);
+      arrRes.push({question: e.target.name, response: e.target.value})
+      console.log(arrRes);
+      setResponse({
+        ...response,
+        answers: arrRes
+      });
+    } */
+    /* console.log(e.target.value);
+    console.log(e); */
+    
+    console.log(response);
+    op = false
+  }
   return {
     values,
     handleChange,
     handleSubmit,
     handleDelete,
     setearState,
+    handleAdmin,
     handleEdit,
-    handleEditt,
-    edit,
+    admin,
     handleKeyUp,
     errors,
+    setValues,
+    handleResponses
   };
 };
 

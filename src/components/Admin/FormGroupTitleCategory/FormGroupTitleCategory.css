@@ -1,5 +1,5 @@
-h5, h6{
- color: var(--blue-munsell);
+h3, h5, h6{
+    color: var(--blue-munsell);
 }
 .borderM{
     border-style:double;

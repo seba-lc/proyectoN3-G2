@@ -15,6 +15,7 @@ import Categories from './pages/Categories';
 import UserProvider from "./context/UserContext";
 import Error404 from './pages/Error404';
 import Landing from './pages/Landing';
+import EditCategories from './pages/EditCategories';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route path='/pendingsurveys' element={<PendingSurveys/>}/>
           <Route path='/publishedsurveys' element={<PublishedSurveys/>}/>
           <Route path='/surveydetail/:id' element={<SurveyDetail/>}/>
+          <Route path='/editcategories' element={<EditCategories/>}/>
           <Route path='/error404' element={<Error404/>}/>
         </Routes>
       </Layout>

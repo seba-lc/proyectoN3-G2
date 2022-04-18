@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useReducer } from "react";
 import { URL_SURVEYS } from "../../constants";
-import { ADD_SURVEYS, DELETE_SURVEYS, ERROR_SURVEYS, GET_SURVEYS, UPDATE_SURVEYS } from "../../types";
+import { ADD_SURVEYS, DELETE_SURVEYS, ERROR_SURVEYS, GET_SURVEY, GET_SURVEYS, UPDATE_SURVEYS } from "../../types";
 import SurveysReducer from "./SurveysReducer";
 import SurveysContext from "./SurveysContext";
 import axiosClient from "../../config/axiosClient";
@@ -10,16 +10,33 @@ const SurveysState = ({children}) => {
 
   const initialState = {
     surveys:[],
+    surveySelected:{},
     surveysError:'',
   }
 
   const [state, dispatch] = useReducer(SurveysReducer, initialState);
 
-  const getSurveys = async(category) =>{
+  const getSurveys = async(URL) =>{
     try {
-      const response = await axiosClient.get(`/surveys/${category}`);
+      //const response = await axiosClient.get(`/surveys/${category}`);
+      const response = await axios.get(URL);
       dispatch({
         type:GET_SURVEYS,
+        payload:response.data
+      })
+    } catch (error) {
+      dispatch({
+        type:ERROR_SURVEYS
+      })
+    }
+  }
+
+  const getSurvey = async(URL) =>{
+    try {
+      //const response = await axiosClient.get(`/surveys/${category}`);
+      const response = await axios.get(URL);
+      dispatch({
+        type:GET_SURVEY,
         payload:response.data
       })
     } catch (error) {
@@ -60,10 +77,10 @@ const SurveysState = ({children}) => {
 
   const updateSurveys = async(id, data)=>{
     try {
-      await axios.put(URL_SURVEYS+id)
+      await axios.put(URL_SURVEYS+id, data)
       dispatch({
         type: UPDATE_SURVEYS,
-        payload: data
+        payload: id
       })
     } catch (error) {
       dispatch({
@@ -79,7 +96,9 @@ const SurveysState = ({children}) => {
       getSurveys,
       addSurveys,
       deleteSurveys,
-      updateSurveys
+      updateSurveys,
+      getSurvey,
+      surveySelected: state.surveySelected
     }} >
       {children}
     </SurveysContext.Provider>
