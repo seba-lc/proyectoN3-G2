@@ -30,7 +30,7 @@ const handleClick = (e) => {
           {`Nro de preguntas: ${questions?.length}`}<span>Fecha: {date.substring(0, 10)}</span>
         </div>
         <div>
-          <span>{user.role === 'ADMIN' ? <ButtonsForAdmin id={id} /> : null}</span>
+          <span>{user?.role === 'ADMIN' ? <ButtonsForAdmin id={id} /> : null}</span>
         </div>
       </Card.Footer>
     </Card>
