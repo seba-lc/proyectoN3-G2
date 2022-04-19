@@ -1,6 +1,11 @@
 .login-container{
-    height: auto;
+    background-color: var(--jet);
     width: 98vw;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }
 
 .login-form{
