@@ -1,11 +1,11 @@
 import { Form } from "react-bootstrap";
 
-const FormGroupQuestionWithImage = ({question, index}) => {
-    return ( 
-        <Form.Group className="mb-3">
-        <Form.Check type="checkbox" label="Can't check this" disabled />
-        </Form.Group>
-     );
-}
- 
+const FormGroupQuestionWithImage = ({ question, index }) => {
+  return (
+    <Form.Group key={`image${index}`} controlId={index} className="mb-3">
+      <Form.Control label="Pregunta imagen" type="text" />
+    </Form.Group>
+  );
+};
+
 export default FormGroupQuestionWithImage;

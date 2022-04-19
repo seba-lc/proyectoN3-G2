@@ -25,7 +25,7 @@
   "surveys": [
     {
       "name": "Mundial Qatar 2022",
-      "state": false,
+      "state": true,
       "questions": [
         {
           "question": "Quien será el campeón?",
@@ -47,7 +47,7 @@
         {
           "question": "Quien será la sorpresa del mundial?",
           "response": [
-            "Dinamarca",
+            "Gales",
             "Senegal",
             "Canadá",
             "Gales"
@@ -58,57 +58,130 @@
       "id": 1
     },
     {
-      "name": "prueba",
+      "name": "Guerra Ucrania - Rusia",
       "state": false,
       "questions": [
         {
-          "question": "pregunta 1",
+          "question": "Quien tiene la razón?",
           "response": []
+        }
+      ],
+      "category": "Educación",
+      "id": 3
+    },
+    {
+      "name": "Argentina",
+      "state": false,
+      "questions": [
+        {
+          "question": "Quien gana?",
+          "response": []
+        }
+      ],
+      "category": "Politica",
+      "id": 5
+    },
+    {
+      "name": "juan",
+      "state": false,
+      "questions": [
+        {
+          "question": "quien es el más grande del norte?",
+          "response": [
+            "San Martin de Tucumán",
+            "Atletico",
+            "Todas son correctas",
+            "Ninguna es correcta"
+          ]
         },
         {
-          "question": "pregunta 2",
+          "question": "Como me llamo?",
+          "response": []
+        }
+      ],
+      "category": "",
+      "id": 6
+    },
+    {
+      "name": "",
+      "state": false,
+      "questions": [
+        {
+          "question": "Sos sano?",
           "response": [
-            "a",
-            "b",
-            "c",
-            "d"
+            "SI",
+            "NO",
+            "",
+            ""
+          ]
+        }
+      ],
+      "category": "Salud",
+      "id": 7
+    },
+    {
+      "name": "juansito",
+      "state": false,
+      "questions": [
+        {
+          "question": "sos sanisimo?",
+          "response": [
+            "ssi",
+            "nono",
+            "",
+            ""
           ]
         }
       ],
       "category": "",
-      "id": 2
+      "id": 8
+    },
+    {
+      "name": "pedro",
+      "state": false,
+      "questions": [
+        {
+          "question": "hola",
+          "response": [
+            "chau",
+            "",
+            "",
+            ""
+          ]
+        }
+      ],
+      "category": "",
+      "id": 9
+    },
+    {
+      "name": "que onda",
+      "state": false,
+      "questions": [
+        {
+          "question": "hola",
+          "response": [
+            "chau",
+            "",
+            "",
+            ""
+          ]
+        }
+      ],
+      "category": "",
+      "id": 10
     }
   ],
   "categories": [
     {
-      "name": "Educacion",
-      "id": "21",
-      "state": "true",
+      "name": "Educación",
+      "id": "1",
+      "state": true,
       "bgColor": "--fuchsia-rose"
     },
     {
+      "id": "2",
       "name": "Salud",
-      "id": "3",
-      "state": "true",
-      "bgColor": "--maximum-yellow-red"
-    },
-    {
-      "name": "Politica",
-      "id": "8",
-      "state": "true",
-      "bgColor": "--lime-green"
-    },
-    {
-      "name": "Deportes",
-      "id": "24",
-      "state": "true",
-      "bgColor": "--azure"
-    },
-    {
-      "name": "Animales",
-      "id": "25",
-      "state": "true",
-      "bgColor": "--red-violet-crayola"
+      "state": true
     }
   ]
 }

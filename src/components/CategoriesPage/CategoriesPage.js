@@ -7,13 +7,13 @@ import useGet from './../../hooks/useGet'
 import { useParams } from "react-router-dom";
 
 const CategoriesPage = ({}) => {
-  const { surveys, getSurveys } = useContext(SurveysContext);
+  const { surveys, getSurveysByCategory } = useContext(SurveysContext);
   const params = useParams();
   const [filterSurveys, setFilterSurveys] = useState([]);
   
 
   useEffect(() => {
-    getSurveys(params.category.toLowerCase());
+    getSurveysByCategory(params.category.toLowerCase());
   }, []);
 
   useEffect(() => {

@@ -1,5 +1,18 @@
+<<<<<<< HEAD
 import Login from './Login.css'
 import { Form, Button, Alert } from "react-bootstrap";
+=======
+import Login from "./Login.css";
+import {
+  Form,
+  Button,
+  Alert,
+  Container,
+  Row,
+  Col,
+  TabContainer,
+} from "react-bootstrap";
+>>>>>>> 15ee4ee015a6da1cce69429cd5fd822de3d15c9d
 import styled from "styled-components";
 import { UserContext } from "../../context/UserContext";
 import { useContext, useEffect, useState } from "react";
@@ -18,7 +31,8 @@ const LoginFormulary = () => {
     email: "",
     password: "",
   });
-  const { login, auth } = useContext(UserContext);
+  const [adminUser, setAdminUser] = useState(false);
+  const { login, auth, adminLogin } = useContext(UserContext);
   const [loginErrors, setLoginErrors] = useState({});
   const navigate = useNavigate();
 
@@ -29,12 +43,22 @@ const LoginFormulary = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleClick = () => {
+    adminUser ? setAdminUser(false) : setAdminUser(true)
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const errors = validationLogin(userLogged);
     setLoginErrors(errors);
     if (Object.keys(errors).length === 0) {
-      login(userLogged);
+      if(adminUser){
+        const errors = await adminLogin(userLogged);
+        setLoginErrors(errors)
+      }else{
+        const errors = await login(userLogged);
+        setLoginErrors(errors)
+      }
     }
   };
 
@@ -45,15 +69,14 @@ const LoginFormulary = () => {
   }, [auth]);
 
   return (
-   
-     <div className='login-container'>
+    <div className="login-container">
       <Form className="text-light login-form" onSubmit={handleSubmit}>
         <Form.Group className="mb-3 " controlId="formLoginEmail">
-          <Form.Label>Email</Form.Label>
+          <Form.Label>Usuario</Form.Label>
           <Form.Control
             name="email"
             type="email"
-            placeholder="Enter email"
+            placeholder="Ingresá tu email"
             onKeyUp={handleKeyUp}
           />
           <Form.Text className="text-muted">
@@ -65,12 +88,12 @@ const LoginFormulary = () => {
           <Form.Control
             name="password"
             type="password"
-            placeholder="Password"
+            placeholder="Contraseña"
             onKeyUp={handleKeyUp}
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formLoginCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
+          <Form.Check type="checkbox" label="Usuario Administrador" onClick={handleClick} />
         </Form.Group>
 
         {Object.keys(loginErrors).length === 0
@@ -85,8 +108,7 @@ const LoginFormulary = () => {
           Iniciar Sesión
         </Button>
       </Form>
-      </div>
-   
+    </div>
   );
 };
 

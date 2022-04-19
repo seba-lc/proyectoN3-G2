@@ -6,7 +6,7 @@ import { useEffect, useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 
 const Header = () => {
-  const {user, setUser} = useContext(UserContext);
+  const {user, setUser, getAuth, setAuth, getAdminAuth } = useContext(UserContext);
   const [headerClass, setHeaderClass] = useState('header-nav');
   
   useEffect(() => {
@@ -22,11 +22,24 @@ const Header = () => {
         setHeaderClass('header-nav-no-top')
       }
     })
+
+    if(localStorage.getItem('token') !== null){
+      getAuth();
+    }
+    if(localStorage.getItem('adminToken') !== null){
+      getAdminAuth();
+    }
   },[]);
 
   const handleClick = () =>{
-    localStorage.clear();
+    if(localStorage.getItem('token')){
+      localStorage.removeItem('token');
+    }
+    if(localStorage.getItem('adminToken')){
+      localStorage.removeItem('adminToken');
+    }
     setUser(null);
+    setAuth(false);
   }
 
   useEffect(() => {
@@ -41,26 +54,18 @@ const Header = () => {
 
   return (
     <Navbar collapseOnSelect expand="lg" variant="dark" className={headerClass}>
-      <Container className="nav-container">
-        <Link to="/landing" className="logo-nav">
+      <Container>
+        <Link to="/home" className="logo-nav">
         <Logo />
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav ms-auto" />
         <Navbar.Collapse id="responsive-navbar-nav ">
-        {user ? user.role ==='ADMIN'?(
+        {user ? (
             <>
-          <Nav className="m-auto">
-          </Nav>
-          <Nav>
+          <Nav className="ms-auto">
               <Link to="/" onClick={handleClick} className="nav-link">
                 Cerrar sesión
               </Link>
-            </Nav>
-            </>
-        ) :(
-          <>
-          <Nav>
-          <Link to="/admin" className="nav-link">Administración</Link>
             </Nav>
             </>
         ) :(
@@ -75,6 +80,15 @@ const Header = () => {
                 </Link>
             </Nav>
           )}
+          {
+            user ? (user.role === 'ADMIN' ? (
+              <Nav>
+                <Link to="/pendingsurveys" className="nav-link">
+                  Administración
+                </Link>
+              </Nav>
+            ) : null) : null
+          }
         </Navbar.Collapse>
       </Container>   
     </Navbar>

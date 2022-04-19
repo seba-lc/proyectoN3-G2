@@ -5,5 +5,5 @@
     background-color: white;
     font-family: var(--letra1);
     color: black;
-  
+    cursor: pointer;
 }

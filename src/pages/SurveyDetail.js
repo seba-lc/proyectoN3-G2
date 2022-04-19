@@ -1,13 +1,18 @@
+import { useContext } from "react";
 import FormSurveyDetail from "../components/Admin/FormSurveyDetail/FormSurveyDetail";
 import Navegation from "../components/Admin/Navegation/Navegation";
+import SurveyShowed from "../components/SurveyShowed/SurveyShowed";
+import { UserContext } from "../context/UserContext";
 
 const SurveyDetail = () => {
-    return ( 
-        <>
-        <Navegation/>
-        <FormSurveyDetail/>
-        </>
-     );
-}
- 
+  const { user } = useContext(UserContext);
+  return (
+    <>
+      {user?.role === "ADMIN" ? <Navegation /> : null}
+      {/* <FormSurveyDetail /> */}
+      <SurveyShowed />
+    </>
+  );
+};
+
 export default SurveyDetail;
