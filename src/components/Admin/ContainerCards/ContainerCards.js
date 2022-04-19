@@ -9,7 +9,6 @@ import { UserContext } from "../../../context/UserContext";
 
 const ContainerCards = ({ type }) => {
   const { surveys, getPendingSurveys, getPublishedSurveys } = useContext(SurveysContext);
-  const { user } = useContext(UserContext);
 
   useEffect(() => {
     if(type === "pendingSurveys"){
@@ -37,7 +36,7 @@ const ContainerCards = ({ type }) => {
       {
       surveys.length !== 0 ? (
       surveys.map((survey, index) => (
-        <Col xs={12} md={6} lg={3} lg="3" key={index}>
+        <Col xs={12} md={6} lg={3} key={index}>
           <SurveysCards 
             id={survey._id}
             name={survey.name}
@@ -46,7 +45,7 @@ const ContainerCards = ({ type }) => {
             questions={survey.questions}
             date={survey.createdAt}
           />
-          {/* {user.role === 'ADMIN' ? <ButtonsForAdmin surveySelected={survey} /> : null} */}
+          
         </Col>
       ) 
       )): null

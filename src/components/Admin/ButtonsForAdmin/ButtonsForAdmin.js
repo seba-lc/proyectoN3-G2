@@ -1,12 +1,14 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 import SurveysContext from "../../../context/surveys/SurveysContext";
+import { UserContext } from "../../../context/UserContext";
 
-const ButtonsForAdmin = ({ surveySelected, values }) => {
+const ButtonsForAdmin = ({ id, values }) => {
   const { deleteSurveys, updateSurveys } = useContext(SurveysContext);
   const navigate = useNavigate();
-  const location = useLocation();
+  const {user} = useContext(UserContext)
+
 
   const publicado = (p)=> {
     if(p){
@@ -16,16 +18,17 @@ const ButtonsForAdmin = ({ surveySelected, values }) => {
     }
   }
 
-  return location.pathname == "/surveydetail/:id" ? (
+  return user.role === 'ADMIN' ? (
     <div className="d-flex justify-content-end">
       <Button
         className="m-1"
+        id="btnDelete"
         variant="danger"
-        onClick={() => deleteSurveys(surveySelected.id)}
+        onClick={() => deleteSurveys(id)}
       >
-        Eliminar
+        E
       </Button>
-      <Button
+      {/* <Button
         className="m-1"
         variant="primary"
         onClick={() => updateSurveys(surveySelected.id, values)}
@@ -43,11 +46,11 @@ const ButtonsForAdmin = ({ surveySelected, values }) => {
         }
       >
         {surveySelected.state ? "Publicado" : " -Publicar-"}
-      </Button>
+      </Button> */}
     </div>
   ) : (
     <div className="text-center">
-      <div className="d-flex justify-content-end">
+      {/* <div className="d-flex justify-content-end">
         <Button
           className="m-1"
           variant="danger"
@@ -76,7 +79,7 @@ const ButtonsForAdmin = ({ surveySelected, values }) => {
         >
           P
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 };
