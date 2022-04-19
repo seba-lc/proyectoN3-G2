@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Container, Form, Button } from "react-bootstrap";
 import CategoriesContext from "../../../context/categories/CategoriesContext";
 import useForm from "../../../hooks/useForm";
 import SurveysContext from "../../../context/surveys/SurveysContext";
@@ -68,9 +68,10 @@ const FormSurvey = () => {
   const handleShowMC = () => setShowMC(true);
 
   return (
-    <>
+    
+    <Container className="survey3-box text-center">
     <h2 className="mt-3 text-center form-title">Crear Encuesta</h2>
-      <Form className="survey-box p-5" onSubmit={handleSubmit}>
+      <Form className="surveyForm-box p-5"  onSubmit={handleSubmit}>
         <Form.Group className="mb-3 form-title">
           <Form.Label>Nombre de la encuesta</Form.Label>
           <Form.Control
@@ -81,8 +82,8 @@ const FormSurvey = () => {
           />
         </Form.Group>
         <Form.Group className="mb-3 form-title">
-          <Form.Label>Categoria</Form.Label>
-          <Form.Select name="category" onChange={handleChange} required>
+          <Form.Label>Categoría</Form.Label>
+          <Form.Select name="category" onChange={handleChange}>
             <option>-- Seleccione una categoría --</option>
             {categories?.map((category, index) => (
               <option key={index} value={category.categoryName}>{category.categoryName}</option>
@@ -90,7 +91,7 @@ const FormSurvey = () => {
           </Form.Select>
         </Form.Group>
         <div className="d-flex justify-content-around">
-          <Button variant="outline-info" className="w-100 mt-3" onClick={handleShowMC}>
+          <Button variant="outline-info" className="mt-3 w-100" onClick={handleShowMC}>
             Generar Pregunta
           </Button>
           {/* <Button variant="outline-info" onClick={handleShowMS} disabled>
@@ -108,7 +109,7 @@ const FormSurvey = () => {
           />
         ))}
         <div className="d-flex justify-content-around">
-          <Button variant="outline-success" type="submit">
+          <Button className="w-100" variant="outline-success" type="submit">
             Guardar Encuesta
           </Button>
         </div>
@@ -125,7 +126,7 @@ const FormSurvey = () => {
         showMC={showMC}
         handleCloseMC={handleCloseMC}
       />
-    </>
+    </Container>
   );
 };
 

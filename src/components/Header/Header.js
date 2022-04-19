@@ -62,13 +62,11 @@ const Header = () => {
         <Navbar.Collapse id="responsive-navbar-nav ">
         {user ? (
             <>
-            <Nav className="ms-auto" >
+            <Nav className="ms-auto">
             <hr />
-                <Link to="/home" className="nav-link me-auto">
+              <Link to="/home" className="nav-link ms-auto encuestas-link">
                 Encuestas
                 </Link> 
-            </Nav>
-            <Nav className="ms-auto">
             {
             user ? (user.role === 'ADMIN' ? (
                 <Link to="/pendingsurveys" className="nav-link">
@@ -86,7 +84,7 @@ const Header = () => {
          
           <Nav className="ms-auto">
             <hr />
-                <Link to="/home" className="nav-link me-auto">
+                <Link to="/home" className="nav-link ms-auto">
                 Encuestas
                 </Link> 
             <hr />

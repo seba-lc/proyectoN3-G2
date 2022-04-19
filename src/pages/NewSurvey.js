@@ -10,7 +10,7 @@ const NewSurvey = () => {
   return (
     <>
       {
-        user.role === 'ADMIN' ? <Navegation /> : null
+        user?.role === 'ADMIN' ? <Navegation /> : null
       }
       <Container className="d-flex flex-column w-50 p-4">
         <FormSurvey />
