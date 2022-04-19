@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-const useForm = (initialValues, submit, validation) => {
-  const [values, setValues] = useState(initialValues);
+const useForm = (submit, setValues, values) => {
+  // const [values, setValues] = useState(initialValues);
   const [response, setResponse] = useState({answers:[]});
   const [errors, setErrors] = useState();
   const [submitting, setSubmitting] = useState(false);
@@ -20,7 +20,7 @@ const useForm = (initialValues, submit, validation) => {
     e.preventDefault();
     
     let arrayResponse = [];
-    if (e.target.response) {
+    if (e.target.response) { //submit del modal de pregunta + respuestas
       let cont = 0;
       while (cont < 4) {
         arrayResponse.push(e.target.response[cont].value);
@@ -34,31 +34,16 @@ const useForm = (initialValues, submit, validation) => {
         questions: [...values.questions,
           {           
             question: e.target.questions.value,
-            response: arrayResponse,
+            answers: arrayResponse,
           },
         ],
       });
-    } else if(e.target.name == 'state'){
-      console.log(e);
-      console.log(e.target.checked);
-      setValues({
-        ...values,
-        [e.target.name]: e.target.checked,
-      });
-    }  else {
+    } else { //QUÉ SERÍA ESTE ELSE??
       setValues({
         ...values,
         [e.target.name]: e.target.value,
       });
     }
-    /* setValues({
-        ...values,
-        questions: [...values.questions, e.target.questions.value],
-      }); */
-      /* setValues({
-        ...values,
-        questions: values.questions.set(e.target.questions.value, '')
-      }); */
   };
 
   const handleEdit = (e) => {
@@ -98,9 +83,9 @@ const useForm = (initialValues, submit, validation) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(validation){
-      setErrors(validation(values));    
-    }
+    // if(validation){ //NO ESTÁ ENTRANDO NINGUN DATO AHÍ!
+    //   setErrors(validation(values));    
+    // }
     setSubmitting(true);
     submit();
   };

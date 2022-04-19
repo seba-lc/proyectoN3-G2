@@ -6,12 +6,24 @@ import SurveysContext from "../../../context/surveys/SurveysContext";
 import ModalSurvey from "../ModalSurvey/ModalSurvey";
 import QuestionInputAdded from "../QuestionInputAdded/QuestionInputAdded";
 import ModalMultipleChoice from "../ModalMultipleChoise/ModalMultipleChoice";
+import { UserContext } from "../../../context/UserContext";
+import axiosClient from "../../../config/axiosClient";
+import { useNavigate } from "react-router-dom";
 
 const FormSurvey = () => {
   const [showMS, setShowMS] = useState(false);
   const [showMC, setShowMC] = useState(false);
+  const [arrayQuestions, setArrayQuestions] = useState([]);
   const { addSurveys } = useContext(SurveysContext);
   const { categories, getCategories } = useContext(CategoriesContext);
+  const { user } = useContext(UserContext);
+  const [values, setValues] = useState({
+    name: "",
+    state: false,
+    questions: [],
+    category: ""
+  })
+  let navigate = useNavigate();
 
   useEffect(() => {
     getCategories();
@@ -20,17 +32,35 @@ const FormSurvey = () => {
   const initialValues = {
     name: "",
     state: false,
-    questions: [],
+    answers: [],
     category: "",
   };
 
-  const sendData = () => {
-    addSurveys(values);
-    setearState();
+  const sendData = async () => {
+    try {
+      let arrayIds = [];
+      for(let i = 0; i < values.questions.length; i++){
+        const response = await axiosClient.post('/question', values.questions[i]);
+        arrayIds.push(response.data);
+      }
+      const valuesDB = {
+        ...values,
+        questions: arrayIds
+      }
+      addSurveys(valuesDB);
+      if(user.role === 'ADMIN'){
+        
+        navigate('/pendingsurveys')
+      }else{
+        navigate('/')
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const { admin, handleChange, handleSubmit, handleDelete, setearState, values } =
-    useForm(initialValues, sendData);
+  const { handleChange, handleSubmit, handleDelete } =
+    useForm(sendData, setValues, values);
 
   const handleCloseMS = () => setShowMS(false);
   const handleShowMS = () => setShowMS(true);
@@ -53,35 +83,22 @@ const FormSurvey = () => {
         <Form.Group className="mb-3 titleColor">
           <Form.Label>Categoria</Form.Label>
           <Form.Select name="category" onChange={handleChange}>
+            <option>-- Seleccione una categoría --</option>
             {categories?.map((category, index) => (
-              <option key={index}>{category.name}</option>
+              <option key={index} value={category.categoryName}>{category.categoryName}</option>
             ))}
           </Form.Select>
         </Form.Group>
         <div className="d-flex justify-content-around">
-          <Button variant="outline-info" onClick={handleShowMS}>
+          <Button variant="outline-info" className="w-100 mt-3" onClick={handleShowMC}>
+            Generar Pregunta
+          </Button>
+          {/* <Button variant="outline-info" onClick={handleShowMS} disabled>
             Pregunta Simple
           </Button>
-          <Button variant="outline-info">Pregunta con Imagen</Button>
-          <Button variant="outline-info" onClick={handleShowMC}>
-            Multiple Choice
-          </Button>
+          <Button variant="outline-info" disabled>Pregunta con Imagen</Button> */}
         </div>
         <hr></hr>
-        <div className="d-flex justify-content-around">
-          {admin ? (
-            <Form.Group className="mb-3 titleColor" controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Publicar" />
-            </Form.Group>
-          ) : (
-            <Form.Group className="mb-3 titleColor" controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Publicar" disabled />
-            </Form.Group>
-          )}
-          <Button variant="outline-success" type="submit">
-            Guardar Encuesta
-          </Button>
-        </div>
         <hr></hr>
         {values.questions?.map((question, index) => (
           <QuestionInputAdded
@@ -90,12 +107,19 @@ const FormSurvey = () => {
             handleDelete={handleDelete}
           />
         ))}
+        <div className="d-flex justify-content-around">
+          <Button variant="outline-success" type="submit">
+            Guardar Encuesta
+          </Button>
+        </div>
       </Form>
-      <ModalSurvey
+
+      {/* <ModalSurvey
         handleChange={handleChange}
         showMS={showMS}
         handleCloseMS={handleCloseMS}
-      />
+      /> */}
+
       <ModalMultipleChoice
         handleChange={handleChange}
         showMC={showMC}

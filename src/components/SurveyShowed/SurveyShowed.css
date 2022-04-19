@@ -1,0 +1,13 @@
+.surveyShowed-style{
+  min-height: 70vh;
+  padding-top: 100px;
+}
+
+.answer-style{
+  cursor: pointer;
+}
+
+.answer-style:hover{
+  background-color: rgba(0,0,0,0.5);
+  transition: 300ms;
+}

@@ -10,7 +10,7 @@ const PendingSurveys = () => {
         <>
         {admin?(<Navegation/>):(null)}
         <Container>
-            <ContainerCards location={URL_SURVEYS_PENDIENTES}></ContainerCards>
+            <ContainerCards type="pendingSurveys"></ContainerCards>
         </Container>
         </>
             );

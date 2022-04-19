@@ -1,26 +1,23 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import CategoriesContext from "../../../context/categories/CategoriesContext";
 import useForm from "../../../hooks/useForm";
 
 const ModalNewCategory = ({ show, handleClose }) => {
-  const initialValues = {
-    name: "",
-    state: false,
-  };
-  const location = useNavigate()
+  const [category, setCategory] = useState('');
   const { addCategories } = useContext(CategoriesContext);
-  const sendData = () => {
-    addCategories(values);
-    //location('/admin')
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addCategories({categoryName: category});
+    handleClose();
   };
 
-  const { values, handleChange, handleSubmit } = useForm(
-    initialValues,
-    sendData
-  );
-  console.log(values);
+  const handleChange = (e) => {
+    setCategory(e.target.value)
+  }
+
   return (
     <>
       <Modal show={show} onHide={handleClose}>
@@ -30,7 +27,7 @@ const ModalNewCategory = ({ show, handleClose }) => {
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>nombre</Form.Label>
+              <Form.Label>Nombre Categoría</Form.Label>
               <Form.Control
                 type="text"
                 name="name"
@@ -38,13 +35,6 @@ const ModalNewCategory = ({ show, handleClose }) => {
                 autoFocus
               />
             </Form.Group>
-            <Form.Switch
-              type="switch"
-              name="state"
-              id="custom-switch"
-              label="Publicar"
-              onMouseUp={handleChange}
-            />
             <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cerrar

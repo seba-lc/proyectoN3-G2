@@ -16,6 +16,7 @@ import UserProvider from "./context/UserContext";
 import Error404 from './pages/Error404';
 import Landing from './pages/Landing';
 import EditCategories from './pages/EditCategories';
+import AdminRoute from './routes/AdminRoute';
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
           <Route path='/' element={<Landing />} />
           <Route path='/home' element={<Home/>}/>
           <Route path='/categories/:category' element={<Categories/>}/>
-          <Route path='/admin' element={<Admin />} />
+          <Route path='/admin' element={<AdminRoute><Admin /></AdminRoute>} />
           <Route path='/Register' element={<Register />} />
           <Route path='/Login' element={<Login />} />
           <Route path='/newsurvey' element={<NewSurvey/>}/>

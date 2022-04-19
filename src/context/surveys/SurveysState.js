@@ -16,13 +16,12 @@ const SurveysState = ({children}) => {
 
   const [state, dispatch] = useReducer(SurveysReducer, initialState);
 
-  const getSurveys = async(URL) =>{
+  const getPendingSurveys = async() =>{
     try {
-      //const response = await axiosClient.get(`/surveys/${category}`);
-      const response = await axios.get(URL);
+      const response = await axiosClient.get('/surveys');
       dispatch({
-        type:GET_SURVEYS,
-        payload:response.data
+        type: GET_SURVEYS,
+        payload: response.data
       })
     } catch (error) {
       dispatch({
@@ -31,10 +30,44 @@ const SurveysState = ({children}) => {
     }
   }
 
-  const getSurvey = async(URL) =>{
+  const getSurveysByCategory = async (category) => {
     try {
-      //const response = await axiosClient.get(`/surveys/${category}`);
-      const response = await axios.get(URL);
+      const response = await axiosClient.get(`/surveys/${category}`);
+      dispatch({
+        type: GET_SURVEYS,
+        payload: response.data
+      })
+    } catch (error) {
+      dispatch({
+        type:ERROR_SURVEYS
+      })
+    }
+    }
+
+  const getPublishedSurveys = async () =>{
+    try {
+      const response = await axiosClient.get('/surveys/published');
+      if(response.data.length === 0){
+        dispatch({
+          type: GET_SURVEYS,
+          payload: []
+        })
+      }else{
+        dispatch({
+          type: GET_SURVEYS,
+          payload: response.data
+        })
+      }
+    } catch (error) {
+      dispatch({
+        type:ERROR_SURVEYS
+      })
+    }
+  }
+
+  const getSurvey = async(id) =>{
+    try {
+      const response = await axiosClient.get(`/surveys/encuesta/${id}`);
       dispatch({
         type:GET_SURVEY,
         payload:response.data
@@ -46,12 +79,12 @@ const SurveysState = ({children}) => {
     }
   }
 
-  const addSurveys = async(data)=>{
+  const addSurveys = async (data) => {
     try {
-      await axios.post(URL_SURVEYS, data)
+      const response = await axiosClient.post('/surveys', data)
       dispatch({
         type: ADD_SURVEYS,
-        payload: data
+        payload: [response.data]
       })
     } catch (error) {
       dispatch({
@@ -75,13 +108,10 @@ const SurveysState = ({children}) => {
     }
   }
 
-  const updateSurveys = async(id, data)=>{
+  const updateSurveys = async(id)=>{
     try {
-      await axios.put(URL_SURVEYS+id, data)
-      dispatch({
-        type: UPDATE_SURVEYS,
-        payload: id
-      })
+      await axiosClient.put(`/surveys/${id}`);
+      getPendingSurveys();
     } catch (error) {
       dispatch({
         type: ERROR_SURVEYS
@@ -93,12 +123,14 @@ const SurveysState = ({children}) => {
     <SurveysContext.Provider value={{
       surveys: state.surveys,
       surveysError: state.surveysError,
-      getSurveys,
+      getPendingSurveys,
+      getPublishedSurveys,
       addSurveys,
       deleteSurveys,
       updateSurveys,
       getSurvey,
-      surveySelected: state.surveySelected
+      surveySelected: state.surveySelected,
+      getSurveysByCategory
     }} >
       {children}
     </SurveysContext.Provider>

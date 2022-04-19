@@ -12,7 +12,7 @@ const PublishedSurveys = () => {
         <>
         {admin?(<Navegation/>):(null)}
         <Container>
-            <ContainerCards location={URL_SURVEYS_PUBLICADAS}></ContainerCards>
+            <ContainerCards type="publishedSurveys"></ContainerCards>
         </Container>
         </>
             );

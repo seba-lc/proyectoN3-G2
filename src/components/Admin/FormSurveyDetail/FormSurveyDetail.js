@@ -27,7 +27,7 @@ const FormSurveyDetail = () => {
   const params = useParams();
 
   useEffect(() => {
-    getSurvey(URL_SURVEYS + params.id);
+    getSurvey(params.id);
     getCategories();
     setValues(surveySelected);
   }, []);

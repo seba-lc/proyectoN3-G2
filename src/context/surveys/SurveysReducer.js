@@ -11,21 +11,20 @@ export default (state, action) =>{
     case ADD_SURVEYS:
       return{
         ...state,
-        surveys: state.surveys.push(action.payload)
+        surveys: state.surveys.concat(action.payload)
       }
     case DELETE_SURVEYS:
       return{
         ...state,
-        surveys: state.surveys.filter(survey => survey.id != action.payload)
+        surveys: state.surveys.filter(survey => survey.id !== action.payload)
       }
     case UPDATE_SURVEYS:
 
       return{
         ...state,
-        surveys: [...state.surveys.filter(survey => survey.id != action.payload.id),action.payload]
+        surveys: [...state.surveys.filter(survey => survey.id !== action.payload.id),action.payload]
       }
     case GET_SURVEY:
-      console.log(action.payload);
       return{
         ...state,
         surveySelected: action.payload

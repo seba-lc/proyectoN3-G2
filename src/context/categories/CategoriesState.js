@@ -16,8 +16,7 @@ const CategoriesState = ({children}) => {
 
     const getCategories = async ()=>{
         try {
-            //const response = await axiosClient.get('/category');
-            const response = await axios.get(URL_CATEGORIES);
+            const response = await axiosClient.get('/category');
             dispatch({
                 type: GET_CATEGORIES,
                 payload: response.data
@@ -61,11 +60,8 @@ const CategoriesState = ({children}) => {
 
       const addCategories = async(data)=>{
         try {
-          await axios.post(URL_CATEGORIES, data)
-          dispatch({
-            type: ADD_CATEGORIES,
-            payload: data
-          })
+          await axiosClient.post('/category', data);
+          getCategories()
         } catch (error) {
           dispatch({
             type: ERROR_CATEGORIES
@@ -73,15 +69,10 @@ const CategoriesState = ({children}) => {
         }
       }
 
-      const updateCategory = async(id, data)=>{
+      const updateCategory = async (data)=>{
         try {
-          console.log(id);
-          console.log(data);
-          await axios.put(URL_CATEGORIES+id, data)
-          dispatch({
-            type: UPDATE_CATEGORIES,
-            payload: id
-          })
+          await axiosClient.put(`/category/${data}`);
+          getCategories();
         } catch (error) {
           dispatch({
             type: ERROR_CATEGORIES

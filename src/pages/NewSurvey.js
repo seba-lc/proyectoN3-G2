@@ -1,17 +1,20 @@
+import { useContext } from "react";
 import { Container } from "react-bootstrap";
 import FormSurvey from "../components/Admin/FormSurvey/FormSurvey";
 import Navegation from "../components/Admin/Navegation/Navegation";
-import useForm from "../hooks/useForm";
+import { UserContext } from "../context/UserContext";
 
 const NewSurvey = () => {
-  const {admin} = useForm()
+  const { user } = useContext(UserContext)
+
   return (
     <>
-      {admin?(<Navegation/>):(null)}
+      {
+        user.role === 'ADMIN' ? <Navegation /> : null
+      }
       <Container className="d-flex flex-column w-50 p-4">
-        <FormSurvey/>
+        <FormSurvey />
       </Container>
-     
     </>
   );
 };

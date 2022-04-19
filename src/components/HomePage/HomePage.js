@@ -3,17 +3,15 @@ import EncuestasCards from "../EncuestasCards/EncuestasCards";
 import "./HomePage.css";
 import { useEffect, useContext } from "react";
 import CategoriesContext from "./../../context/categories/CategoriesContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 
 const HomePage = () => {
   const { categories, getCategories } = useContext(CategoriesContext);
-  const { getAuth } = useContext(UserContext)
+  const {user} = useContext(UserContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if(localStorage.getItem('token') !== null){
-      getAuth();
-    }
     getCategories();
   }, []);
 
@@ -35,7 +33,11 @@ const HomePage = () => {
       </Row>
       <Row>
         <Col className="">
-          <Button className="glow-on-hover home-boton">Crear Encuesta</Button>
+          {
+            user?.role === 'USER' || user?.role === 'ADMIN' ? (
+              <Button className="glow-on-hover home-boton" onClick={() => navigate('/newsurvey')}>Crear Encuesta</Button>
+            ) : null
+          }
         </Col>
       </Row>
     </Container>
