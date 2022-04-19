@@ -84,7 +84,7 @@ const Header = () => {
          
           <Nav className="ms-auto">
             <hr />
-                <Link to="/home" className="nav-link ms-auto">
+                <Link to="/home" className="nav-link ms-auto encuestas-link">
                 Encuestas
                 </Link> 
             <hr />
