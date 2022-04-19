@@ -19,7 +19,6 @@ export default (state, action) =>{
         surveys: state.surveys.filter(survey => survey.id !== action.payload)
       }
     case UPDATE_SURVEYS:
-
       return{
         ...state,
         surveys: [...state.surveys.filter(survey => survey.id !== action.payload.id),action.payload]

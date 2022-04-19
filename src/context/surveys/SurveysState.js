@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useReducer } from "react";
 import { URL_SURVEYS } from "../../constants";
 import { ADD_SURVEYS, DELETE_SURVEYS, ERROR_SURVEYS, GET_SURVEY, GET_SURVEYS, UPDATE_SURVEYS } from "../../types";
@@ -95,11 +94,12 @@ const SurveysState = ({children}) => {
 
   const deleteSurveys = async(id)=>{
     try {
-      await axios.delete(URL_SURVEYS+id)
-      dispatch({
-        type: DELETE_SURVEYS,
-        payload: id
-      })
+      await axiosClient.delete(`/surveys/encuesta/${id}`);
+      getPendingSurveys();
+      // dispatch({
+      //   type: DELETE_SURVEYS,
+      //   payload: id
+      // })
     } catch (error) {
       dispatch({
         type: ERROR_SURVEYS

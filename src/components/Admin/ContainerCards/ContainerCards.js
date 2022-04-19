@@ -9,7 +9,6 @@ import { UserContext } from "../../../context/UserContext";
 
 const ContainerCards = ({ type }) => {
   const { surveys, getPendingSurveys, getPublishedSurveys } = useContext(SurveysContext);
-  const { user } = useContext(UserContext);
 
   useEffect(() => {
     if(type === "pendingSurveys"){
@@ -46,7 +45,7 @@ const ContainerCards = ({ type }) => {
             questions={survey.questions}
             date={survey.createdAt}
           />
-          {/* {user.role === 'ADMIN' ? <ButtonsForAdmin surveySelected={survey} /> : null} */}
+          
         </Col>
       ) 
       )): null
