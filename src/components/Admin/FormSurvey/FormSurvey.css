@@ -1,4 +1,14 @@
+.survey3-box{
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
 .surveyForm-box{
+    width: 80vw;
     background-color: #25221F;
     border-radius: 15px;
     box-shadow: 21px 21px 13px -1px rgba(0,0,0,0.14) inset;
