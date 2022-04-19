@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { Alert, Button, Modal } from 'react-bootstrap';
+import {Row, Col, Container, Alert, Button, Modal } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import axiosClient from '../../config/axiosClient';
 import SurveysContext from '../../context/surveys/SurveysContext';
@@ -102,17 +102,29 @@ const SurveyShowed = () => {
   return (
     <>
       {user?.role === "ADMIN" ? (surveySelected.state ? null : <Navegation /> ): null}
-      <div className='d-flex flex-column justify-content-center align-items-center surveyShowed-style'>
+      <Container className='d-flex flex-column justify-content-center align-items-center surveyShowed-style'>
+        
         {
           Object.keys(surveySelected).length !== 0 ? (
             <>
-              <h2 className='survey-title text-center px-5 py-2'>{surveySelected.name}</h2>
-              <div className='d-flex flex-column justify-content-center align-items-center survey-box'>
+            <Row className="d-flex flex-column justify-content-center align-items-center">
+              <Col className="lp-title-box" xs={12} md={12} lg={12}>
+                <h2 className='d-flex justify-content-center align-items-center survey-title text-center'>{surveySelected.name}</h2>
+              </Col>
+            </Row>
+            <Row>
+              <div className='survey-box'>
               {
                 surveySelected.questions.map((item, index) => (
-                  <div className={` text-center my-3 ${userAnswer !== null ? 'survey_answered' : null}`} key={index}>
+                  <Col  className="d-flex justify-content-center text-center"
+                  xs={12}
+                  md={12}
+                  lg={12}>
+                    <div className={` text-center my-3 ${userAnswer !== null ? 'survey_answered' : null}`} key={index}>
                     <div className='survey-question'>{item.question}</div>
-                    <div className='answer-box d-flex flex-column justify-content-start'>
+                    
+                    <div className='answer-box'>
+                 
                       {
                         item.answers.map((answer, position) => (
                           answer.length !== 0 ? (
@@ -122,17 +134,31 @@ const SurveyShowed = () => {
                       }
                     </div>
                   </div>
+                  </Col>
                 ))
               }
+              <Col className="d-flex justify-content-center text-center w-100"
+                  xs={12}
+                  md={12}
+                  lg={12}>
               {
                 userAnswer !== null ? <Alert variant='success' className='mt-3'>Encuesta Respondida! <span className='text-decoration-underline span-style' onClick={handleShow}>Ver Respuesta</span></Alert> : null
               }
+              </Col>
+              <Col className="d-flex justify-content-center text-center w-100"
+                  xs={12}
+                  md={12}
+                  lg={12}>
               <Button className={surveySelected.state ? 'mt-3 boton response-btn' : 'd-none' } onClick={sendAnswer}>Enviar Respuesta</Button>
+              </Col>
               </div>
+              
+              
+            </Row>
             </>
           ) : null
         }
-        </div>
+        </Container>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header className="survey-modal" closeButton>
             <Modal.Title>Respuesta</Modal.Title>
