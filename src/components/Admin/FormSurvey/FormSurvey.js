@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Container, Form, Button } from "react-bootstrap";
 import CategoriesContext from "../../../context/categories/CategoriesContext";
 import useForm from "../../../hooks/useForm";
 import SurveysContext from "../../../context/surveys/SurveysContext";
@@ -68,9 +68,9 @@ const FormSurvey = () => {
   const handleShowMC = () => setShowMC(true);
 
   return (
-    <>
+    <Container fluid className="text-center">
     <h2 className="mt-3 text-center form-title">Crear Encuesta</h2>
-      <Form className="survey-box p-5" onSubmit={handleSubmit}>
+      <Form className="surveyForm-box p-5"  onSubmit={handleSubmit}>
         <Form.Group className="mb-3 form-title">
           <Form.Label>Nombre de la encuesta</Form.Label>
           <Form.Control
@@ -125,7 +125,7 @@ const FormSurvey = () => {
         showMC={showMC}
         handleCloseMC={handleCloseMC}
       />
-    </>
+    </Container>
   );
 };
 

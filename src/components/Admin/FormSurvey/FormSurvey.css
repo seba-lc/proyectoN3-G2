@@ -1,3 +1,11 @@
+.surveyForm-box{
+    background-color: #25221F;
+    border-radius: 15px;
+    box-shadow: 21px 21px 13px -1px rgba(0,0,0,0.14) inset;
+    -webkit-box-shadow: 21px 21px 13px -1px rgba(0,0,0,0.14) inset;
+    -moz-box-shadow: 21px 21px 13px -1px rgba(0,0,0,0.14) inset;
+    margin-bottom: 8rem;
+}
 
 .form-title{
     margin-bottom: 2rem;
