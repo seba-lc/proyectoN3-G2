@@ -53,7 +53,7 @@ const Header = () => {
   },[]);
 
   return (
-    <Navbar collapseOnSelect expand="lg" variant="dark" className={headerClass}>
+    <Navbar collapseOnSelect expand="lg" variant="dark" className="header-nav-no-top">
       <Container className="d-flex align-items-center">
         <Link to="/" className="logo-nav">
         <Logo />
