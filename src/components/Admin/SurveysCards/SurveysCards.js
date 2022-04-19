@@ -2,11 +2,13 @@ import { useContext } from "react";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import SurveysContext from "../../../context/surveys/SurveysContext";
+import { UserContext } from "../../../context/UserContext";
+import ButtonsForAdmin from "../ButtonsForAdmin/ButtonsForAdmin";
 import "./SurveysCards.css";
 
 const SurveysCards = ({ id, name, state, category, questions, date }) => {
 const {updateSurveys} = useContext(SurveysContext)
-
+const { user } = useContext(UserContext);
 const handleClick = (e) => {
   updateSurveys(e.target.id);
 }
@@ -23,7 +25,14 @@ const handleClick = (e) => {
         </Button>
         </div>    
       </Card.Body>
-      <Card.Footer className="text-muted d-flex flex-column justify-content-center align-items-start">{`Nro de preguntas: ${questions?.length}`}<span>Fecha:{date.substring(0, 10)}</span></Card.Footer>
+      <Card.Footer className="text-muted d-flex justify-content-between">
+        <div className="d-flex flex-column">
+          {`Nro de preguntas: ${questions?.length}`}<span>Fecha: {date.substring(0, 10)}</span>
+        </div>
+        <div>
+          <span>{user.role === 'ADMIN' ? <ButtonsForAdmin id={id} /> : null}</span>
+        </div>
+      </Card.Footer>
     </Card>
   );
 };

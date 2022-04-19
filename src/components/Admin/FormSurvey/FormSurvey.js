@@ -82,7 +82,7 @@ const FormSurvey = () => {
         </Form.Group>
         <Form.Group className="mb-3 form-title">
           <Form.Label>Categoria</Form.Label>
-          <Form.Select name="category" onChange={handleChange}>
+          <Form.Select name="category" onChange={handleChange} required>
             <option>-- Seleccione una categoría --</option>
             {categories?.map((category, index) => (
               <option key={index} value={category.categoryName}>{category.categoryName}</option>
