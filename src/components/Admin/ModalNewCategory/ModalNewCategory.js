@@ -22,7 +22,7 @@ const ModalNewCategory = ({ show, handleClose }) => {
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Añadir categoria</Modal.Title>
+          <Modal.Title>Añadir categoría</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>

@@ -16,7 +16,7 @@ const EncuestasCards = ({category}) => {
   return (
     <MyCard id={category._id} color={category.bgColor} className="mb-5 d-flex justify-content-center my-card" >
       <Card.Body className="d-flex flex-column justify-content-center align-items-center my-card2">
-        <Card.Title className="card-title box-pop-up-top">{category.categoryName.substring(0,1) + category.categoryName.substring(1).toLowerCase()}</Card.Title>
+        <Card.Title className="card-title-e box-pop-up-top">{category.categoryName.substring(0,1) + category.categoryName.substring(1).toLowerCase()}</Card.Title>
         <Link to={"/categories/" + category.categoryName.substring(0,1) + category.categoryName.substring(1).toLowerCase()} className='btn-card m-3 p-1' >Ver Encuestas</Link>
       </Card.Body>
     </MyCard>

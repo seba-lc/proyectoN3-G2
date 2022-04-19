@@ -1,13 +1,5 @@
-import Login from "./Login.css";
-import {
-  Form,
-  Button,
-  Alert,
-  Container,
-  Row,
-  Col,
-  TabContainer,
-} from "react-bootstrap";
+import Login from './Login.css'
+import { Form, Button, Alert } from "react-bootstrap";
 import styled from "styled-components";
 import { UserContext } from "../../context/UserContext";
 import { useContext, useEffect, useState } from "react";
@@ -99,7 +91,7 @@ const LoginFormulary = () => {
               </Alert>
             ))}
 
-        <Button type="submit" className="glow-on-hover border-none p-2">
+        <Button type="submit" onSubmit={handleSubmit} className="glow-on-hover border-none p-2">
           Iniciar Sesión
         </Button>
       </Form>

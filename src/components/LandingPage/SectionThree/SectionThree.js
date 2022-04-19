@@ -20,7 +20,7 @@ const SectionThree = () => {
             md={12}
             lg={12}
           >
-            <h5 className="st-subtitle2">Crea tus propias encuestas Registrándote</h5>
+            <h5 className="st-subtitle2">Accede a las encuestas </h5>
           </Col>
           <Col
               className="d-flex justify-content-center  st-boton"
@@ -28,7 +28,7 @@ const SectionThree = () => {
               md={12}
               lg={12}
             >
-               <Link to="/register" className="btn boton border-none d-flex justify-content-center align-items-center">Registrate</Link>
+               <Link to="/home" className="btn boton border-none d-flex justify-content-center align-items-center">Encuestas</Link>
             </Col>
         </Row>
       </Container>

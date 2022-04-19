@@ -1,9 +1,9 @@
-import { createFactory, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
-import { URL_CATEGORIES } from "../../../constants";
 import CategoriesContext from "../../../context/categories/CategoriesContext";
-import useForm from "../../../hooks/useForm";
 import ModalNewCategory from "../ModalNewCategory/ModalNewCategory";
+import './AdminEditCategories.css'
+
 const AdminEditCategories = () => {
   const { categories, getCategories, deleteCategories, updateCategory } = useContext(CategoriesContext);
   const [categoryAct, setEditCategory] = useState(null)
@@ -46,21 +46,21 @@ const AdminEditCategories = () => {
 
   return (
     <>
-      <Container>
-      <h2 className="mt-3 text-center titleColor">Categorias</h2>
+      <Container className="admin-edit">
+      <h2 className="mt-5 text-center form-title">Categorias</h2>
         <Form >
-          <Col className="m-3 d-flex justify-content-end">
-            <Button onClick={handleShow}>Agregar</Button>
+          <Col className="m-3 d-flex justify-content-center">
+            <Button className="glow-on-hover btn-admin-edit" onClick={handleShow}>Agregar</Button>
           </Col>
 
           {categories?.map((category, index) => (
-            <Row key={index} className="d-flex align-items-center text-center">
-              <Col md={6}>
+            <Row key={index} className="d-flex justify-content-center align-items-center text-center btn-published">
+              <Col md={6} className="d-flex justify-content-center align-items-center text-center">
                 <Form.Group className="ms-5 mb-3">
-                  <Form.Control className="w-50 text-center" type="text" value={category.categoryName} readOnly/>
+                  <Form.Control className="d-flex justify-content-center align-items-center w-5 text-center" type="text" value={category.categoryName} readOnly/>
                 </Form.Group>
               </Col>
-              <Col md={6}>
+              <Col className="d-flex justify-content-center align-items-center" md={6}>
                 {
                   category.state ? <Button variant="success" disabled>Publicado</Button> : (
                     <Button id={category._id} variant="primary" onClick={handleClick} /*onClick={()=>enviaDatos(category)}*/>Publicar</Button>

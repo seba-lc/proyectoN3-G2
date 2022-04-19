@@ -3,7 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import CategoriesContext from "../../../context/categories/CategoriesContext";
 import useForm from "../../../hooks/useForm";
 import SurveysContext from "../../../context/surveys/SurveysContext";
-import ModalSurvey from "../ModalSurvey/ModalSurvey";
+import './FormSurvey.css'
 import QuestionInputAdded from "../QuestionInputAdded/QuestionInputAdded";
 import ModalMultipleChoice from "../ModalMultipleChoise/ModalMultipleChoice";
 import { UserContext } from "../../../context/UserContext";
@@ -69,9 +69,9 @@ const FormSurvey = () => {
 
   return (
     <>
-    <h2 className="mt-3 text-center titleColor">Crear Encuesta</h2>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3 titleColor">
+    <h2 className="mt-3 text-center form-title">Crear Encuesta</h2>
+      <Form className="survey-box p-5" onSubmit={handleSubmit}>
+        <Form.Group className="mb-3 form-title">
           <Form.Label>Nombre de la encuesta</Form.Label>
           <Form.Control
             placeholder="Nombre"
@@ -80,7 +80,7 @@ const FormSurvey = () => {
             required
           />
         </Form.Group>
-        <Form.Group className="mb-3 titleColor">
+        <Form.Group className="mb-3 form-title">
           <Form.Label>Categoria</Form.Label>
           <Form.Select name="category" onChange={handleChange}>
             <option>-- Seleccione una categoría --</option>

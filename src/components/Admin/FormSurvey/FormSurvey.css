@@ -1,9 +1,9 @@
-*{
-    z-index: 100;
+
+.form-title{
+    margin-bottom: 2rem;
+    color: white;
+    text-shadow: 2px 2px 4px black;
 }
-h5, h6{
-    color: var(--blue-munsell);
-   }
    .borderM{
        border-style:double;
        border-color: var(--blue-munsell);

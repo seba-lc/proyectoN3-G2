@@ -12,20 +12,18 @@ const handleClick = (e) => {
 }
 
   return (
-    <Card className="m-1 my-3">
-      <Card.Header as="h5">{name}</Card.Header>
-      <Card.Body>
-        <Card.Title as="h6">Categoria: {category}</Card.Title>
-        <div className="d-flex justify-content-between">
+    <Card className="m-1 my-3 card-survey">
+      <Card.Header as="h5" className="text-center">{name}</Card.Header>
+      <Card.Body className="d-flex flex-column justify-content-center align-items-center">
+        <Card.Title as="h6" className="card-category">Categoria: {category}</Card.Title>
+        <div className="d-flex flex-column justify-content-center align-items-center">
         <Link to={`/surveydetail/${id}`} className="nav-link">Ver Encuesta</Link>
-        <div className="d-flex">
         <Button id={id} className={state?"me-2 spanSurvaysCardsTrue btnStateTrue p-1":"me-2 spanSurvaysCardsFalse btnStateFalse p-1"} onClick={handleClick}>
-        {state?"Publicado":" -Publicar-"}
+        {state?"Publicado":" Publicar"}
         </Button>
-        </div>
-        </div>
+        </div>    
       </Card.Body>
-      <Card.Footer className="text-muted d-flex justify-content-between">{`Nro de preguntas: ${questions?.length}`}<span>Fecha:{date.substring(0, 10)}</span></Card.Footer>
+      <Card.Footer className="text-muted d-flex flex-column justify-content-center align-items-start">{`Nro de preguntas: ${questions?.length}`}<span>Fecha:{date.substring(0, 10)}</span></Card.Footer>
     </Card>
   );
 };

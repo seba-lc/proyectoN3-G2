@@ -4,6 +4,8 @@
     border-radius: 20px;
     background-color: white;
     font-family: var(--letra1);
-    color: black;
+    color: rgb(36, 33, 30);
     cursor: pointer;
+    box-shadow: 2px 2px 4px black;
+    font-weight: bold;
 }

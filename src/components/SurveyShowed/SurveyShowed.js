@@ -106,12 +106,13 @@ const SurveyShowed = () => {
         {
           Object.keys(surveySelected).length !== 0 ? (
             <>
-              <h2 className='bg-light px-5 py-2'>{surveySelected.name}</h2>
+              <h2 className='survey-title text-center px-5 py-2'>{surveySelected.name}</h2>
+              <div className='d-flex flex-column justify-content-center align-items-center survey-box'>
               {
                 surveySelected.questions.map((item, index) => (
-                  <div className={`bg-light border text-center my-3 ${userAnswer !== null ? 'survey_answered' : null}`} key={index}>
-                    <div>{item.question}</div>
-                    <div className='d-flex'>
+                  <div className={` text-center my-3 ${userAnswer !== null ? 'survey_answered' : null}`} key={index}>
+                    <div className='survey-question'>{item.question}</div>
+                    <div className='answer-box d-flex flex-column justify-content-start'>
                       {
                         item.answers.map((answer, position) => (
                           answer.length !== 0 ? (
@@ -126,16 +127,17 @@ const SurveyShowed = () => {
               {
                 userAnswer !== null ? <Alert variant='success' className='mt-3'>Encuesta Respondida! <span className='text-decoration-underline span-style' onClick={handleShow}>Ver Respuesta</span></Alert> : null
               }
-              <Button variant='success' className={surveySelected.state ? 'mt-3' : 'd-none' } onClick={sendAnswer}>Enviar Respuesta</Button>
+              <Button className={surveySelected.state ? 'mt-3 boton response-btn' : 'd-none' } onClick={sendAnswer}>Enviar Respuesta</Button>
+              </div>
             </>
           ) : null
         }
-      
+        </div>
         <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
+          <Modal.Header className="survey-modal" closeButton>
             <Modal.Title>Respuesta</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body className="survey-modal2">
             {
               userAnswer?.answers.map((item, index) => (
                 <div key={index}>
@@ -146,8 +148,6 @@ const SurveyShowed = () => {
             }
           </Modal.Body>
         </Modal>
-      
-      </div>
     </>
   );
 };

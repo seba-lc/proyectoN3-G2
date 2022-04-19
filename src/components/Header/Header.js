@@ -54,22 +54,41 @@ const Header = () => {
 
   return (
     <Navbar collapseOnSelect expand="lg" variant="dark" className={headerClass}>
-      <Container>
-        <Link to="/home" className="logo-nav">
+      <Container className="d-flex align-items-center">
+        <Link to="/" className="logo-nav">
         <Logo />
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav ms-auto" />
         <Navbar.Collapse id="responsive-navbar-nav ">
         {user ? (
             <>
-          <Nav className="ms-auto">
+            <Nav className="ms-auto" >
+            <hr />
+                <Link to="/home" className="nav-link me-auto">
+                Encuestas
+                </Link> 
+            </Nav>
+            <Nav className="ms-auto">
+            {
+            user ? (user.role === 'ADMIN' ? (
+                <Link to="/pendingsurveys" className="nav-link">
+                  Administración
+                </Link>
+            ) : null) : null
+          }
               <Link to="/" onClick={handleClick} className="nav-link">
                 Cerrar sesión
               </Link>
             </Nav>
             </>
-        ) :(
+        ) :( 
+          <>
+         
           <Nav className="ms-auto">
+            <hr />
+                <Link to="/home" className="nav-link me-auto">
+                Encuestas
+                </Link> 
             <hr />
                 <Link to="/Login" className="nav-link">
                 Iniciar sesión
@@ -79,19 +98,10 @@ const Header = () => {
                   Registrarse
                 </Link>
             </Nav>
+            </>
           )}
-          {
-            user ? (user.role === 'ADMIN' ? (
-              <Nav>
-                <Link to="/pendingsurveys" className="nav-link">
-                  Administración
-                </Link>
-              </Nav>
-            ) : null) : null
-          }
         </Navbar.Collapse>
-      </Container>
-      
+      </Container>   
     </Navbar>
   );
 };

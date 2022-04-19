@@ -1,7 +1,18 @@
-h5, h6{
-    color: var(--blue-munsell);
-   }
-   .borderM{
+.admin-edit{
+margin-bottom: 4rem;
+}
+
+.btn-admin-edit{
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+
+}
+
+.btn-published{
+    margin-bottom: 2rem;
+}
+
+.borderM{
        border-style:double;
        border-color: var(--blue-munsell);
    }
@@ -15,6 +26,3 @@ h5, h6{
        
    }
 
-.titleColor{
-    color: var(--blue-munsell);
-}

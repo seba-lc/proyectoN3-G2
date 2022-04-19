@@ -1,26 +1,84 @@
 .surveyShowed-style{
-  min-height: 70vh;
-  padding-top: 100px;
+  min-height: 100vh;
+}
+
+.answer-box{
+  margin-left: 8.5rem;
+  margin-right: 8.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  padding:1rem;
+  border-radius: 15px;
+  box-shadow: 0 0 5px white, 0 0 10px var(--azure), 0 0 20px var(--azure), 0 0 30px var(--azure), 0 0 80px var(--azure),
+  inset 0 0 5px white, inset 0 0 10px var(--azure), inset 0 0 20px var(--azure), inset 0 0 80px var(--azure);
+}
+
+.survey-title{
+  margin-top: 8rem;
+  font-family: 'Yellowtail', cursive;
+  color: white;
+  font-size: 4rem;
+  text-shadow:0 0 5px white, 0 0 10px rgb(47, 98, 193), 0 0 20px rgb(47, 98, 193), 0 0 30px rgb(47, 98, 193), 0 0 40px rgb(47, 98, 193),
+  0 0 70px rgb(47, 98, 193), 0 0 80px rgb(47, 98, 193), 0 0 100px rgb(47, 98, 193);
+  margin-bottom: 3rem;
+}
+
+.survey-box{
+  background-color: #25221F;
+  border-radius: 15px;
+  box-shadow: 21px 21px 13px -1px rgba(0,0,0,0.14) inset;
+  -webkit-box-shadow: 21px 21px 13px -1px rgba(0,0,0,0.14) inset;
+  -moz-box-shadow: 21px 21px 13px -1px rgba(0,0,0,0.14) inset;
+  margin-bottom: 8rem;
+}
+
+.survey-question{
+  margin-left: 2rem;
+  margin-right: 2rem;
+  color: white;
+  text-shadow: 2px 2px 4px black;
+  font-size: 30px;
 }
 
 .answer-style{
-  cursor: pointer;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  font-size: 20px;
+  color: white;
+  text-shadow: 2px 2px 4px black;
 }
 
+.response-btn{
+  margin-bottom: 2rem;
+}
 .answer-style:hover{
-  background-color: rgba(0,0,0,0.5);
+  border-radius: 10px;
+  background-color: rgba(134, 134, 134, 0.5);
   transition: 300ms;
 }
 
 .answer-selected{
-  background-color: rgba(0, 241, 20, 0.5);
+  border-radius: 10px;
+  background-color: rgba(7, 132, 210, 0.5);
 }
 
 .survey_answered{
   pointer-events: none;
-  background-color: rgba(37, 221, 0, 0.342) !important;
 }
 
 .span-style{
   cursor: pointer;
+}
+
+.survey-modal{
+  background-color: var(--blue-munsell);
+  box-shadow: 2px 2px 4px black;
+  color: white;
+  text-shadow: 2px 2px 4px black;
+}
+
+.survey-modal2{
+  background-color: var(--blue-munsell);
+  box-shadow: 2px 2px 4px black;
+  color: white;
 }
