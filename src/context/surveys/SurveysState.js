@@ -95,10 +95,11 @@ const SurveysState = ({children}) => {
   const deleteSurveys = async(id)=>{
     try {
       await axiosClient.delete(`/surveys/encuesta/${id}`);
-      dispatch({
-        type: DELETE_SURVEYS,
-        payload: id
-      })
+      getPendingSurveys();
+      // dispatch({
+      //   type: DELETE_SURVEYS,
+      //   payload: id
+      // })
     } catch (error) {
       dispatch({
         type: ERROR_SURVEYS
