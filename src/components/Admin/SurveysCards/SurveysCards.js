@@ -11,13 +11,6 @@ const handleClick = (e) => {
   updateSurveys(e.target.id);
 }
 
-const publicado = (p)=> {
-  if(p){
-    return {state: false}
-  } else {
-    return {state: true}
-  }
-}
   return (
     <Card className="m-1 my-3">
       <Card.Header as="h5">{name}</Card.Header>

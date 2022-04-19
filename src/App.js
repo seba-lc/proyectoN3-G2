@@ -27,7 +27,7 @@ function App() {
       <CategoriesState>
       <Layout>
         <Routes>
-          <Route path='*' element={<Landing />} />
+          <Route path='*' element={<Error404 />} />
           <Route path='/' element={<Landing />} />
           <Route path='/home' element={<Home/>}/>
           <Route path='/categories/:category' element={<Categories/>}/>
