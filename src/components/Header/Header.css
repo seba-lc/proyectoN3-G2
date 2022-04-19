@@ -36,3 +36,10 @@
 .logo-nav{
     text-decoration: none;
 }
+
+@media screen and (max-width: 992px) {
+    .encuestas-link{
+        margin-right: auto !important;
+        margin-left: 0 !important;
+    }
+}
