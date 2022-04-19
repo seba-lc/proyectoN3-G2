@@ -8,8 +8,6 @@ const SurveyDetail = () => {
   const { user } = useContext(UserContext);
   return (
     <>
-      {user?.role === "ADMIN" ? <Navegation /> : null}
-      {/* <FormSurveyDetail /> */}
       <SurveyShowed />
     </>
   );

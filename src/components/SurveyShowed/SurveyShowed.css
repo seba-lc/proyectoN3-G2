@@ -11,3 +11,16 @@
   background-color: rgba(0,0,0,0.5);
   transition: 300ms;
 }
+
+.answer-selected{
+  background-color: rgba(0, 241, 20, 0.5);
+}
+
+.survey_answered{
+  pointer-events: none;
+  background-color: rgba(37, 221, 0, 0.342) !important;
+}
+
+.span-style{
+  cursor: pointer;
+}
