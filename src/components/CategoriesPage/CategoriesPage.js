@@ -26,7 +26,7 @@ const CategoriesPage = ({}) => {
       <Row>
 
         <Col className="pb-3 text-light">
-          <h3>Encuestas de {params.category}</h3>
+          <h3 className="polls-title">Encuestas de {params.category}</h3>
         </Col>
          
       </Row>
@@ -34,7 +34,7 @@ const CategoriesPage = ({}) => {
         {
           filterSurveys.length !== 0 ? (
             filterSurveys.map((item, index)=> <EncuestasCategoria key={index} filterSurvey={item} />)
-          ) : <div className="d-flex justify-content-center bg-light border px-5 py-2 m-2">Al momento no hay encuestas disponibles en esta categoría</div>
+          ) : <div className="d-flex justify-content-center bg-light border px-5 py-2 m-2 no-poll">Al momento no hay encuestas disponibles en esta categoría</div>
         }
       </Row>
     </Container>

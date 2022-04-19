@@ -1,7 +1,5 @@
-h5, h6{
-    color: var(--blue-munsell);
-   }
-   .borderM{
+
+.borderM{
        border-style:double;
        border-color: var(--blue-munsell);
    }
@@ -15,6 +13,3 @@ h5, h6{
        
    }
 
-.titleColor{
-    color: var(--blue-munsell);
-}

@@ -1,13 +1,51 @@
 .surveyShowed-style{
-  min-height: 70vh;
-  padding-top: 100px;
+  min-height: 100vh;
+}
+
+.answer-box{
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  padding:1rem;
+  border-radius: 15px;
+  box-shadow: 0 0 5px white, 0 0 10px var(--azure), 0 0 20px var(--azure), 0 0 30px var(--azure), 0 0 80px var(--azure),
+  inset 0 0 5px white, inset 0 0 10px var(--azure), inset 0 0 20px var(--azure), inset 0 0 80px var(--azure);
+}
+
+.survey-title{
+  margin-top: 8rem;
+  font-family: 'Yellowtail', cursive;
+  color: white;
+  font-size: 4rem;
+  text-shadow:0 0 5px white, 0 0 10px rgb(47, 98, 193), 0 0 20px rgb(47, 98, 193), 0 0 30px rgb(47, 98, 193), 0 0 40px rgb(47, 98, 193),
+  0 0 70px rgb(47, 98, 193), 0 0 80px rgb(47, 98, 193), 0 0 100px rgb(47, 98, 193);
+  margin-bottom: 3rem;
+}
+
+.survey-box{
+  background-color: #25221F;
+  border-radius: 15px;
+  box-shadow: 21px 21px 13px -1px rgba(0,0,0,0.14) inset;
+  -webkit-box-shadow: 21px 21px 13px -1px rgba(0,0,0,0.14) inset;
+  -moz-box-shadow: 21px 21px 13px -1px rgba(0,0,0,0.14) inset;
+  margin-bottom: 8rem;
+}
+
+.survey-question{
+  margin-left: 2rem;
+  margin-right: 2rem;
+  color: white;
+  text-shadow: 2px 2px 4px black;
+  font-size: 30px;
 }
 
 .answer-style{
-  cursor: pointer;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  font-size: 20px;
+  color: white;
+  text-shadow: 2px 2px 4px black;
 }
 
-.answer-style:hover{
-  background-color: rgba(0,0,0,0.5);
-  transition: 300ms;
+.response-btn{
+  margin-bottom: 2rem;
 }

@@ -49,17 +49,19 @@
     font-size: 4rem;
     text-shadow:0 0 5px white, 0 0 10px #2c8c99ff, 0 0 20px #2c8c99ff, 0 0 30px #2c8c99ff, 0 0 40px #2c8c99ff,
     0 0 70px #2c8c99ff, 0 0 80px #2c8c99ff, 0 0 100px #2c8c99ff;
+    margin-bottom: 3rem;
 }
 
 .lp-subtitle{
     color:rgb(255, 255, 255);
     text-shadow: 2px 2px 4px black; 
+    margin-bottom: 2rem;
 }
 
 .lp-subtitle2{
     color:rgb(142, 139, 139);
     text-shadow: 2px 2px 4px black; 
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 
 .lp-group-title{

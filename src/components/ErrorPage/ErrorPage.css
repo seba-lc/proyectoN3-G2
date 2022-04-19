@@ -35,6 +35,13 @@
   width: 25rem;  
 }
 
+.error-group1{
+  margin-bottom: 5rem;
+  width: 15rem;  
+}
+
+
+
 .text-flicker-out-glow {
 	-webkit-animation: text-flicker-out-glow 2.5s linear both;
 	        animation: text-flicker-out-glow 2.5s linear both;

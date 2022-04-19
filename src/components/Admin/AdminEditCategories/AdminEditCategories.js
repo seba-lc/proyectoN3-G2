@@ -46,8 +46,8 @@ const AdminEditCategories = () => {
 
   return (
     <>
-      <Container>
-      <h2 className="mt-3 text-center titleColor">Categorias</h2>
+      <Container className="admin-edit">
+      <h2 className="mt-5 text-center form-title">Categorias</h2>
         <Form >
           <Col className="m-3 d-flex justify-content-end">
             <Button onClick={handleShow}>Agregar</Button>

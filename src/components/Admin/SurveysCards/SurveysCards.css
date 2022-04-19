@@ -1,3 +1,7 @@
+.card-category{
+    color: gray;
+}
+
 .spanSurvaysCardsTrue{
     background-color: rgb(13, 13, 13);
     color: var(--lime-green);
@@ -7,8 +11,7 @@
 }
 .btnStateTrue:hover{
     background: var(--lime-green);
-    color: black;
-    border-color: black;
+    color: white;
     opacity: 100%;
     position: relative;
     transition: 250ms;
@@ -23,8 +26,7 @@
 }
 .btnStateFalse:hover{
     background: var(--red-violet-crayola);
-    color: black;
-    border-color: black;
+    color: white;
     opacity: 100%;
     position: relative;
     transition: 250ms;

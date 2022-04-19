@@ -20,8 +20,8 @@ const ContainerCards = ({ type }) => {
   }, []);
 
   return (
-    <Row className="pt-2">
-      <h2 className="m-4 text-center titleColor">
+    <Row className="admin-container pt-2">
+      <h2 className="m-4 text-center admin-title">
         {
           type === "pendingSurveys" ? 'Encuestas Pendientes de Aprobación' : null
         }
@@ -29,7 +29,7 @@ const ContainerCards = ({ type }) => {
           type === "publishedSurveys" ? 'Encuestas Publicadas' : null
         }
       </h2>
-      <h4 className="w-100 text-light text-center">
+      <h4 className="w-100 admin-title text-center">
       {
         surveys.length === 0 ? (type === "pendingSurveys" ? 'No hay encuestas pendientes de aprobación' : 'No hay encuestas publicadas al momento') : null
       }
@@ -37,8 +37,8 @@ const ContainerCards = ({ type }) => {
       {
       surveys.length !== 0 ? (
       surveys.map((survey, index) => (
-        <Col lg="3" key={index}>
-          <SurveysCards
+        <Col xs={12} md={6} lg={3} lg="3" key={index}>
+          <SurveysCards 
             id={survey._id}
             name={survey.name}
             state={survey.state}
