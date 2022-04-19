@@ -3,6 +3,8 @@
 }
 
 .answer-box{
+  margin-left: 8.5rem;
+  margin-right: 8.5rem;
   margin-top: 1.5rem;
   margin-bottom: 2rem;
   padding:1rem;
@@ -48,4 +50,35 @@
 
 .response-btn{
   margin-bottom: 2rem;
+}
+.answer-style:hover{
+  border-radius: 10px;
+  background-color: rgba(134, 134, 134, 0.5);
+  transition: 300ms;
+}
+
+.answer-selected{
+  border-radius: 10px;
+  background-color: rgba(7, 132, 210, 0.5);
+}
+
+.survey_answered{
+  pointer-events: none;
+}
+
+.span-style{
+  cursor: pointer;
+}
+
+.survey-modal{
+  background-color: var(--blue-munsell);
+  box-shadow: 2px 2px 4px black;
+  color: white;
+  text-shadow: 2px 2px 4px black;
+}
+
+.survey-modal2{
+  background-color: var(--blue-munsell);
+  box-shadow: 2px 2px 4px black;
+  color: white;
 }

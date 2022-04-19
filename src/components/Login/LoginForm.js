@@ -51,7 +51,7 @@ const LoginFormulary = () => {
 
   useEffect(() => {
     if (auth) {
-      navigate("/home");
+      navigate("/");
     }
   }, [auth]);
 
