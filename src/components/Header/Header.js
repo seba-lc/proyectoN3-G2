@@ -41,7 +41,7 @@ const Header = () => {
 
   return (
     <Navbar collapseOnSelect expand="lg" variant="dark" className={headerClass}>
-      <Container>
+      <Container className="nav-container">
         <Link to="/landing" className="logo-nav">
         <Logo />
         </Link>
@@ -76,8 +76,7 @@ const Header = () => {
             </Nav>
           )}
         </Navbar.Collapse>
-      </Container>
-      
+      </Container>   
     </Navbar>
   );
 };

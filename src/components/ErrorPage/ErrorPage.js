@@ -1,8 +1,9 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import './ErrorPage.css'
-import cami1 from './../../assets/img/cami-asustada.png'
-import cami3 from './../../assets/img/cami-asustada2.png'
-import cami4 from './../../assets/img/cami-clown.png'
+import seba1 from './../../assets/img/WhatsApp Image 2022-04-17 at 9.48.29 PM copia.png'
+import carlos1 from './../../assets/img/carlos-asustado copia.png'
+import cami1 from './../../assets/img/cami-clown.png'
+import sergio1 from './../../assets/img/sergio-asustado.png'
 
 
 const ErrorPage = () => {
@@ -21,16 +22,16 @@ const ErrorPage = () => {
         </Row>
         <Row className='d-flex justify-content-center align-items-center'>
             <Col className='d-flex justify-content-center align-items-center' xs={12} md={6} lg={3}>
-            <img className='error-group' src={cami1} alt="" />
+            <img className='error-group' src={carlos1} alt="" />
             </Col>
             <Col className='d-flex justify-content-center align-items-center' xs={12} md={6} lg={3}>
-            <img className='error-group' src={cami3} alt="" />
-            </Col>
-            <Col className='d-flex justify-content-center align-items-center' xs={12} md={6} lg={3}>
-            <img className='error-group' src={cami4} alt="" />
+            <img className='error-group' src={sergio1} alt="" />
             </Col>
             <Col className='d-flex justify-content-center align-items-center' xs={12} md={6} lg={3}>
             <img className='error-group' src={cami1} alt="" />
+            </Col>
+            <Col className='d-flex justify-content-center align-items-center' xs={12} md={6} lg={3}>
+            <img className='error-group' src={seba1} alt="" />
             </Col>
         </Row>
 
