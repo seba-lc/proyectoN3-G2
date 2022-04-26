@@ -10,19 +10,19 @@ const Footer = () => {
         <Container fluid>
           <Row >
             <Col xs={12} md={12} lg={4}>
-              <h3 className="footer-title">REDES SOCIALES</h3>
-              <Link to="/error404" className="h5 footer-link-style">Facebook</Link><br />
-              <Link to="/error404" className="h5 footer-link-style">Twitter</Link><br />
-              <Link to="/error404" className="h5 footer-link-style">Instagram</Link>
+              <h4 className="footer-title">REDES SOCIALES</h4>
+              <Link to="/error404" className="h6 footer-link-style">Facebook</Link><br />
+              <Link to="/error404" className="h6 footer-link-style">Twitter</Link><br />
+              <Link to="/error404" className="h6 footer-link-style">Instagram</Link>
             </Col>
             <Col xs={12} md={12} lg={4} >
             <Logo2 className="footer1"/>
             </Col>
             <Col xs={12} md={12} lg={4} className="p-2">
-              <h3 className="footer-title">INFORMACIÓN DE CONTACTO</h3>
-              <h5>General Paz 864</h5>
-              <h5>encuestasrc@rollingcode.com</h5>
-              <h5 >+54 381-652548</h5>
+              <h4 className="footer-title">INFORMACIÓN DE CONTACTO</h4>
+              <h6>General Paz 864</h6>
+              <h6>encuestasrc@rollingcode.com</h6>
+              <h6 >+54 381-652548</h6>
             </Col>            
           </Row>           
           <hr />

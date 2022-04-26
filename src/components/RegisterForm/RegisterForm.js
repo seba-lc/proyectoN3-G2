@@ -6,14 +6,15 @@ import { validationRegister } from "../../helpers/Validations";
 import axiosClient from "../../config/axiosClient";
 import Spinner from "../Spinner/Spinner";
 
-
 const RegisterFormulary= () => {
+  
   const [newUser, setNewUser] = useState({
     name:'',
     email:'',
     password1:'',
     password2:''
   })
+
   const [registerErrors, setRegisterErrors] = useState({});
   const [success, setSuccess] = useState(false);
 
@@ -54,7 +55,7 @@ const RegisterFormulary= () => {
       {
         success ? (
           <div className="success-submit d-flex align-items-center justify-content-center">
-            <Spinner />
+            <Spinner/>
           </div>
         ) : null
       }
@@ -77,13 +78,11 @@ const RegisterFormulary= () => {
         <Form.Label>Repetir contraseña</Form.Label>
         <Form.Control name="password2" type="password" placeholder="Contraseña" onKeyUp={handleKeyUp}/>
       </Form.Group>
-
       {
         Object.keys(registerErrors).length === 0 ? null : (
           Object.values(registerErrors).map((error, index)=><Alert key={index} variant='danger'>{error}</Alert>)
         )
       }
-
       <Button type="submit" className="mb-5 mx-5 glow-on-hover">
         Registrarme
       </Button>

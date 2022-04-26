@@ -80,8 +80,7 @@ const Header = () => {
             </Nav>
             </>
         ) :( 
-          <>
-         
+          <>         
           <Nav className="ms-auto">
             <hr />
                 <Link to="/home" className="nav-link ms-auto encuestas-link">

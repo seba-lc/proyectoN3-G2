@@ -34,7 +34,6 @@ const ErrorPage = () => {
             <img className='error-group1' src={seba1} alt="" />
             </Col>
         </Row>
-
     </Container>
      );
 }

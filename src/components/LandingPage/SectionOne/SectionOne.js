@@ -1,4 +1,4 @@
-import {Container, Row, Col, Button} from 'react-bootstrap'
+import {Container, Row, Col} from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import { UserContext } from '../../../context/UserContext';
