@@ -1,18 +1,10 @@
-import Login from './Login.css'
+import './Login.css';
 import { Form, Button, Alert } from "react-bootstrap";
-import styled from "styled-components";
 import { UserContext } from "../../context/UserContext";
 import { useContext, useEffect, useState } from "react";
 import { validationLogin } from "../../helpers/Validations";
 import { useNavigate } from "react-router-dom";
 
-export const FormContainer = styled(Form)`
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 const LoginFormulary = () => {
   const [userLogged, setUserLogged] = useState({
     email: "",
@@ -29,10 +21,6 @@ const LoginFormulary = () => {
       [e.target.name]: e.target.value,
     });
   };
-
-  const handleClick = () => {
-    adminUser ? setAdminUser(false) : setAdminUser(true)
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -79,10 +67,6 @@ const LoginFormulary = () => {
             onKeyUp={handleKeyUp}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formLoginCheckbox">
-          <Form.Check type="checkbox" label="Usuario Administrador" onClick={handleClick} />
-        </Form.Group>
-
         {Object.keys(loginErrors).length === 0
           ? null
           : Object.values(loginErrors).map((error, index) => (
@@ -90,7 +74,6 @@ const LoginFormulary = () => {
                 {error}
               </Alert>
             ))}
-
         <Button type="submit" onSubmit={handleSubmit} className="glow-on-hover border-none p-2">
           Iniciar Sesión
         </Button>

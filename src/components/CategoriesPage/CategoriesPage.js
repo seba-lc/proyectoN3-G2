@@ -3,7 +3,6 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useEffect, useContext, useState } from "react";
 import SurveysContext from "./../../context/surveys/SurveysContext";
 import EncuestasCategoria from "../EncuestasCategoria/EncuestasCategoria";
-import useGet from './../../hooks/useGet'
 import { useParams } from "react-router-dom";
 
 const CategoriesPage = ({}) => {

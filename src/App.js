@@ -33,7 +33,7 @@ function App() {
           <Route path='/categories/:category' element={<Categories/>}/>
           <Route path='/admin' element={<AdminRoute><Admin /></AdminRoute>} />
           <Route path='/Register' element={<Register />} />
-          <Route path='/Login' element={<Login />} />
+          <Route path='/login' element={<Login />} />
           <Route path='/newsurvey' element={<NewSurvey/>}/>
           <Route path='/pendingsurveys' element={<PendingSurveys/>}/>
           <Route path='/publishedsurveys' element={<PublishedSurveys/>}/>
@@ -45,7 +45,6 @@ function App() {
       </CategoriesState>
     </SurveysState>
     </UserProvider>
-
     </>
   );
 }
