@@ -5,8 +5,7 @@ import ModalNewCategory from "../ModalNewCategory/ModalNewCategory";
 import './AdminEditCategories.css'
 
 const AdminEditCategories = () => {
-  const { categories, getCategories, deleteCategories, updateCategory } = useContext(CategoriesContext);
-  const [categoryAct, setEditCategory] = useState(null)
+  const { categories, getCategories, updateCategory } = useContext(CategoriesContext);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -18,31 +17,6 @@ const AdminEditCategories = () => {
   const handleClick = (e) => {
     updateCategory(e.target.id);
   }
-
-  // const enviaDatos = (category)=>{
-  //     if(category.state){
-  //       setEditCategory({
-  //         id: category.id,
-  //         name: category.name,
-  //         state: false
-  //       })
-  //       return categoryAct
-  //     } else {
-  //       setEditCategory({
-  //         id: category.id,
-  //         name: category.name,
-  //         state: true
-  //       })
-  //       return categoryAct
-  //     }
-  //   }
-  //   let cont = 1
-  //   if (categoryAct != null && cont < 2) {
-  //     cont+=1
-  //     updateCategory(categoryAct.id, categoryAct)
-  //   }
-  
-  
 
   return (
     <>
@@ -66,15 +40,6 @@ const AdminEditCategories = () => {
                     <Button id={category._id} variant="primary" onClick={handleClick} /*onClick={()=>enviaDatos(category)}*/>Publicar</Button>
                   ) 
                 }
-                {/* // <Button className="me-2" variant={category.state?"primary":"secondary"} onClick={()=>enviaDatos(category)}>
-                // {category.state?"Publicado":" -Publicar-"}
-                // </Button>
-                // <Button
-                //   variant="danger"
-                //   onClick={() => deleteCategories(category.id)}
-                // >
-                //   Eliminar
-                // </Button> */}
               </Col>
             </Row>
           ))}

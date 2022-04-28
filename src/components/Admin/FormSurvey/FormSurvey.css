@@ -1,42 +1,40 @@
-.survey3-box{
-    padding-top: 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
+.survey3-box {
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
-.surveyForm-box{
-    width: 80vw;
-    background-color: #25221F;
-    border-radius: 15px;
-    box-shadow: 21px 21px 13px -1px rgba(0,0,0,0.14) inset;
-    -webkit-box-shadow: 21px 21px 13px -1px rgba(0,0,0,0.14) inset;
-    -moz-box-shadow: 21px 21px 13px -1px rgba(0,0,0,0.14) inset;
-    margin-bottom: 8rem;
+.surveyForm-box {
+  width: 80vw;
+  background-color: #25221f;
+  border-radius: 15px;
+  box-shadow: 21px 21px 13px -1px rgba(0, 0, 0, 0.14) inset;
+  -webkit-box-shadow: 21px 21px 13px -1px rgba(0, 0, 0, 0.14) inset;
+  -moz-box-shadow: 21px 21px 13px -1px rgba(0, 0, 0, 0.14) inset;
+  margin-bottom: 8rem;
 }
 
-.form-title{
-    margin-bottom: 2rem;
-    color: white;
-    text-shadow: 2px 2px 4px black;
+.form-title {
+  margin-bottom: 2rem;
+  color: white;
+  text-shadow: 2px 2px 4px black;
 }
-   .borderM{
-       border-style:double;
-       border-color: var(--blue-munsell);
-   }
-   select[type="text"] {
-       margin-left: 5%;
-       width: 70%;
-       
-   }
-   input[type="text"] {
-       margin-left: 5%;
-       width: 70%;
-       
-   }
+.borderM {
+  border-style: double;
+  border-color: var(--blue-munsell);
+}
+select[type="text"] {
+  margin-left: 5%;
+  width: 70%;
+}
+input[type="text"] {
+  margin-left: 5%;
+  width: 70%;
+}
 
-.titleColor{
-    color: var(--blue-munsell);
+.titleColor {
+  color: var(--blue-munsell);
 }
