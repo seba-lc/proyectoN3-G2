@@ -22,6 +22,10 @@ const LoginFormulary = () => {
     });
   };
 
+  const handleClick = () => {
+    adminUser ? setAdminUser(false) : setAdminUser(true)
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const errors = validationLogin(userLogged);
@@ -66,6 +70,9 @@ const LoginFormulary = () => {
             placeholder="Contraseña"
             onKeyUp={handleKeyUp}
           />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formLoginCheckbox">
+          <Form.Check type="checkbox" label="Usuario Administrador" onClick={handleClick} />
         </Form.Group>
         {Object.keys(loginErrors).length === 0
           ? null
