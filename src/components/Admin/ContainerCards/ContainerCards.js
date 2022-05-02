@@ -2,10 +2,7 @@ import { useContext, useEffect } from "react";
 import SurveysContext from "../../../context/surveys/SurveysContext";
 import { Row, Col } from "react-bootstrap";
 import SurveysCards from "../SurveysCards/SurveysCards";
-import ButtonsForAdmin from "../ButtonsForAdmin/ButtonsForAdmin";
-import useForm from "../../../hooks/useForm";
 import './ContainerCards.css'
-import { UserContext } from "../../../context/UserContext";
 
 const ContainerCards = ({ type }) => {
   const { surveys, getPendingSurveys, getPublishedSurveys } = useContext(SurveysContext);

@@ -7,7 +7,6 @@ const Navegation = () => {
   return (
     <Navbar className="navegation" bg="dark" expand="lg" variant="dark">
       <Container>
-        {/* <Link to="/admin" className="navbar-brand">Admin</Link> */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse
           className="d-dlex justify-content-end"

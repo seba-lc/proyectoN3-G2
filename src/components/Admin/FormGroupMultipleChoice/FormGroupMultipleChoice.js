@@ -2,7 +2,7 @@ import { Form } from "react-bootstrap";
 import useForm from "../../../hooks/useForm";
 import "./FormGroupMultipleChoice.css";
 const FormGroupMultipleChoice = ({ question, index }) => {
-  const { values, admin, handleEdit, handleResponses } = useForm();
+  const { admin, handleEdit, handleResponses } = useForm();
 
   return admin == false ? (
     <Form.Group className="titleColor mb-3">
